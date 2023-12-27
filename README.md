@@ -3,9 +3,20 @@ Suas senhas sempre com você!
 
 ## 🚀 Introdução
 
-Remember Password é um projeto de código aberto projetado para aprimorar a segurança e o gerenciamento de senhas. Ele fornece uma interface amigável para gerar e gerenciar senhas fortes e exclusivas.
+### Prólogo
 
-Seu diferencial, é ser um verdadeiro "Cofre se senhas offline", o qual permite, sem o uso de internet, gerar e gerenciar todas as suas senhas, através de poucas e constantes palavras chaves pre introduzidas.
+O mundo digital está cada vez mais inseguro, com ataques e invasões ocorrendo com cada vez frequencia. E visando proteção, é aconselhado utilizar senhas cada mais complexas e cheias de digitos dificeis de lembrar. Visando resolver isso, surgiu os cofres de senhas, onde armazenam suas senhas, em servidores pela nuvem ou offiline em casa. No entanto, basta um pequeno erro para que todas as senhas possam ser acessadas por quem não deve, de uma só vez!
+
+### A Solução
+
+Remember Password é um projeto de código aberto projetado para aprimorar a segurança e o gerenciamento de senhas. 
+
+Seu diferencial, é ser um verdadeiro "Cofre de senhas pessoalizado", o qual permite sem o uso de internet, gerar e gerenciar todas as suas senhas, através de poucas e constantes palavras chaves pre introduzidas. 
+
+Através do uso das mais recentes hashes criptográficas (como SHA512), palavras chaves fáceis de lembrar, são tansformadas em senhas extremamente seguras, permitindo ter alto poder de proteção, sem se perder em meio a tantas senhas dificeis de lembrar.
+
+E isso sem salvar nada em lugar algum!
+Tudo é gerado na hora, para que apenas você tenha acesso as suas senhas!
 
 
 ## 🛠️ Recursos
@@ -14,6 +25,11 @@ Seu diferencial, é ser um verdadeiro "Cofre se senhas offline", o qual permite,
 - **Avaliação de Força de Senha:** Avalie a força de suas senhas em tempo real.
 - **Configurações Personalizáveis:** Configure a geração de senhas com base em suas preferências.
 - **Suporte a Múltiplos Idiomas:** Disponível em Português e Inglês (em trabalho).
+
+
+🌐 Disponibilidade
+
+Atualmente, o Remember Password tem suporte apenas para uso web. Você pode executar o código diretamente em seu navegador ou acessar o site através do GitHub Pages.
 
 
 ## 📋 Uso
