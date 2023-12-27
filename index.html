@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html lang="PT-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="author" content="Miguel" />
+  <meta name="description" content="Senhas seguras, armazenadas na segurança de sua mente" />
+  <meta name="keywords" content="password, security" />
+  <meta http-equiv="Cache-Control" content="no-store" />
+  <meta http-equiv="Pragma" content="no-cache" />
+  <meta http-equiv="Expires" content="0" />
+  <link rel="stylesheet" href="styles.css">
+
+  <title>Remember Password</title>
+
+  <style>
+    
+  </style>
+</head>
+<body>
+  <div id="main-window">
+
+    <div class="question-mark" onclick="showInfo('popup-content-template-1', '1')">?</div>
+
+    <div class="settings-btn" onclick="showInfo('settings-popup-content-template-1')">⚙️</div>
+
+    <h1>Remember Password</h1>
+
+    <div class="form-container"> 
+      <div class="form-header">Senha de Códigos*</div>
+      <form id="form1">
+        <input type="password" class="password-input" placeholder="Enter Password">
+      </form>
+      <div class="password-strength-bar" id="password-strength-bar-1"></div>
+    </div>
+
+    <div class="form-container">
+      <div class="form-header">Senha de Palavras</div>
+      <form id="form2">
+        <input type="password" class="password-input" placeholder="Enter Password">
+      </form>
+      <div class="password-strength-bar" id="password-strength-bar-2"></div>
+    </div>
+
+    <div class="form-container">
+      <div class="form-header">Senha Específica*</div>
+      <form id="form3">
+        <input type="password" class="password-input" placeholder="Enter Password">
+      </form>
+      <div class="password-strength-bar" id="password-strength-bar-3"></div>
+    </div>
+
+    <button id="generate-btn" class="disabled" onclick="generate()">Generate</button>
+
+    <div id="password-container">
+        <button id="copy-btn" onclick="revealPassword()">Reveal</button>
+        <input type="password" id="password" placeholder="Password" readonly>
+        <button id="copy-btn" onclick="copyToClipboard()">Copy</button>
+      </div>
+      <div class="combined-strength-bar" id="combined-strength-bar"></div>
+    </div>
+  
+    <div id="popup">
+      <div id="popup-content"></div>
+      <div class="info-buttons">
+        <button class="info-button" onclick="showInfo('popup-content-template-1', '1')">Info 1</button>
+        <button class="info-button" onclick="showInfo('popup-content-template-2', '1')">Info 2</button>
+        <button class="info-button" onclick="showInfo('popup-content-template-3', '1')">Info 3</button>
+        <button class="info-button" onclick="showInfo('popup-content-template-4', '1')">Info 4</button>
+        <button class="info-button" onclick="showInfo('popup-content-template-5', '1')">Info 5</button>
+      </div>
+      <div class="ok-button">
+        <button id="ok-btn" onclick="closePopup()">OK</button>
+      </div>
+    </div>
+
+    <!-- Conteúdo da janela de dúvidas -->
+    <div id="info-text">
+      <div id="popup-content-template-1" style="display: none;">
+        <div>
+          <h2>Breve história das Senhas</h2>
+          <p>Texto livremente formatado usando HTML.</p>
+        </div>
+      </div>
+
+      <div id="popup-content-template-2" style="display: none;">
+        <div>
+          <h2>Como Descobrir uma senha</h2>
+          <p>A força bruta para quebrar uma senha envolve testar todas as combinações possíveis até encontrar a senha correta. Se você tem uma senha de 10 caracteres, com cada caractere tendo 10 possíveis valores (por exemplo, números de 0 a 9), então o número total de combinações possíveis é 10^10.
+
+            Vamos calcular o número de combinações e então estimar o tempo necessário para força bruta, assumindo uma taxa de tentativas por segundo:
+            
+            Nuˊmero de combinac\co~es=1010Nuˊmero de combinac\c​o~es=1010
+            
+            Se, por exemplo, você estiver tentando 1 milhão de combinações por segundo, então o tempo necessário seria:
+            
+            Tempo necessaˊrio=Nuˊmero de combinac\co~esTaxa de tentativas por segundoTempo necessaˊrio=Taxa de tentativas por segundoNuˊmero de combinac\c​o~es​
+            
+            Vamos usar essa fórmula com a taxa de tentativas por segundo para obter uma estimativa. Lembre-se de que a taxa de tentativas por segundo pode variar dependendo do método usado e das capacidades do hardware.
+            
+            Se a taxa de tentativas for de 1 milhão de combinações por segundo:
+            
+            Tempo necessaˊrio=10101 milha˜o segundosTempo necessaˊrio=1 milha˜o1010​ segundos
+            
+            Convertendo isso para dias ou outras unidades, você terá uma ideia aproximada de quanto tempo seria necessário para quebrar a senha usando força bruta com a taxa especificada.</p>
+        </div>
+      </div>
+
+      <div id="popup-content-template-3" style="display: none;">
+        <div>
+          <h2>A escolha de uma boa senha</h2>
+          <p>Texto também, claramente e livremente formatado usando HTML.</p>
+        </div>
+      </div>
+
+      <div id="popup-content-template-4" style="display: none;">
+        <div>
+          <h2>Título da Dúvida</h2>
+          <p>Texto também, claramente e importantemente livremente formatado usando HTML.</p>
+        </div>
+      </div>
+
+      <div id="popup-content-template-5" style="display: none;">
+        <div>
+          <h2>Título da Dúvida</h2>
+          <p>Texto também, claramente e por último, livremente formatado usando HTML.</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Conteúdo da janela de configurações -->
+    <div id="settings-text">
+
+      <div id="settings-popup">
+        <div id="settings-popup-content"></div>
+        <div class="info-buttons">
+          <button class="info-button" onclick="showInfo('settings-popup-content-template-1')">Idioma</button>
+          <button class="info-button" onclick="showInfo('settings-popup-content-template-2')">Complexidade</button>
+          <button class="info-button" onclick="showInfo('settings-popup-content-template-3')">Tamanho Final</button>
+        </div>
+        <div class="ok-button">
+          <button id="ok-btn" onclick="closePopup()">OK</button>
+        </div>
+      </div>
+
+      <div id="settings-popup-content-template-1" style="display: none;">
+        <div>
+          <h2>Título2 da Dúvida</h2>
+          <p>Texto livremente formatado usando HTML.</p>
+        </div>
+        <div id="settings-window">
+          <h2>Configurações</h2>
+      
+          <div class="option">
+            <label>
+              <input type="radio" name="language" value="pt-br" checked> Português (Brasil)
+            </label>
+          </div>
+      
+          <div class="option">
+            <label>
+              <input type="radio" name="language" value="en-us"> English (United States)
+            </label>
+          </div>
+      
+          <div class="option">
+            <label>
+              <input type="radio" name="language" value="es-es"> Español (España)
+            </label>
+          </div>
+      
+          <div class="option">
+            <label>
+              <input type="radio" name="language" value="fr-fr"> Français (France)
+            </label>
+          </div>
+
+          <div class="option">
+            <label>
+              <input type="radio" name="language" value="es-gl"> Esperanto
+            </label>
+          </div>
+      
+        </div>
+      </div>
+
+      <div id="settings-popup-content-template-2" style="display: none;">
+        <div>
+          <h2>Título2 da Dúvida</h2>
+          <p>Texto também livremente formatado usando HTML.</p>
+        </div>
+        <div id="settings-window">
+          <h2>Configurações</h2>
+      
+          <div class="option">
+            <label>
+              <input type="radio" name="language" value="base85P" checked> Conjunto de caracteres do idioma do computador (Padrão)
+            </label>
+            <p>Complexidade: 85 caracteres => 85<sup>10</sup>  (1,96 x 10<sup>19</sup> de possibilidades)</p>
+          </div>
+      
+          <div class="option">
+            <label>
+              <input type="radio" name="language" value="base85F"> Conjunto de caracteres Fixos (0-9/A-z/a-z/!-~)
+            </label>
+            <p>Complexidade: 85 caracteres => 85<sup>10</sup>  (1,96 x 10<sup>19</sup> de possibilidades)</p>
+          </div>
+
+          <div class="option">
+            <label>
+              <input type="radio" name="language" value="baseASCII"> Conjunto de caracteres ASCII
+            </label>
+            <p>Complexidade: 128 caracteres => 128<sup>10</sup>  (1,18 x 10<sup>21</sup> de possibilidades)</p>
+          </div>
+      
+          <div class="option">
+            <label>
+              <input type="radio" name="language" value="baseUTF8"> Conjunto de caracteres Unicode (UTF-8)
+            </label>
+            <p>Complexidade: 65 536 caracteres => 65 536<sup>10</sup>  (1,46 x 10<sup>48</sup> de possibilidades)</p>
+          </div>
+      
+        </div>
+      </div>
+
+      <div id="settings-popup-content-template-3" style="display: none;">
+        <div>
+          <h2>Título2 da Dúvida</h2>
+          <p>Texto também livremente formatado usando HTML.</p>
+        </div>
+        <div id="settings-window">
+          <h2>Configurações</h2>
+      
+          <div class="option">
+            <label>
+              <input type="radio" name="language" value="base85P" checked> Conjunto de caracteres do idioma do computador (Padrão)
+            </label>
+            <p>Complexidade: 85 caracteres => 85<sup>10</sup>  (1,96 x 10<sup>19</sup> de possibilidades)</p>
+          </div>
+      
+          <div class="option">
+            <label>
+              <input type="radio" name="language" value="base85F"> Conjunto de caracteres Fixos (0-9/A-z/a-z/!-~)
+            </label>
+            <p>Complexidade: 85 caracteres => 85<sup>10</sup>  (1,96 x 10<sup>19</sup> de possibilidades)</p>
+          </div>
+
+          <div class="option">
+            <label>
+              <input type="radio" name="language" value="baseASCII"> Conjunto de caracteres ASCII
+            </label>
+            <p>Complexidade: 128 caracteres => 128<sup>10</sup>  (1,18 x 10<sup>21</sup> de possibilidades)</p>
+          </div>
+      
+        </div>
+      </div>
+      
+    </div>
+
+    <script src="script.js"></script>
+    
+</body>
+</html>
