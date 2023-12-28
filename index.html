@@ -22,14 +22,14 @@
 
     <div class="question-mark" onclick="showInfo('popup-content-template-1', '1')">?</div>
 
-    <div class="settings-btn" onclick="showInfo('settings-popup-content-template-1')">⚙️</div>
+    <div class="settings-btn" onclick="showInfo('settings-popup-content-template-1')">&#x2699</div>
 
     <h1>Remember Password</h1>
 
     <div class="form-container"> 
       <div class="form-header">Senha de Códigos</div>
       <form id="form1">
-        <input type="password" class="password-input" placeholder="Enter Password">
+        <input type="password" class="password-input" placeholder="Digite o código">
       </form>
       <div class="password-strength-bar" id="password-strength-bar-1"></div>
     </div>
@@ -37,7 +37,7 @@
     <div class="form-container">
       <div class="form-header">Senha de Palavras</div>
       <form id="form2">
-        <input type="password" class="password-input" placeholder="Enter Password">
+        <input type="password" class="password-input" placeholder="Digite as palavras">
       </form>
       <div class="password-strength-bar" id="password-strength-bar-2"></div>
     </div>
@@ -45,17 +45,19 @@
     <div class="form-container">
       <div class="form-header">Senha Específica</div>
       <form id="form3">
-        <input type="password" class="password-input" placeholder="Enter Password">
+        <input type="password" class="password-input" placeholder="Digite a senha">
       </form>
       <div class="password-strength-bar" id="password-strength-bar-3"></div>
     </div>
 
-    <button id="generate-btn" class="disabled" onclick="generate()">Generate</button>
+    <div class="form-container">
+      <button id="generate-btn" class="disabled" onclick="generate()">Gerar</button>
+    </div>
 
     <div id="password-container">
-        <button id="copy-btn" onclick="revealPassword()">Reveal</button>
-        <input type="password" id="password" placeholder="Password" readonly>
-        <button id="copy-btn" onclick="copyToClipboard()">Copy</button>
+        <button id="reveal-btn" onclick="revealPassword()">Revelar</button>
+        <input type="password" id="password" placeholder="Sua Senha" readonly>
+        <button id="copy-btn" onclick="copyToClipboard()">Copiar</button>
       </div>
       <div class="combined-strength-bar" id="combined-strength-bar"></div>
     </div>

@@ -8,6 +8,7 @@ body {
     background-color: #333;
     color: white;
     overflow: hidden;
+    font-family:Arial, Helvetica, sans-serif;
   }
 
   @media screen and (min-width: 481px) and (max-width: 7680px) {
@@ -32,7 +33,7 @@ body {
     height: 10px;
     background-color: #007bff;
     border: 1px #fff solid;
-    margin-top: 10px;
+    margin-top: 5px;
     width: 2%; /* A largura inicial é zero */
     transition: width 0.3s ease; /* Adiciona uma transição suave */
   }
@@ -41,7 +42,7 @@ body {
     height: 10px;
     background-color: #007bff;
     border: 1px #fff solid;
-    margin-top: 10px;
+    margin-top: 15px;
     width: 2%; /* Largura inicial é zero */
     transition: width 0.3s ease; /* Adiciona uma transição suave */
   }
@@ -61,7 +62,7 @@ body {
 
   .password-input {
     width: 200px;
-    padding: 8px;
+    padding: 10px;
     margin-bottom: 10px;
     text-align: center;
   }
@@ -125,16 +126,6 @@ body {
     box-shadow: 0 0 25px rgba(0, 123, 255, 0.5); /* Adiciona uma sombra azul suave quando em foco */
   }
 
-  #reveal-btn {
-    background-color: #007bff;
-    color: white;
-    padding: 10px;
-    border: none;
-    cursor: pointer;
-    margin-top: 20px;
-    margin-right: 10px;
-  }
-
   #main-window {
     min-width: 20%;
     min-height: 20%;
@@ -160,10 +151,10 @@ body {
     background-color: #2b2b2b;
     color: white;
     border: 2px solid #007bff;
-    min-width: 80%; /* Ajustado para 80% da largura da janela principal */
-    min-height: 80vh; /* Ajustado para 80% da altura da janela principal */
-    max-width: 80%; /* Ajustado para 80% da largura da janela principal */
-    max-height: 80vh; /* Ajustado para 80% da altura da janela principal */
+    min-width: 80vh; /* Ajustado para % da largura da janela principal */
+    min-height: 90vh; /* Ajustado para % da altura da janela principal */
+    max-width: 70%; /* Ajustado para % da largura da janela principal */
+    max-height: 90vh; /* Ajustado para % da altura da janela principal */
     overflow-y: auto;
   }
 
@@ -193,8 +184,9 @@ body {
     border: none;
     cursor: pointer;
     margin-top: 20px;
-    width: 50%;
+    width: 250px;
     align-self: center;
+    text-transform: uppercase;
   }
 
   #generate-btn.disabled {
@@ -203,7 +195,6 @@ body {
   }
 
   #generate-btn.active {
-    /* Estilo do botão quando clicável e com a cor azul */
     background-color: #007bff;
   }
 
@@ -229,15 +220,29 @@ body {
     box-shadow: 0 0 20px rgba(0, 123, 255, 1); /* Adiciona uma sombra azul suave quando em foco */
   }
 
+  #reveal-btn {
+    background-color: #007bff;
+    color: white;
+    padding: 10px;
+    border: none;
+    cursor: pointer;
+    min-width: 70px;
+  }
+
   #copy-btn {
     background-color: #007bff;
     color: white;
     padding: 10px;
     border: none;
     cursor: pointer;
+    min-width: 70px;
   }
 
   #copy-btn:hover {
+    box-shadow: 0 0 25px rgba(0, 123, 255, 10); /* Adiciona uma sombra azul suave quando em foco */
+  }
+
+  #reveal-btn:hover {
     box-shadow: 0 0 25px rgba(0, 123, 255, 10); /* Adiciona uma sombra azul suave quando em foco */
   }
 

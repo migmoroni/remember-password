@@ -185,6 +185,7 @@ function togglePopup(text) {
 
   function copyToClipboard() {
     const passwordField = document.getElementById('password');
+    const button = document.getElementById('copy-btn');
     const password = passwordField.value;
 
     // Cria um elemento de área de transferência temporário
@@ -198,18 +199,22 @@ function togglePopup(text) {
 
     // Remove o campo de texto temporário
     document.body.removeChild(tempInput);
-
+   
     console.log('Senha copiada para a área de transferência.');
   }
 
   function revealPassword() {
     const passwordField = document.getElementById('password');
+    const button = document.getElementById('reveal-btn');
+
     if (passwordField.type === 'password') {
       // Adiciona a classe para tornar o botão clicável e com a cor azul
       passwordField.type = 'text';
+      button.innerText = 'Ocultar';
     } else {
       // Remove a classe para tornar o botão não clicável e com a cor padrão
       passwordField.type = 'password';
+      button.innerText = 'Revelar';
     }
   }
 
@@ -337,6 +342,10 @@ function togglePopup(text) {
     const combinedStrengthBar = document.getElementById('combined-strength-bar');
     combinedStrengthBar.style.width = `${combinedStrength}%`;
 
+  }
+
+  function goBack() {
+    window.history.back();
   }
 
   // Atualiza a força combinada sempre que as barras individuais são atualizadas
