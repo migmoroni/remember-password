@@ -64,23 +64,21 @@ function togglePopup(text) {
       //Etapa 1: Concatenar as 3 senhas numa única variavel
       const resultA = password1 + password2 + password3;
 
-      //Etapa 2: Engrandecer o tamanho e ofuscar origem com hashes sequenciais - 5x
+      //Etapa 2: Engrandecer o tamanho e ofuscar origem com hashes sequenciais - 12x
       (async () => {
       const data = resultA;
-      const resultB = await calcularHashSHA512(data);
-      const resultC = await calcularHashSHA512(resultB);
-      const resultD = await calcularHashSHA512(resultC);
-      const resultE = await calcularHashSHA512(resultD);
-      const resultF = await calcularHashSHA512(resultE);
+      const resultB = await calcularHashSHA512(calcularHashSHA512(calcularHashSHA512(data)));
+      const resultC = await calcularHashSHA512(calcularHashSHA512(calcularHashSHA512(resultB)));
+      const resultD = await calcularHashSHA512(calcularHashSHA512(calcularHashSHA512(resultC)));
 
       //Etapa 3: Converção em base85, reduzindo tamanho e aumentando segurança
-      const resultG = await encodeCustomBase85(resultF);
+      const resultE = await encodeCustomBase85(resultD);
 
       //Etapa 4: Manter apenas os primeiros 20 caracteres
-      const resultH = await reduzirStringExistente(resultG, passwordSize)
+      const resultF = await reduzirStringExistente(resultE, passwordSize)
 
-      console.log('Resultado Último:', resultH);
-      document.getElementById('password').value = resultH;
+      console.log('Resultado Último:', resultF);
+      document.getElementById('password').value = resultF;
       
       })();        
     } else {
@@ -251,23 +249,23 @@ function togglePopup(text) {
       // A senha precisa atender a todos os critérios para ser considerada forte
       if (password.length >= 4) {
           strength = 10;
-      } if (password.length >= 4 && lowercaseCount >= 1 && uppercaseCount >= 1 && symbolCount >= 0 && digitCount >= 1) {
+      } if (password.length >= 4 && lowercaseCount >= 1 && uppercaseCount >= 0 && symbolCount >= 0 && digitCount >= 1) {
           strength = 20;
-      } if (password.length >= 6 && lowercaseCount >= 1 && uppercaseCount >= 1 && symbolCount >= 1 && digitCount >= 1) {
+      } if (password.length >= 5 && lowercaseCount >= 1 && uppercaseCount >= 1 && symbolCount >= 0 && digitCount >= 1) {
           strength = 30;
-      } if (password.length >= 8 && lowercaseCount >= 2 && uppercaseCount >= 2 && symbolCount >= 1 && digitCount >= 1) {
+      } if (password.length >= 6 && lowercaseCount >= 1 && uppercaseCount >= 1 && symbolCount >= 1 && digitCount >= 1) {
           strength = 40;
-      } if (password.length >= 10 && lowercaseCount >= 2 && uppercaseCount >= 3 && symbolCount >= 2 && digitCount >= 1) {
+      } if (password.length >= 8 && lowercaseCount >= 2 && uppercaseCount >= 2 && symbolCount >= 1 && digitCount >= 1) {
           strength = 60;
-      } if (password.length >= 15 && lowercaseCount >= 3 && uppercaseCount >= 3 && symbolCount >= 3 && digitCount >= 3) {
+      } if (password.length >= 10 && lowercaseCount >= 3 && uppercaseCount >= 2 && symbolCount >= 1 && digitCount >= 2) {
           strength = 80;
-      } if (password.length >= 17 && lowercaseCount >= 4 && uppercaseCount >= 4 && symbolCount >= 4 && digitCount >= 3) {
+      } if (password.length >= 15 && lowercaseCount >= 4 && uppercaseCount >= 3 && symbolCount >= 2 && digitCount >= 3) {
           strength = 85;
-      } if (password.length >= 20 && lowercaseCount >= 4 && uppercaseCount >= 5 && symbolCount >= 5 && digitCount >= 3) {
+      } if (password.length >= 20 && lowercaseCount >= 4 && uppercaseCount >= 4 && symbolCount >= 3 && digitCount >= 3) {
           strength = 90;
-      } if (password.length >= 30 && lowercaseCount >= 4 && uppercaseCount >= 5 && symbolCount >= 5 && digitCount >= 3) {
+      } if (password.length >= 22 && lowercaseCount >= 5 && uppercaseCount >= 5 && symbolCount >= 4 && digitCount >= 3) {
           strength = 95;
-      } if (password.length >= 50 && lowercaseCount >= 4 && uppercaseCount >= 5 && symbolCount >= 5 && digitCount >= 3) {
+      } if (password.length >= 25 && lowercaseCount >= 5 && uppercaseCount >= 5 && symbolCount >= 5 && digitCount >= 5) {
           strength = 100;
       }
       break;
@@ -279,25 +277,25 @@ function togglePopup(text) {
       const words = (password.trim().split(/\s+/)).length;
       
       // A senha precisa atender a todos os critérios para ser considerada forte
-      if (password.length >= 5 && words >= 2) {
+      if (password.length >= 2 && words >= 1) {
           strength = 10;
-      } if (password.length >= 10 && words >= 3) {
+      } if (password.length >= 4 && words >= 2) {
           strength = 20;
-      } if (password.length >= 15 && words >= 4) {
+      } if (password.length >= 6 && words >= 3) {
           strength = 30;
-      } if (password.length >= 25 && words >= 6) {
+      } if (password.length >= 8 && words >= 4) {
           strength = 40;
-      } if (password.length >= 50 && words >= 8) {
+      } if (password.length >= 10 && words >= 5) {
           strength = 60;
-      } if (password.length >= 75 && words >= 10) {
+      } if (password.length >= 14 && words >= 7) {
           strength = 80;
-      } if (password.length >= 100 && words >= 15) {
+      } if (password.length >= 18 && words >= 9) {
           strength = 85;
-      } if (password.length >= 250 && words >= 25) {
+      } if (password.length >= 24 && words >= 12) {
           strength = 90;
-      } if (password.length >= 500 && words >= 50) {
+      } if (password.length >= 36 && words >= 18) {
           strength = 95;
-      } if (password.length >= 1000 && words >= 100) {
+      } if (password.length >= 48 && words >= 24) {
           strength = 100;
       }
       break;

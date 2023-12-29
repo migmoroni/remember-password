@@ -23,7 +23,7 @@
 
     <div class="question-mark" onclick="showInfo('popup-content-template-1', '1')">?</div>
 
-  <div class="settings-btn" onclick="showInfo('settings-popup-content-template-1')">&#x2699</div>
+    <div class="settings-btn" onclick="showInfo('settings-popup-content-template-1')">&#x2699</div>
 
     <h1>Remember Password</h1>
 
@@ -59,10 +59,18 @@
         <button id="reveal-btn" onclick="revealPassword()">Revelar</button>
         <input type="password" id="password" placeholder="Sua Senha" readonly>
         <button id="copy-btn" onclick="copyToClipboard()">Copiar</button>
-      </div>
+    </div>
+
+    <div>
       <div class="combined-strength-bar" id="combined-strength-bar"></div>
     </div>
+    
+    <div class="form-container">
+      <div id="donation-btn" onclick="showInfo('version-popup-content-template-1')">Doe</div>
+    </div>
   
+    <!-- Conteúdo da janela de dúvidas -->
+
     <div id="popup">
       <div id="popup-content"></div>
       <div class="info-buttons">
@@ -77,7 +85,6 @@
       </div>
     </div>
 
-    <!-- Conteúdo da janela de dúvidas -->
     <div id="info-text">
       <div id="popup-content-template-1" style="display: none;">
         <div>
@@ -132,19 +139,20 @@
     </div>
 
     <!-- Conteúdo da janela de configurações -->
-    <div id="settings-text">
 
-      <div id="settings-popup">
-        <div id="settings-popup-content"></div>
-        <div class="info-buttons">
-          <button class="info-button" onclick="showInfo('settings-popup-content-template-1')">Idioma</button>
-          <button class="info-button" onclick="showInfo('settings-popup-content-template-2')">Complexidade</button>
-          <button class="info-button" onclick="showInfo('settings-popup-content-template-3')">Tamanho Final</button>
-        </div>
-        <div class="ok-button">
-          <button id="ok-btn" onclick="closePopup()">OK</button>
-        </div>
+    <div id="settings-popup">
+      <div id="settings-popup-content"></div>
+      <div class="info-buttons">
+        <button class="info-button" onclick="showInfo('settings-popup-content-template-1')">Idioma</button>
+        <button class="info-button" onclick="showInfo('settings-popup-content-template-2')">Complexidade</button>
+        <button class="info-button" onclick="showInfo('settings-popup-content-template-3')">Tamanho Final</button>
       </div>
+      <div class="ok-button">
+        <button id="ok-btn" onclick="closePopup()">OK</button>
+      </div>
+    </div>
+
+    <div id="settings-text">
 
       <div id="settings-popup-content-template-1" style="display: none;">
         <div>
@@ -171,36 +179,36 @@
 
       <div id="settings-popup-content-template-2" style="display: none;">
         <div>
-          <h2>Título2 da Dúvida</h2>
-          <p>Texto também livremente formatado usando HTML.</p>
+          <h2>Complexidade</h2>
+          <p>Quantos mais caracteres sua senha tiver, mais segura será. Escolha a que satisfaz suas necessidades de segurança:</p>
         </div>
         <div id="settings-window">
-          <h2>Configurações</h2>
       
+          <h3>Base de Caracteres</h3>
           <div class="option">
             <label>
-              <input type="radio" name="language" value="base85P" checked> Conjunto de caracteres do idioma do computador (Padrão)
+              <input type="radio" name="language" value="base85P" checked> Caracteres do idioma do computador (Padrão)
             </label>
             <p>Complexidade: 85 caracteres => 85<sup>10</sup>  (1,96 x 10<sup>19</sup> de possibilidades)</p>
           </div>
       
           <div class="option">
             <label>
-              <input type="radio" name="language" value="base85F"> Conjunto de caracteres Fixos (0-9/A-z/a-z/!-~)
+              <input type="radio" name="language" value="base85F"> Caracteres Fixos (0-9/A-z/a-z/!-~)
             </label>
             <p>Complexidade: 85 caracteres => 85<sup>10</sup>  (1,96 x 10<sup>19</sup> de possibilidades)</p>
           </div>
 
           <div class="option">
             <label>
-              <input type="radio" name="language" value="baseASCII"> Conjunto de caracteres ASCII
+              <input type="radio" name="language" value="baseASCII"> Caracteres ASCII
             </label>
             <p>Complexidade: 128 caracteres => 128<sup>10</sup>  (1,18 x 10<sup>21</sup> de possibilidades)</p>
           </div>
       
           <div class="option">
             <label>
-              <input type="radio" name="language" value="baseUTF8"> Conjunto de caracteres Unicode (UTF-8)
+              <input type="radio" name="language" value="baseUTF8"> Caracteres Unicode (UTF-8)
             </label>
             <p>Complexidade: 65 536 caracteres => 65 536<sup>10</sup>  (1,46 x 10<sup>48</sup> de possibilidades)</p>
           </div>
@@ -210,31 +218,28 @@
 
       <div id="settings-popup-content-template-3" style="display: none;">
         <div>
-          <h2>Título2 da Dúvida</h2>
-          <p>Texto também livremente formatado usando HTML.</p>
+          <h2>Tamanho da Senha Gerada</h2>
+          <p>Quão maior for a senha gerada, mais segura será. Escolha a que satisfaz suas necessidades de segurança:</p>
         </div>
         <div id="settings-window">
-          <h2>Configurações</h2>
       
           <div class="option">
             <label>
               <input type="radio" name="language" value="base85P" checked> Conjunto de caracteres do idioma do computador (Padrão)
             </label>
-            <p>Complexidade: 85 caracteres => 85<sup>10</sup>  (1,96 x 10<sup>19</sup> de possibilidades)</p>
+            <!--<p>Complexidade: <input type="text" id="text-complex-s-t-1" placeholder="" readonly></p>-->
           </div>
       
           <div class="option">
             <label>
               <input type="radio" name="language" value="base85F"> Conjunto de caracteres Fixos (0-9/A-z/a-z/!-~)
             </label>
-            <p>Complexidade: 85 caracteres => 85<sup>10</sup>  (1,96 x 10<sup>19</sup> de possibilidades)</p>
           </div>
 
           <div class="option">
             <label>
               <input type="radio" name="language" value="baseASCII"> Conjunto de caracteres ASCII
             </label>
-            <p>Complexidade: 128 caracteres => 128<sup>10</sup>  (1,18 x 10<sup>21</sup> de possibilidades)</p>
           </div>
       
         </div>
