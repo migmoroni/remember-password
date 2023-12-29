@@ -250,7 +250,7 @@ function togglePopup(text) {
       
       // A senha precisa atender a todos os critérios para ser considerada forte
       if (password.length >= 4) {
-          strength = 100;
+          strength = 10;
       } if (password.length >= 4 && lowercaseCount >= 1 && uppercaseCount >= 1 && symbolCount >= 0 && digitCount >= 1) {
           strength = 20;
       } if (password.length >= 6 && lowercaseCount >= 1 && uppercaseCount >= 1 && symbolCount >= 1 && digitCount >= 1) {
@@ -280,7 +280,7 @@ function togglePopup(text) {
       
       // A senha precisa atender a todos os critérios para ser considerada forte
       if (password.length >= 5 && words >= 2) {
-          strength = 100;
+          strength = 10;
       } if (password.length >= 10 && words >= 3) {
           strength = 20;
       } if (password.length >= 15 && words >= 4) {
@@ -342,10 +342,6 @@ function togglePopup(text) {
     const combinedStrengthBar = document.getElementById('combined-strength-bar');
     combinedStrengthBar.style.width = `${combinedStrength}%`;
 
-  }
-
-  function goBack() {
-    window.history.back();
   }
 
   // Atualiza a força combinada sempre que as barras individuais são atualizadas
