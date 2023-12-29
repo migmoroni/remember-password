@@ -7,25 +7,12 @@ body {
     height: 100vh;
     background-color: #333;
     color: white;
-    overflow: hidden;
+    overflow:visible;
     font-family:Arial, Helvetica, sans-serif;
   }
 
-  @media screen and (min-width: 481px) and (max-width: 7680px) {
-    /* Estilos para telas de 641px até 7680px (widescreen) */
-    #main-window {
-      width: 30%;
-    }
-  }
-
-  @media screen and (min-width: 360px) and (max-width: 4320px) {
-    /* Estilos para telas de 360px até 4320px (portrait) */
-    #main-window {
-      width: 90%;
-    }
-  }
-
   h1 {
+    padding-top: 10%;
     text-align: center;
   }
 
@@ -104,7 +91,6 @@ body {
     justify-content: center; /* Centraliza os botões "Info" */
     margin-bottom: 10px;
     position:fixed;
-    order: 1;
   }
 
   .ok-button {
@@ -127,7 +113,7 @@ body {
   }
 
   #main-window {
-    min-width: 20%;
+    min-width: 300px;
     min-height: 20%;
     display: flex;
     flex-direction: column;
@@ -156,6 +142,7 @@ body {
     max-width: 70%; /* Ajustado para % da largura da janela principal */
     max-height: 90%; /* Ajustado para % da altura da janela principal */
     overflow-y: auto;
+    overflow-x: auto;
   }
 
   #settings-popup {
@@ -184,7 +171,7 @@ body {
     border: none;
     cursor: pointer;
     margin-top: 20px;
-    width: 250px;
+    width: 200px;
     align-self: center;
     text-transform: uppercase;
   }
@@ -222,7 +209,8 @@ body {
   #password-container {
     display: flex;
     align-items: center;
-    margin-top: 20px;
+    justify-content: center;
+    flex-direction: row;
   }
 
   #password {
@@ -293,7 +281,6 @@ body {
   }
 
   #info-text{
-
     order: 2;
   }
 

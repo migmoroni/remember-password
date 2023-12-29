@@ -1,0 +1,20 @@
+@media screen and (min-width: 481px) and (max-width: 7680px) {
+    /* Estilos para telas de 641px até 7680px (widescreen) */
+    #main-window {
+      width: 30%;
+    }
+  }
+
+  @media screen and (min-width: 600px) and (max-width: 4320px) {
+    /* Estilos para telas de 360px até 4320px (portrait) */
+    #main-window {
+      width: 90%;
+    }
+  }
+
+  @media screen and (max-width: 600px) {
+    #main-window {
+      width: 70%;
+    }
+
+  }
