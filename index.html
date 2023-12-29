@@ -17,11 +17,13 @@
 </head>
 <body>
 
+  <header>
+    <div id="question-mark" onclick="showInfo('popup-content-template-1', '1')">?</div>
+
+    <div id="settings-btn" onclick="showInfo('settings-popup-content-template-1')">&#x2699</div>
+  </header>
+
   <div id="main-window">
-
-    <div class="question-mark" onclick="showInfo('popup-content-template-1', '1')">?</div>
-
-    <div class="settings-btn" onclick="showInfo('settings-popup-content-template-1')">&#x2699</div>
 
     <h1>Remember Password</h1>
 
@@ -67,7 +69,7 @@
       <div id="donation-btn" onclick="showInfo('version-popup-content-template-1')">Doe</div>
     </div>
   
-    <!-- Conteúdo da janela de dúvidas -->
+    <!-- Conteúdo da janela de dúvidas
 
     <div id="popup">
       <div id="popup-content"></div>
@@ -81,6 +83,17 @@
       <div class="ok-button">
         <button id="ok-btn" onclick="closePopup()">OK</button>
       </div>
+    </div>-->
+
+    <div id="popup">
+      <div class="tabs-container">
+        <div class="tab" onclick="showInfo('popup-content-template-1', '1')">Apresentação</div>
+        <div class="tab" onclick="showInfo('popup-content-template-2', '1')">Form 1</div>
+        <div class="tab" onclick="showInfo('popup-content-template-3', '1')">Form 2</div>
+        <div class="tab" onclick="showInfo('popup-content-template-4', '1')">Form 3</div>
+      </div>
+      <div id="popup-content" class="tab-content"></div>
+      <button id="ok-btn" onclick="closePopup()">OK</button>
     </div>
 
     <div id="info-text">
@@ -139,15 +152,13 @@
     <!-- Conteúdo da janela de configurações -->
 
     <div id="settings-popup">
-      <div id="settings-popup-content"></div>
-      <div class="info-buttons">
-        <button class="info-button" onclick="showInfo('settings-popup-content-template-1')">Idioma</button>
-        <button class="info-button" onclick="showInfo('settings-popup-content-template-2')">Complexidade</button>
-        <button class="info-button" onclick="showInfo('settings-popup-content-template-3')">Tamanho Final</button>
+      <div class="tabs-container">
+        <div class="tab" onclick="showInfo('settings-popup-content-template-1')">Apresentação</div>
+        <div class="tab" onclick="showInfo('settings-popup-content-template-2')">Form 1</div>
+        <div class="tab" onclick="showInfo('settings-popup-content-template-3')">Form 2</div>
       </div>
-      <div class="ok-button">
-        <button id="ok-btn" onclick="closePopup()">OK</button>
-      </div>
+      <div id="settings-popup-content" class="tab-content"></div>
+      <button id="ok-btn" onclick="closePopup()">OK</button>
     </div>
 
     <div id="settings-text">
@@ -237,6 +248,29 @@
           <div class="option">
             <label>
               <input type="radio" name="language" value="baseASCII"> Conjunto de caracteres ASCII
+            </label>
+          </div>
+      
+        </div>
+      </div>
+
+      <div id="donation-popup-content-template-1" style="display: none;">
+        <div>
+          <h2>Título2 da Dúvida</h2>
+          <p>Texto livremente formatado usando HTML.</p>
+        </div>
+        <div id="donation-window">
+          <h2>Configurações</h2>
+      
+          <div class="option">
+            <label>
+              <input type="radio" name="language" value="pt-br" checked> Português (Brasil)
+            </label>
+          </div>
+      
+          <div class="option">
+            <label>
+              <input type="radio" name="language" value="en-us"> English (United States)
             </label>
           </div>
       

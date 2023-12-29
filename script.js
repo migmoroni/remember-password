@@ -1,3 +1,64 @@
+/*
+function togglePopup(text) {
+  const popup = document.getElementById('popup');
+  const popupContent = document.getElementById('popup-content');
+  popupContent.innerHTML = '';
+  const tabs = ['Apresentação', 'Form 1', 'Form 2', 'Form 3'];
+  const tabsContainer = document.createElement('div');
+  tabsContainer.className = 'tabs-container';
+  tabs.forEach((tab, index) => {
+    const tabElement = document.createElement('div');
+    tabElement.className = 'tab';
+    tabElement.innerText = tab;
+    tabElement.onclick = function () {
+      changeTab(index);
+    };
+    tabsContainer.appendChild(tabElement);
+  });
+  popupContent.appendChild(tabsContainer);
+  changeTab(0);
+  const okButton = document.getElementById('ok-btn');
+  okButton.onclick = function () {
+    popup.style.display = 'none';
+  };
+  popup.style.display = 'block';
+}
+
+function changeTab(tabIndex) {
+  const tabContents = [
+    'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque nec odio ac turpis cursus euismod.',
+    'Explanation for Senha Geral: Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque nec odio ac turpis cursus euismod.',
+    'Explanation for Form 1: Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque nec odio ac turpis cursus euismod.',
+    'Explanation for Form 2: Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque nec odio ac turpis cursus euismod.',
+    'Explanation for Form 3: Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque nec odio ac turpis cursus euismod.'
+  ];
+  const popupContent = document.getElementById('popup-content');
+  popupContent.innerHTML = `<div class="tab-content">${tabContents[tabIndex]}</div>`;
+}
+
+function closePopup() {
+  document.getElementById('popup').style.display = 'none';
+}
+
+function generate() {
+  // Add your password generation logic here
+  const password = 'GeneratedPassword123';
+  document.getElementById('password').value = password;
+}
+
+function copyToClipboard() {
+  const passwordField = document.getElementById('password');
+  passwordField.select();
+  document.execCommand('copy');
+}
+
+
+
+
+
+
+
+
 function togglePopup(text) {
     const popup = document.getElementById('popup');
     const popupContent = document.getElementById('popup-content');
@@ -16,7 +77,7 @@ function togglePopup(text) {
     };
     popup.style.display = 'block';
   }
-
+*/
   function closePopup() {
     document.getElementById('popup').style.display = 'none';
     document.getElementById('settings-popup').style.display = 'none';
