@@ -21,28 +21,32 @@ Tudo é gerado na hora, para que apenas você tenha acesso as suas senhas!
 
 ## 🛠️ Recursos
 
-- **Geração de senhas não aleatórias:** Senhas geradas por padrões constantes.
+- **Geração de senhas não aleatórias:** Senhas geradas por padrões constantes, permitindo serem relembradas.
 - **Avaliação de Força de Senha:** Avalie a força de suas senhas em tempo real.
 - **Configurações Personalizáveis:** Configure a geração de senhas com base em suas preferências.
-- **Suporte a Múltiplos Idiomas:** Disponível em Português e Inglês (em trabalho).
-
-
-🌐 Disponibilidade
-
-Atualmente, o Remember Password tem suporte apenas para uso web. Você pode executar o código diretamente em seu navegador ou acessar o site através do GitHub Pages.
-
+- **Suporte a Múltiplos Idiomas:** Disponível em Português, e em breve em Inglês e Espanhol.
 
 ## 📋 Uso
 
-1. Clone o repositório:
+Atualmente, o Remember Password tem suporte apenas para uso web. Você pode acessá-lo de forma online, ao acessar o site através do GitHub Pages ou de forma offline, ao clonar o repositório e executar o código diretamente em seu navegador.
+
+### Para um uso online:
+
+[Acesse o site aqui](https://migmoroni.github.io/remember-password/)
+
+### Para um uso offline:
+
+1. Tenha o programa "Git" instalado em seu computador.
+
+2. Clone o repositório:
+
    ```bash
    git clone https://github.com/migmoroni/remember-password.git
-   cd remember-password
+   ```
 
+3. Abra index.html no seu navegador da web preferido.
 
-2. Abra index.html no seu navegador da web preferido.
-
-3. Comece a gerar e gerenciar suas senhas com segurança!
+4. Comece a gerar e gerenciar suas senhas com segurança!
 
 
 ## 🤝 Contribuições
