@@ -11,6 +11,10 @@ body {
     font-family:Arial, Helvetica, sans-serif;
   }
 
+  footer {
+    margin-bottom: 20px;
+  }
+
   h1 {
     padding-top: 10%;
     text-align: center;
@@ -229,21 +233,19 @@ body {
 
   #donation-btn {
     /* Estilo padrão do botão */
+    cursor: pointer;
     background-color: #007bff;
     color: white;
     padding: 15px;
     font-size: 16px;
     text-align: center;
-    border: none;
-    cursor: pointer;
     margin-top: 20px;
     width: 50px;
     align-self: center;
     text-transform: uppercase;
-    clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
   }
 
-  #donation-btn:hover {
+  #donation-btn {
     box-shadow: 0 0 25px rgba(0, 123, 255, 10); /* Adiciona uma sombra azul suave quando em foco */
   }
 
@@ -272,7 +274,8 @@ body {
     padding: 10px;
     border: none;
     cursor: pointer;
-    min-width: 70px;
+    text-align: center;
+    min-width: 10vh;
   }
 
   #copy-btn {
@@ -281,7 +284,7 @@ body {
     padding: 10px;
     border: none;
     cursor: pointer;
-    min-width: 70px;
+    min-width: 10vh;
   }
 
   #copy-btn:hover {
