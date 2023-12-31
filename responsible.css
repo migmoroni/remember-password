@@ -1,7 +1,7 @@
 @media screen and (min-width: 481px) and (max-width: 7680px) {
     /* Estilos para telas de 641px até 7680px (widescreen) */
     #main-window {
-      width: 30%;
+      width: 40%;
     }
   }
 
@@ -14,7 +14,7 @@
 
   @media screen and (max-width: 600px) {
     #main-window {
-      width: 40%;
+      width: 50%;
     }
 
   }

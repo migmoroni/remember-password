@@ -58,7 +58,7 @@ function copyToClipboard() {
 
 
 
-
+*/
 function togglePopup(text) {
     const popup = document.getElementById('popup');
     const popupContent = document.getElementById('popup-content');
@@ -77,7 +77,8 @@ function togglePopup(text) {
     };
     popup.style.display = 'block';
   }
-*/
+
+
   function closePopup() {
     document.getElementById('popup').style.display = 'none';
     document.getElementById('settings-popup').style.display = 'none';
@@ -104,6 +105,14 @@ function togglePopup(text) {
     return str;
   }
 
+  async function choiceEncode(encode, password){
+    //Base decimal
+    //Base 85 (maquina) - padrão
+    //Base 85 (fixa)
+    //Base 128 - ASCII
+    //Base 65536 - Unicode
+  }
+
   async function generate() {
     const password1 = document.getElementById('form1').elements[0].value;
     const password2 = document.getElementById('form2').elements[0].value;
@@ -128,9 +137,9 @@ function togglePopup(text) {
       //Etapa 2: Engrandecer o tamanho e ofuscar origem com hashes sequenciais - 12x
       (async () => {
       const data = resultA;
-      const resultB = await calcularHashSHA512(calcularHashSHA512(calcularHashSHA512(data)));
-      const resultC = await calcularHashSHA512(calcularHashSHA512(calcularHashSHA512(resultB)));
-      const resultD = await calcularHashSHA512(calcularHashSHA512(calcularHashSHA512(resultC)));
+      const resultB = await calcularHashSHA512(await calcularHashSHA512(await calcularHashSHA512(data)));
+      const resultC = await calcularHashSHA512(await calcularHashSHA512(await calcularHashSHA512(resultB)));
+      const resultD = await calcularHashSHA512(await calcularHashSHA512(await calcularHashSHA512(resultC)));
 
       //Etapa 3: Converção em base85, reduzindo tamanho e aumentando segurança
       const resultE = await encodeCustomBase85(resultD);
