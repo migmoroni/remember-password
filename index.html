@@ -20,7 +20,7 @@
 
     <div id="question-mark" onclick="showInfo('popup-content-template-1', '1')">?</div>
 
-    <div id="settings-btn" onclick="showInfo('settings-popup-content-template-1')">&#x2699</div>
+    <div id="settings-btn" onclick="showInfo('settings-popup-content-template-1', '2')">&#x2699</div>
 
     <h1>Remember Password</h1>
 
@@ -63,7 +63,7 @@
     </div>
     
     <div class="form-container">
-      <div id="donation-btn" onclick="showInfo('version-popup-content-template-1')">Doe</div>
+      <div id="donation-btn" onclick="showInfo('donation-popup-content-template-1')">Doe</div>
     </div>
 
     <footer class="form-container">
@@ -154,9 +154,9 @@
 
     <div id="settings-popup">
       <div class="tabs-container">
-        <div class="tab" onclick="showInfo('settings-popup-content-template-1')">Apresentação</div>
-        <div class="tab" onclick="showInfo('settings-popup-content-template-2')">Form 1</div>
-        <div class="tab" onclick="showInfo('settings-popup-content-template-3')">Form 2</div>
+        <div class="tab" onclick="showInfo('settings-popup-content-template-1', '2')">Apresentação</div>
+        <div class="tab" onclick="showInfo('settings-popup-content-template-2', '2')">Form 1</div>
+        <div class="tab" onclick="showInfo('settings-popup-content-template-3', '2')">Form 2</div>
       </div>
       <div id="settings-popup-content" class="tab-content"></div>
       <button id="ok-btn" onclick="closePopup()">OK</button>
@@ -254,26 +254,21 @@
       
         </div>
       </div>
+      
+    </div>
+
+    <!---->
+
+    <div id="donation-popup">
 
       <div id="donation-popup-content-template-1" style="display: none;">
         <div>
           <h2>Título2 da Dúvida</h2>
           <p>Texto livremente formatado usando HTML.</p>
         </div>
-        <div id="donation-window">
-          <h2>Configurações</h2>
-      
-          <div class="option">
-            <label>
-              <input type="radio" name="language" value="pt-br" checked> Português (Brasil)
-            </label>
-          </div>
-      
-          <div class="option">
-            <label>
-              <input type="radio" name="language" value="en-us"> English (United States)
-            </label>
-          </div>
+        <div id="settings-window">
+          
+          <p>QR CODE</p>
       
         </div>
       </div>

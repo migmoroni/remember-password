@@ -8,7 +8,7 @@
   @media screen and (min-width: 600px) and (max-width: 4320px) {
     /* Estilos para telas de 360px até 4320px (portrait) */
     #main-window {
-      width: 90%;
+      width: 80%;
     }
   }
 
@@ -16,5 +16,13 @@
     #main-window {
       width: 50%;
     }
-
+    #popup {
+      min-width: 80%; /* Ajustado para % da largura da janela principal */
+    }
+    #settings-popup {
+      min-width: 80%; /* Ajustado para % da largura da janela principal */
+    }
+    #donation-popup {
+      min-width: 80%; /* Ajustado para % da largura da janela principal */
+    }
   }

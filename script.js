@@ -293,9 +293,12 @@ function togglePopup(text) {
     if (window === '1'){
       document.getElementById('popup-content').innerHTML = content;
       document.getElementById('popup').style.display = 'block';
-    } else {
+    } if (window === '2'){
       document.getElementById('settings-popup-content').innerHTML = content;
       document.getElementById('settings-popup').style.display = 'block';
+    } else {
+      document.getElementById('donation-popup-content').innerHTML = content;
+      document.getElementById('donation-popup').style.display = 'block';
     }
   }
 

@@ -103,7 +103,7 @@ body {
     padding: 10px 13px;
     position: absolute;
     top: 15px;
-    left: -15px;
+    left: 0px;
     clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
   }
 
@@ -116,7 +116,7 @@ body {
     padding: 10px;
     position: absolute;
     top: 15px;
-    right: -15px;
+    right: 0px;
     clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
   }
   /*
@@ -179,15 +179,33 @@ body {
     background-color: #2b2b2b;
     color: white;
     border: 2px solid #007bff;
-    min-width: 80%; /* Ajustado para % da largura da janela principal */
+    min-width: 60%; /* Ajustado para % da largura da janela principal */
     min-height: 90%; /* Ajustado para % da altura da janela principal */
-    max-width: 70%; /* Ajustado para % da largura da janela principal */
+    max-width: 60%; /* Ajustado para % da largura da janela principal */
     max-height: 90%; /* Ajustado para % da altura da janela principal */
     overflow-y: auto;
     overflow-x: auto;
   }
 
   #settings-popup {
+    display: none;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    padding: 20px;
+    background-color: #2b2b2b;
+    color: white;
+    border: 2px solid #007bff;
+    min-width: 60%; /* Ajustado para % da largura da janela principal */
+    min-height: 90%; /* Ajustado para % da altura da janela principal */
+    max-width: 60%; /* Ajustado para % da largura da janela principal */
+    max-height: 90%; /* Ajustado para % da altura da janela principal */
+    overflow-y: auto;
+    overflow-x: auto;
+  }
+
+  #donation-popup {
     display: none;
     position: fixed;
     top: 50%;
@@ -238,11 +256,11 @@ body {
     cursor: pointer;
     background-color: #007bff;
     color: white;
-    padding: 15px;
+    padding: 10px;
     font-size: 16px;
     text-align: center;
     margin-top: 20px;
-    width: 50px;
+    width: 80px;
     align-self: center;
     text-transform: uppercase;
   }
@@ -261,7 +279,7 @@ body {
   #password {
     flex-grow: 1;
     padding: 9px;
-    width: 50px;
+    width: 40px;
     text-align: center;
   }
 
