@@ -25,7 +25,7 @@ body {
     background-color: #007bff;
     border: 1px #fff solid;
     margin-top: 5px;
-    width: 2%; /* A largura inicial é zero */
+    width: 0px; /* A largura inicial é zero */
     transition: width 0.3s ease; /* Adiciona uma transição suave */
   }
 
@@ -34,8 +34,9 @@ body {
     background-color: #007bff;
     border: 1px #fff solid;
     margin-top: 15px;
-    width: 2%; /* Largura inicial é zero */
+    width: 0px; /* Largura inicial é zero */
     transition: width 0.3s ease; /* Adiciona uma transição suave */
+    margin-bottom: 20px;
   }
 
   .form-container {
