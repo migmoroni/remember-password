@@ -82,16 +82,29 @@ function togglePopup(text) {
   function closePopup() {
     document.getElementById('popup').style.display = 'none';
     document.getElementById('settings-popup').style.display = 'none';
+    document.body.classList.remove('modal-open');
   }
 
   async function calcularHashSHA512(dados) {
-    const encoder = new TextEncoder();
-    const dadosArrayBuffer = encoder.encode(dados);
+    //const encoder = new TextEncoder();
+    const dadosArrayBuffer = new TextEncoder().encode(dados);
 
     const hashBuffer = await crypto.subtle.digest('SHA-512', dadosArrayBuffer);
 
     const hashArray = Array.from(new Uint8Array(hashBuffer));
     const hashHex = hashArray.map(byte => byte.toString(16).padStart(2, '0')).join('');
+
+    return hashHex;
+  }
+
+  async function calcularHashSHA256(dados) {
+    //const encoder = new TextEncoder();
+    const dadosArrayBuffer = new TextEncoder().encode(dados);
+
+    const hashBuffer = await crypto.subtle.digest('SHA-256', dadosArrayBuffer);
+
+    const hashArray = Array.from(new Uint8Array(hashBuffer));
+    const hashHex = hashArray.map(byte => byte.toString(36).padStart(2, '0')).join('');
 
     return hashHex;
   }
@@ -114,10 +127,10 @@ function togglePopup(text) {
   }
 
   async function generate() {
-    const password1 = document.getElementById('form1').elements[0].value;
-    const password2 = document.getElementById('form2').elements[0].value;
-    const password3 = document.getElementById('form3').elements[0].value;
-    const passwordSize = 20;
+    const password1 = btoa(document.getElementById('form1').elements[0].value);
+    const password2 = btoa(document.getElementById('form2').elements[0].value);
+    const password3 = btoa(document.getElementById('form3').elements[0].value);
+    const passwordSize = btoa(20);
 
     // Verifica se pelo menos o primeiro e o terceiro formulários têm mais de 1 caractere
     const isClickable = password1.length > 1 && password3.length > 1;
@@ -130,12 +143,13 @@ function togglePopup(text) {
       generateButton.classList.add('active');
 
       // Lógica de geração de senha
-
-      //Etapa 1: Concatenar as 3 senhas numa única variavel
-      const resultA = password1 + password2 + password3;
+      (async () => {
+      //Etapa 1: Concatenar e mascarar as 3 senhas numa única variavel
+      
+      const resultA = await calcularHashSHA256(password1) + await calcularHashSHA256(password2) + await calcularHashSHA256(password3);
 
       //Etapa 2: Engrandecer o tamanho e ofuscar origem com hashes sequenciais - 12x
-      (async () => {
+      
       const data = resultA;
       const resultB = await calcularHashSHA512(await calcularHashSHA512(await calcularHashSHA512(data)));
       const resultC = await calcularHashSHA512(await calcularHashSHA512(await calcularHashSHA512(resultB)));
@@ -145,12 +159,13 @@ function togglePopup(text) {
       const resultE = await encodeCustomBase85(resultD);
 
       //Etapa 4: Manter apenas os primeiros 20 caracteres
-      const resultF = await reduzirStringExistente(resultE, passwordSize)
+      const resultF = await reduzirStringExistente(resultE, atob(passwordSize));
 
       console.log('Resultado Último:', resultF);
       document.getElementById('password').value = resultF;
       
-      })();        
+      })();
+      //11 + 11 = ",X"f!=!-!T"B^!/"^W" / "a"7L"r!*"]Y"L!"*!\g / "G"8!I!RM!7A"h5!!."R
     } else {
       // Remove a classe para tornar o botão não clicável e com a cor padrão
       generateButton.classList.remove('active');
@@ -290,15 +305,18 @@ function togglePopup(text) {
     const template = document.getElementById(contentTemplateId);
     const content = template.innerHTML;
     
-    if (window === '1'){
+    if (window === '1'){ //Menu Info
       document.getElementById('popup-content').innerHTML = content;
       document.getElementById('popup').style.display = 'block';
-    } if (window === '2'){
+      document.body.classList.add('modal-open');
+    } if (window === '2'){ //Menu Config
       document.getElementById('settings-popup-content').innerHTML = content;
       document.getElementById('settings-popup').style.display = 'block';
-    } else {
+      document.body.classList.add('modal-open');
+    } else { //Menu Donate
       document.getElementById('donation-popup-content').innerHTML = content;
       document.getElementById('donation-popup').style.display = 'block';
+      document.body.classList.add('modal-open');
     }
   }
 
@@ -322,21 +340,21 @@ function togglePopup(text) {
       // A senha precisa atender a todos os critérios para ser considerada forte
       if (password.length >= 4) {
           strength = 10;
-      } if (password.length >= 4 && lowercaseCount >= 1 && uppercaseCount >= 0 && symbolCount >= 0 && digitCount >= 1) {
+      } if (password.length >= 6 && lowercaseCount >= 1 && uppercaseCount >= 0 && symbolCount >= 0 && digitCount >= 1) {
           strength = 20;
-      } if (password.length >= 5 && lowercaseCount >= 1 && uppercaseCount >= 1 && symbolCount >= 0 && digitCount >= 1) {
+      } if (password.length >= 8 && lowercaseCount >= 1 && uppercaseCount >= 1 && symbolCount >= 0 && digitCount >= 1) {
           strength = 30;
-      } if (password.length >= 6 && lowercaseCount >= 1 && uppercaseCount >= 1 && symbolCount >= 1 && digitCount >= 1) {
+      } if (password.length >= 10 && lowercaseCount >= 1 && uppercaseCount >= 1 && symbolCount >= 1 && digitCount >= 1) {
           strength = 40;
-      } if (password.length >= 8 && lowercaseCount >= 2 && uppercaseCount >= 2 && symbolCount >= 1 && digitCount >= 1) {
+      } if (password.length >= 10 && lowercaseCount >= 2 && uppercaseCount >= 2 && symbolCount >= 1 && digitCount >= 1) {
           strength = 60;
-      } if (password.length >= 10 && lowercaseCount >= 3 && uppercaseCount >= 2 && symbolCount >= 1 && digitCount >= 2) {
+      } if (password.length >= 15 && lowercaseCount >= 3 && uppercaseCount >= 2 && symbolCount >= 1 && digitCount >= 2) {
           strength = 80;
       } if (password.length >= 15 && lowercaseCount >= 4 && uppercaseCount >= 3 && symbolCount >= 2 && digitCount >= 3) {
           strength = 85;
       } if (password.length >= 20 && lowercaseCount >= 4 && uppercaseCount >= 4 && symbolCount >= 3 && digitCount >= 3) {
           strength = 90;
-      } if (password.length >= 22 && lowercaseCount >= 5 && uppercaseCount >= 5 && symbolCount >= 4 && digitCount >= 3) {
+      } if (password.length >= 20 && lowercaseCount >= 5 && uppercaseCount >= 5 && symbolCount >= 4 && digitCount >= 3) {
           strength = 95;
       } if (password.length >= 25 && lowercaseCount >= 5 && uppercaseCount >= 5 && symbolCount >= 5 && digitCount >= 5) {
           strength = 100;
@@ -350,19 +368,19 @@ function togglePopup(text) {
       const words = (password.trim().split(/\s+/)).length;
       
       // A senha precisa atender a todos os critérios para ser considerada forte
-      if (password.length >= 2 && words >= 1) {
+      if (password.length >= 3 && words >= 1) {
           strength = 10;
-      } if (password.length >= 4 && words >= 2) {
+      } if (password.length >= 5 && words >= 1) {
           strength = 20;
-      } if (password.length >= 6 && words >= 3) {
+      } if (password.length >= 7 && words >= 2) {
           strength = 30;
-      } if (password.length >= 8 && words >= 4) {
+      } if (password.length >= 8 && words >= 3) {
           strength = 40;
-      } if (password.length >= 10 && words >= 5) {
+      } if (password.length >= 10 && words >= 4) {
           strength = 60;
-      } if (password.length >= 14 && words >= 7) {
+      } if (password.length >= 14 && words >= 6) {
           strength = 80;
-      } if (password.length >= 18 && words >= 9) {
+      } if (password.length >= 18 && words >= 8) {
           strength = 85;
       } if (password.length >= 24 && words >= 12) {
           strength = 90;

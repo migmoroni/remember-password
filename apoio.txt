@@ -1,0 +1,5 @@
+// Exemplo de armazenamento no sessionStorage
+sessionStorage.setItem('chave', 'valor');
+const valorRecuperado = sessionStorage.getItem('chave');
+
+
