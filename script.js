@@ -127,9 +127,9 @@ function togglePopup(text) {
   }
 
   async function generate() {
-    const password1 = btoa(document.getElementById('form1').elements[0].value);
-    const password2 = btoa(document.getElementById('form2').elements[0].value);
-    const password3 = btoa(document.getElementById('form3').elements[0].value);
+    const password1 = document.getElementById('form1').elements[0].value;
+    const password2 = document.getElementById('form2').elements[0].value;
+    const password3 = document.getElementById('form3').elements[0].value;
     const passwordSize = btoa(20);
 
     // Verifica se pelo menos o primeiro e o terceiro formulários têm mais de 1 caractere
