@@ -1,367 +1,410 @@
 body {
-    margin: 0;
-    padding: 0;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    height: 100vh;
-    background-color: #333;
-    color: white;
-    overflow:visible;
-    font-family:Arial, Helvetica, sans-serif;
-  }
+  margin: 0;
+  padding: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  background-color: #333;
+  color: white;
+  overflow:visible;
+  font-family:Arial, Helvetica, sans-serif;
+}
 
-  body.modal-open {
-    overflow: hidden;
-  }
+body.modal-open {
+  overflow: hidden;
+}
 
-  footer {
-    margin-bottom: 20px;
-  }
+footer {
+  margin-bottom: 20px;
+}
 
-  h1 {
-    padding-top: 10%;
-    text-align: center;
-  }
+h1 {
+  padding-top: 10%;
+  text-align: center;
+}
 
-  .password-strength-bar {
-    height: 10px;
-    background-color: #007bff;
-    border: 1px #fff solid;
-    margin-top: 5px;
-    width: 0px; /* A largura inicial é zero */
-    transition: width 0.3s ease; /* Adiciona uma transição suave */
-  }
+.password-strength-bar {
+  height: 10px;
+  background-color: #007bff;
+  border: 1px #fff solid;
+  margin-top: 5px;
+  width: 0px; /* A largura inicial é zero */
+  transition: width 0.3s ease; /* Adiciona uma transição suave */
+}
 
-  .combined-strength-bar {
-    height: 10px;
-    background-color: #007bff;
-    border: 1px #fff solid;
-    margin-top: 15px;
-    width: 0px; /* Largura inicial é zero */
-    transition: width 0.3s ease; /* Adiciona uma transição suave */
-    margin-bottom: 20px;
-  }
+.combined-strength-bar {
+  height: 10px;
+  background-color: #007bff;
+  border: 1px #fff solid;
+  margin-top: 15px;
+  width: 0px; /* Largura inicial é zero */
+  transition: width 0.3s ease; /* Adiciona uma transição suave */
+  margin-bottom: 20px;
+}
 
-  .form-container {
-    margin-bottom: 20px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-direction: column;
-  }
+.form-container {
+  margin-bottom: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
 
-  .form-header {
-    font-size: 18px;
-    margin-bottom: 10px;
-  }
+.form-header {
+  font-size: 18px;
+  margin-bottom: 10px;
+}
 
-  .password-input {
-    width: 200px;
-    padding: 10px;
-    margin-bottom: 10px;
-    text-align: center;
-  }
+.password-input {
+  width: 200px;
+  padding: 10px;
+  margin-bottom: 10px;
+  text-align: center;
+}
 
-  .password-input:focus {
-    outline: none; /* Remove a borda padrão do foco */
-    border-color: #007bff; /* Define a cor da borda para azul quando em foco */
-    box-shadow: 0 0 5px rgba(0, 123, 255, 0.5); /* Adiciona uma sombra azul suave quando em foco */
-  }
+.password-input:focus {
+  outline: none; /* Remove a borda padrão do foco */
+  border-color: #007bff; /* Define a cor da borda para azul quando em foco */
+  box-shadow: 0 0 5px rgba(0, 123, 255, 0.5); /* Adiciona uma sombra azul suave quando em foco */
+}
 
-  .tabs-container {
-    display: flex;
-    flex-direction: row;
-    flex-wrap:wrap;
-    margin-bottom: 10px;
-  } /* tentativa de corrigir os infos*/
+.tabs-container {
+  display: flex;
+  flex-direction: column;
+  flex-wrap:wrap;
+  margin-bottom: 10px;
+} /* tentativa de corrigir os infos*/
 
-  .tab {
-    cursor: pointer;
-    padding: 10px;
-    min-width: 100px;
-    margin-right: 10px;
-    margin-top: 10px;
-    background-color: #007bff;
-    text-align: center;
-    color: white;
-    border: none;
-    border-radius: 0px;
-    font-size: 14px;
-  }
+.tab {
+  cursor: pointer;
+  padding: 10px;
+  min-width: 100px;
+  margin-right: 10px;
+  margin-top: 10px;
+  background-color: #007bff;
+  text-align: left;
+  color: white;
+  border: none;
+  border-radius: 0px;
+  font-size: 14px;
+}
 
-  .tab:hover {
-    box-shadow: 0 0 25px rgba(0, 123, 255, 0.5); /* Adiciona uma sombra azul suave quando em foco*/
-  }
+.tab:hover {
+  box-shadow: 0 0 25px rgba(0, 123, 255, 0.5); /* Adiciona uma sombra azul suave quando em foco*/
+}
 
-  .tab-content {
-    margin-top: 10px;
-  } 
-  
-  #question-mark {
-    cursor: pointer;
-    font-size: 18px;
-    color: #fff;
-    background-color: #007bff;
-    border-radius: 0%;
-    padding: 10px 13px;
-    position: absolute;
-    top: 15px;
-    left: 0px;
-    clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
-  }
+.tab-content {
+  margin-top: 10px;
+} 
 
-  #settings-btn {
-    cursor: pointer;
-    font-size: 18px;
-    color: #fff;
-    background-color: #007bff;
-    border-radius: 0%;
-    padding: 10px;
-    position: absolute;
-    top: 15px;
-    right: 0px;
-    clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
-  }
-  /*
+#question-mark {
+  cursor: pointer;
+  font-size: 18px;
+  color: #fff;
+  background-color: #007bff;
+  border-radius: 0%;
+  padding: 10px 13px;
+  position: absolute;
+  top: 15px;
+  left: 0px;
+  clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
+}
 
-  .info-buttons {
-    display: flex;
-    justify-content: center; /* Centraliza os botões "Info"
-    margin-bottom: 10px;
-    position:relative;
-  }
+#settings-btn {
+  cursor: pointer;
+  font-size: 18px;
+  color: #fff;
+  background-color: #007bff;
+  border-radius: 0%;
+  padding: 10px;
+  position: absolute;
+  top: 15px;
+  right: 0px;
+  clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
+}
+/*
 
- 
-  
-
-  .info-button {
-    background-color: #007bff;
-    color: white;
-    padding: 10px;
-    margin: 0 15px; /* Adiciona espaçamento entre os botões "Info"
-    border: none;
-    cursor: pointer;
-  }
-
-  .info-button:hover {
-    box-shadow: 0 0 25px rgba(0, 123, 255, 0.5); /* Adiciona uma sombra azul suave quando em foco
-  }
-  */
-  .ok-button {
-    display: flex;
-    justify-content: right; /* Centraliza os botões "OK" */
-    margin-bottom: 10px;
-  }
-
-  #main-top {
-    display: flex;
-  }
-
-  #main-window {
-    min-width: 250px;
-    min-height: 20%;
-    display: flex;
-    flex-direction: column;
-    background-color: #333;
-    color: white;
-    padding: 20px;
-    position: relative;
-    max-width: 500px; /* Largura máxima de 50% no widescreen */
-    width: 90%; /* Largura de 90% no portrait */
-    max-height: 100vh; /* Altura máxima de 80% */
-    margin: auto; /* Centraliza na tela */
-  }
-
-  #popup {
-    display: none;
-    position: fixed;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    padding: 20px;
-    background-color: #2b2b2b;
-    color: white;
-    border: 2px solid #007bff;
-    min-width: 60%; /* Ajustado para % da largura da janela principal */
-    min-height: 90%; /* Ajustado para % da altura da janela principal */
-    max-width: 60%; /* Ajustado para % da largura da janela principal */
-    max-height: 90%; /* Ajustado para % da altura da janela principal */
-    overflow-y: auto;
-    overflow-x: auto;
-  }
-
-  #settings-popup {
-    display: none;
-    position: fixed;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    padding: 20px;
-    background-color: #2b2b2b;
-    color: white;
-    border: 2px solid #007bff;
-    min-width: 60%; /* Ajustado para % da largura da janela principal */
-    min-height: 90%; /* Ajustado para % da altura da janela principal */
-    max-width: 60%; /* Ajustado para % da largura da janela principal */
-    max-height: 90%; /* Ajustado para % da altura da janela principal */
-    overflow-y: auto;
-    overflow-x: auto;
-  }
-
-  #donation-popup {
-    display: none;
-    position: fixed;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    padding: 20px;
-    background-color: #2b2b2b;
-    color: white;
-    border: 2px solid #007bff;
-    min-width: 80%; /* Ajustado para % da largura da janela principal */
-    min-height: 90%; /* Ajustado para % da altura da janela principal */
-    max-width: 70%; /* Ajustado para % da largura da janela principal */
-    max-height: 90%; /* Ajustado para % da altura da janela principal */
-    overflow-y: auto;
-    overflow-x: auto;
-  }
-
-  #generate-btn {
-    /* Estilo padrão do botão */
-    background-color: #007bff;
-    color: white;
-    padding: 10px;
-    font-size: 16px;
-    border: none;
-    cursor: pointer;
-    margin-top: 20px;
-    width: 200px;
-    align-self: center;
-    text-transform: uppercase;
-  }
-
-  #generate-btn.disabled {
-    background-color: #555; /* Cor de fundo mais escura */
-    cursor: not-allowed; /* Cursor não clicável */
-  }
-
-  #generate-btn.active {
-    background-color: #007bff;
-  }
-
-  #generate-btn.active:hover {
-    box-shadow: 0 0 25px rgba(0, 123, 255, 10); /* Adiciona uma sombra azul suave quando em foco */
-  }
+.info-buttons {
+  display: flex;
+  justify-content: center; /* Centraliza os botões "Info"
+  margin-bottom: 10px;
+  position:relative;
+}
 
 
-  #donation-btn {
-    /* Estilo padrão do botão */
-    cursor: pointer;
-    background-color: #007bff;
-    color: white;
-    padding: 10px;
-    font-size: 16px;
-    text-align: center;
-    margin-top: 20px;
-    width: 80px;
-    align-self: center;
-    text-transform: uppercase;
-  }
 
-  #donation-btn:hover {
-    box-shadow: 0 0 25px rgba(0, 123, 255, 10); /* Adiciona uma sombra azul suave quando em foco */
-  }
 
-  #password-container {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-direction: row;
-  }
+.info-button {
+  background-color: #007bff;
+  color: white;
+  padding: 10px;
+  margin: 0 15px; /* Adiciona espaçamento entre os botões "Info"
+  border: none;
+  cursor: pointer;
+}
 
-  #password {
-    flex-grow: 1;
-    padding: 9px;
-    width: 40px;
-    text-align: center;
-  }
+.info-button:hover {
+  box-shadow: 0 0 25px rgba(0, 123, 255, 0.5); /* Adiciona uma sombra azul suave quando em foco
+}
+*/
+.ok-button {
+  display: flex;
+  justify-content: center; /* Centraliza os botões "OK" */
+  margin-bottom: 10px;
+}
 
-  #password:focus {
-    outline: none; /* Remove a borda padrão do foco */
-    border-color: #007bff; /* Define a cor da borda para azul quando em foco */
-    box-shadow: 0 0 20px rgba(0, 123, 255, 1); /* Adiciona uma sombra azul suave quando em foco */
-  }
+#main-top {
+  display: flex;
+}
 
-  #reveal-btn {
-    background-color: #007bff;
-    color: white;
-    padding: 10px;
-    border: none;
-    cursor: pointer;
-    text-align: center;
-    min-width: 10vh;
-  }
+#main-window {
+  min-width: 250px;
+  min-height: 20%;
+  display: flex;
+  flex-direction: column;
+  background-color: #333;
+  color: white;
+  padding: 20px;
+  position: relative;
+  max-width: 500px; /* Largura máxima de 50% no widescreen */
+  width: 90%; /* Largura de 90% no portrait */
+  max-height: 100vh; /* Altura máxima de 80% */
+  margin: auto; /* Centraliza na tela */
+}
 
-  #copy-btn {
-    background-color: #007bff;
-    color: white;
-    padding: 10px;
-    border: none;
-    cursor: pointer;
-    min-width: 10vh;
-  }
+#popup {
+  display: none;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  padding: 20px;
+  background-color: #2b2b2b;
+  color: white;
+  border: 2px solid #007bff;
+  min-width: 60%; /* Ajustado para % da largura da janela principal */
+  min-height: 90%; /* Ajustado para % da altura da janela principal */
+  max-width: 60%; /* Ajustado para % da largura da janela principal */
+  max-height: 90%; /* Ajustado para % da altura da janela principal */
+  overflow-y: auto;
+  overflow-x: auto;
+}
 
-  #copy-btn:hover {
-    box-shadow: 0 0 25px rgba(0, 123, 255, 10); /* Adiciona uma sombra azul suave quando em foco */
-  }
+#settings-popup {
+  display: none;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  padding: 20px;
+  background-color: #2b2b2b;
+  color: white;
+  border: 2px solid #007bff;
+  min-width: 60%; /* Ajustado para % da largura da janela principal */
+  min-height: 90%; /* Ajustado para % da altura da janela principal */
+  max-width: 60%; /* Ajustado para % da largura da janela principal */
+  max-height: 90%; /* Ajustado para % da altura da janela principal */
+  overflow-y: auto;
+  overflow-x: auto;
+}
 
-  #reveal-btn:hover {
-    box-shadow: 0 0 25px rgba(0, 123, 255, 10); /* Adiciona uma sombra azul suave quando em foco */
-  }
+#donation-popup {
+  display: none;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  padding: 20px;
+  background-color: #2b2b2b;
+  color: white;
+  border: 2px solid #007bff;
+  min-width: 80%; /* Ajustado para % da largura da janela principal */
+  min-height: 90%; /* Ajustado para % da altura da janela principal */
+  max-width: 70%; /* Ajustado para % da largura da janela principal */
+  max-height: 90%; /* Ajustado para % da altura da janela principal */
+  overflow-y: auto;
+  overflow-x: auto;
+}
 
-  #popup-content {
-    margin-bottom: 20px; /* Espaço entre botões "Info" e texto */
-  }
+#generate-btn {
+  /* Estilo padrão do botão */
+  background-color: #007bff;
+  color: white;
+  padding: 10px;
+  font-size: 16px;
+  border: none;
+  cursor: pointer;
+  margin-top: 20px;
+  width: 200px;
+  align-self: center;
+  text-transform: uppercase;
+}
 
-  #settings-popup-content {
-    margin-bottom: 20px; /* Espaço entre botões "Info" e texto */
-  }
+#generate-btn.disabled {
+  background-color: #555; /* Cor de fundo mais escura */
+  cursor: not-allowed; /* Cursor não clicável */
+}
 
-  #ok-btn {
-    background-color: #007bff;
-    color: white;
-    padding: 10px;
-    border: none;
-    cursor: pointer;
-  }
+#generate-btn.active {
+  background-color: #007bff;
+}
 
-  #ok-btn:hover {
-    box-shadow: 0 0 25px rgba(0, 123, 255, 10); /* Adiciona uma sombra azul suave quando em foco */
-  }
+#generate-btn.active:hover {
+  box-shadow: 0 0 25px rgba(0, 123, 255, 10); /* Adiciona uma sombra azul suave quando em foco */
+}
 
-  /* Janelas adicionais */
 
-  #settings-window {
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-    padding: 20px;
-  }
+#donation-btn {
+  /* Estilo padrão do botão */
+  cursor: pointer;
+  background-color: #007bff;
+  color: white;
+  padding: 10px;
+  font-size: 16px;
+  text-align: center;
+  margin-top: 20px;
+  width: 80px;
+  align-self: center;
+  text-transform: uppercase;
+}
 
-  #info-text{
-    align-items: flex-end;
-  }
+#donation-btn:hover {
+  box-shadow: 0 0 25px rgba(0, 123, 255, 10); /* Adiciona uma sombra azul suave quando em foco */
+}
 
-  .option {
-    margin-bottom: 15px;
-  }
+#password-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: row;
+}
 
-  .option label {
-    display: flex;
-    align-items: center;
-  }
+#password {
+  flex-grow: 1;
+  padding: 9px;
+  width: 40px;
+  text-align: center;
+}
 
-  .option p {
-    margin-left: 25px; /* Ajuste a margem conforme necessário */
-  }
+#password:focus {
+  outline: none; /* Remove a borda padrão do foco */
+  border-color: #007bff; /* Define a cor da borda para azul quando em foco */
+  box-shadow: 0 0 20px rgba(0, 123, 255, 1); /* Adiciona uma sombra azul suave quando em foco */
+}
+
+#reveal-btn {
+  background-color: #007bff;
+  color: white;
+  padding: 10px;
+  border: none;
+  cursor: pointer;
+  text-align: center;
+  min-width: 10vh;
+}
+
+#copy-btn {
+  background-color: #007bff;
+  color: white;
+  padding: 10px;
+  border: none;
+  cursor: pointer;
+  min-width: 10vh;
+}
+
+#copy-btn:hover {
+  box-shadow: 0 0 25px rgba(0, 123, 255, 10); /* Adiciona uma sombra azul suave quando em foco */
+}
+
+#reveal-btn:hover {
+  box-shadow: 0 0 25px rgba(0, 123, 255, 10); /* Adiciona uma sombra azul suave quando em foco */
+}
+
+#popup-content {
+  margin-bottom: 20px; /* Espaço entre botões "Info" e texto */
+}
+
+#settings-popup-content {
+  margin-bottom: 20px; /* Espaço entre botões "Info" e texto */
+}
+
+#ok-btn {
+  background-color: #007bff;
+  color: white;
+  margin: 40px;
+  padding: 15px;
+  border: none;
+  cursor: pointer;
+}
+
+#ok-btn:hover {
+  box-shadow: 0 0 25px rgba(0, 123, 255, 10); /* Adiciona uma sombra azul suave quando em foco */
+}
+
+/* Janelas adicionais */
+
+#settings-window {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  padding: 20px;
+}
+
+#info-text{
+  align-items: flex-end;
+}
+
+.option {
+  margin-bottom: 15px;
+}
+
+.option label {
+  display: flex;
+  align-items: center;
+}
+
+.option p {
+  margin-left: 40px; /* Ajuste a margem conforme necessário */
+}
+
+.option span {
+  height: 25px;
+  margin-right: 10px;
+}
+
+/* Estilo personalizado para o input radio oculto */
+input[type="radio"] {
+  display: none;
+}
+
+/* Estilo para a aparência visual do input radio personalizado */
+input[type="radio"] + span {
+  position: relative;
+  padding-left: 30px; /* Ajuste o espaço para o indicador personalizado */
+  cursor: pointer;
+  display: inline-block;
+  line-height: 20px;
+}
+
+/* Estilo para o indicador personalizado quando não está selecionado */
+input[type="radio"] + span::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 20px;
+  height: 20px;
+  border: 2px solid #3498db; /* Cor da borda do indicador */
+  border-radius: 0%;
+  background-color: white; /* Cor de fundo do indicador quando não está selecionado */
+}
+
+/* Estilo para o indicador personalizado quando está selecionado */
+input[type="radio"]:checked + span::before {
+  background-color: #007bff; /* Cor de fundo do indicador quando está selecionado */
+}
+
+/* Estilo para o texto ao lado do indicador */
+input[type="radio"] + span + label {
+  margin-left: 10px;
+}

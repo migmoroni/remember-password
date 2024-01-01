@@ -61,6 +61,7 @@ Este projeto está licenciado sob a Licença MIT.
 Por ser software livre, todos podem auditar este código, criar variações e guardar consigo, em qualquer lugar que esteja.
 Quanto a direitos autorais, o único pedido é sempre creditar a "Miguel Eduardo Senna Moroni", mantendo o arquivo LICENSE junto ao código.
 
+
 ## 🛡️ Segurança x 🗽 Liberdade
 
 Remember Password é projetado para que você possa ter muita segurança, sem perder sua liberdade!
