@@ -185,6 +185,7 @@
       <div id="settings-popup-content-template-2" style="display: none;">
         <div>
           <h2>Padrões Gerais</h2>
+          <p>Especifique padrões para a aplicação como um todo</p>
         </div>
         <div>
           <h3>Base de Caracteres</h3>
@@ -287,28 +288,37 @@
 
       <div id="settings-popup-content-template-3" style="display: none;">
         <div>
-          <h2>Tamanho da Senha</h2>
-          <p>Quão maior for a senha gerada, mais segura será. Escolha a que satisfaz suas necessidades de segurança:</p>
+          <h2>Padrões Específicos</h2>
+          <p>Escolha padrões de senha pré configuradas</p>
         </div>
+
         <div id="settings-window">
-      
           <div class="option">
             <label>
-              <input type="radio" name="language" value="base85P" checked> Conjunto de caracteres do idioma do computador (Padrão)
+              <input type="radio" name="language" value="base85P" checked><span></span> Caracteres do idioma do computador (Padrão)
             </label>
-            <!--<p>Complexidade: <input type="text" id="text-complex-s-t-1" placeholder="" readonly></p>-->
+            <p>Complexidade: 85 caracteres => 85<sup>10</sup>  (1,96 x 10<sup>19</sup> de possibilidades)</p>
           </div>
       
           <div class="option">
             <label>
-              <input type="radio" name="language" value="base85F"> Conjunto de caracteres Fixos (0-9/A-z/a-z/!-~)
+              <input type="radio" name="language" value="base85F"><span></span> Caracteres Fixos (0-9/A-z/a-z/!-~)
             </label>
+            <p>Complexidade: 85 caracteres => 85<sup>10</sup>  (1,96 x 10<sup>19</sup> de possibilidades)</p>
           </div>
 
           <div class="option">
             <label>
-              <input type="radio" name="language" value="baseASCII"> Conjunto de caracteres ASCII
+              <input type="radio" name="language" value="baseASCII"><span></span> Caracteres ASCII
             </label>
+            <p>Complexidade: 128 caracteres => 128<sup>10</sup>  (1,18 x 10<sup>21</sup> de possibilidades)</p>
+          </div>
+      
+          <div class="option">
+            <label>
+              <input type="radio" name="language" value="baseUTF8"><span></span> Caracteres Unicode (UTF-8)
+            </label>
+            <p>Complexidade: 65 536 caracteres => 65 536<sup>10</sup>  (1,46 x 10<sup>48</sup> de possibilidades)</p>
           </div>
       
         </div>
