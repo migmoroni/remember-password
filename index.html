@@ -165,7 +165,7 @@
           <h2>Idioma preferido</h2>
           <p>Escolha o idioma</p>
         </div>
-        <div id="settings-window">
+        <div class="settings-window">
       
           <div class="option">
             <label>
@@ -187,102 +187,110 @@
           <h2>Padrões Gerais</h2>
           <p>Especifique padrões para a aplicação como um todo</p>
         </div>
+
         <div>
           <h3>Base de Caracteres</h3>
           <p>Quantos mais caracteres sua senha tiver, mais segura será. Escolha a que satisfaz suas necessidades de segurança:</p>
         </div>
-        <div id="settings-window">
+        <div class="settings-window">
           <div class="option">
             <label>
-              <input type="radio" name="language" value="base85P" checked><span></span> Caracteres do idioma do computador (Padrão)
+              <input type="radio" name="caractere" value="base10"><span></span> Caracteres do sistema decimal indo-arábico
             </label>
-            <p>Complexidade: 85 caracteres => 85<sup>10</sup>  (1,96 x 10<sup>19</sup> de possibilidades)</p>
-          </div>
-      
-          <div class="option">
-            <label>
-              <input type="radio" name="language" value="base85F"><span></span> Caracteres Fixos (0-9/A-z/a-z/!-~)
-            </label>
-            <p>Complexidade: 85 caracteres => 85<sup>10</sup>  (1,96 x 10<sup>19</sup> de possibilidades)</p>
+            <p>10 caracteres => 0 1 2 3 4 5 6 7 8 9</p>
           </div>
 
           <div class="option">
             <label>
-              <input type="radio" name="language" value="baseASCII"><span></span> Caracteres ASCII
+              <input type="radio" name="caractere" value="base10"><span></span> Caracteres do sistema hexadecimal
             </label>
-            <p>Complexidade: 128 caracteres => 128<sup>10</sup>  (1,18 x 10<sup>21</sup> de possibilidades)</p>
+            <p>16 caracteres => 0 1 2 3 4 5 6 7 8 9 A B C D E F</p>
+          </div>
+
+          <div class="option">
+            <label>
+              <input type="radio" name="caractere" value="base85P" checked><span></span> Caracteres do idioma do computador (Padrão)
+            </label>
+            <p>85 caracteres => <br>0 1 2 3 4 5 6 7 8 9 A B C D E F G H I J K L M N O P Q R S T U V W X Y Z a b c d e f g h i j k l m n o p q r s t u v w x y z ! # $ % & ( ) * + - ; < = > ? @ ^ _ ` { | } ~</p>
           </div>
       
           <div class="option">
             <label>
-              <input type="radio" name="language" value="baseUTF8"><span></span> Caracteres Unicode (UTF-8)
+              <input type="radio" name="caractere" value="base85F"><span></span> Caracteres Fixos (0-9/A-z/a-z/!-~)
             </label>
-            <p>Complexidade: 65 536 caracteres => 65 536<sup>10</sup>  (1,46 x 10<sup>48</sup> de possibilidades)</p>
+            <p>85 caracteres => <br>0 1 2 3 4 5 6 7 8 9 A B C D E F G H I J K L M N O P Q R S T U V W X Y Z a b c d e f g h i j k l m n o p q r s t u v w x y z ! # $ % & ( ) * + - ; < = > ? @ ^ _ ` { | } ~</p>
+          </div>
+
+          <div class="option">
+            <label>
+              <input type="radio" name="caractere" value="baseASCII"><span></span> Caracteres ASCII
+            </label>
+            <p>128 caracteres => 128</p>
           </div>
       
+          <div class="option">
+            <label>
+              <input type="radio" name="caractere" value="baseUTF8"><span></span> Caracteres Unicode (UTF-8)
+            </label>
+            <p>65 536 caracteres => WOW!</p>
+          </div>
         </div>
-
+        
         <div>
           <h3>Tamanho da Senha</h3>
           <p>Quão maior for a senha gerada, mais segura será. Escolha a que satisfaz suas necessidades de segurança:</p>
         </div>
-        <div id="settings-window">
-      
-          <div class="option">
-            <label>
-              <input type="radio" name="language" value="base85P"><span></span> 4 Caracteres
-            </label>
-            <!--<p>Complexidade: <input type="text" id="text-complex-s-t-1" placeholder="" readonly></p>-->
-          </div>
+        <div class="settings-window">
+          <div>
+            <div class="option">
+              <label>
+                <input type="radio" name="size" value="4"><span></span> 4 Caracteres
+              </label>
+              <!--<p>Complexidade: <input type="text" id="text-complex-s-t-1" placeholder="" readonly></p>-->
+            </div>
 
-          <div class="option">
-            <label>
-              <input type="radio" name="language" value="baseASCII"><span></span> 5 Caracteres
-            </label>
-          </div>
+            <div class="option">
+              <label>
+                <input type="radio" name="size" value="5"><span></span> 5 Caracteres
+              </label>
+            </div>
 
-          <div class="option">
-            <label>
-              <input type="radio" name="language" value="baseASCII"><span></span> 6 Caracteres
-            </label>
-          </div>
+            <div class="option">
+              <label>
+                <input type="radio" name="size" value="6"><span></span> 6 Caracteres
+              </label>
+            </div>
 
-          <div class="option">
-            <label>
-              <input type="radio" name="language" value="baseASCII"><span></span> 10 Caracteres
-            </label>
-          </div>
+            <div class="option">
+              <label>
+                <input type="radio" name="size" value="10"><span></span> 10 Caracteres
+              </label>
+            </div>
 
-          <div class="option">
-            <label>
-              <input type="radio" name="language" value="baseASCII"><span></span> 15 Caracteres
-            </label>
-          </div>
-      
-          <div class="option">
-            <label>
-              <input type="radio" name="language" value="base85F" checked><span></span> 20 Caracteres (Padrão)
-            </label>
-          </div>
+            <div class="option">
+              <label>
+                <input type="radio" name="size" value="15"><span></span> 15 Caracteres
+              </label>
+            </div>
+        
+            <div class="option">
+              <label>
+                <input type="radio" name="size" value="20" checked><span></span> 20 Caracteres (Padrão)
+              </label>
+            </div>
 
-          <div class="option">
-            <label>
-              <input type="radio" name="language" value="baseASCII"><span></span> 25 Caracteres
-            </label>
-          </div>
+            <div class="option">
+              <label>
+                <input type="radio" name="size" value="25"><span></span> 25 Caracteres
+              </label>
+            </div>
 
-          <div class="option">
-            <label>
-              <input type="radio" name="language" value="baseASCII"><span></span> 30 Caracteres
-            </label>
+            <div class="option">
+              <label>
+                <input type="radio" name="size" value="30"><span></span> 30 Caracteres
+              </label>
+            </div>
           </div>
-
-          <div class="option">
-            <label>
-              <input type="radio" name="language" value="baseASCII"><span></span> 50 Caracteres
-            </label>
-          </div>
-      
         </div>
       </div>
 
@@ -292,31 +300,30 @@
           <p>Escolha padrões de senha pré configuradas</p>
         </div>
 
-        <div id="settings-window">
+        <div class="settings-window">
           <div class="option">
             <label>
-              <input type="radio" name="language" value="base85P" checked><span></span> Caracteres do idioma do computador (Padrão)
+              <input type="radio" name="espec" value="base85P" checked><span></span> Apenas números
             </label>
-            <p>Complexidade: 85 caracteres => 85<sup>10</sup>  (1,96 x 10<sup>19</sup> de possibilidades)</p>
           </div>
       
           <div class="option">
             <label>
-              <input type="radio" name="language" value="base85F"><span></span> Caracteres Fixos (0-9/A-z/a-z/!-~)
+              <input type="radio" name="espec" value="base85F"><span></span> Apenas 
             </label>
             <p>Complexidade: 85 caracteres => 85<sup>10</sup>  (1,96 x 10<sup>19</sup> de possibilidades)</p>
           </div>
 
           <div class="option">
             <label>
-              <input type="radio" name="language" value="baseASCII"><span></span> Caracteres ASCII
+              <input type="radio" name="espec" value="baseASCII"><span></span> Caracteres ASCII
             </label>
             <p>Complexidade: 128 caracteres => 128<sup>10</sup>  (1,18 x 10<sup>21</sup> de possibilidades)</p>
           </div>
       
           <div class="option">
             <label>
-              <input type="radio" name="language" value="baseUTF8"><span></span> Caracteres Unicode (UTF-8)
+              <input type="radio" name="espec" value="baseUTF8"><span></span> Caracteres Unicode (UTF-8)
             </label>
             <p>Complexidade: 65 536 caracteres => 65 536<sup>10</sup>  (1,46 x 10<sup>48</sup> de possibilidades)</p>
           </div>
@@ -335,7 +342,7 @@
           <h2>Título2 da Dúvida</h2>
           <p>Texto livremente formatado usando HTML.</p>
         </div>
-        <div id="settings-window">
+        <div class="settings-window">
           
           <p>QR CODE</p>
       
