@@ -376,6 +376,13 @@ h1 {
   padding: 0px;
 }
 
+.formConfig {
+  user-select: none;
+  pointer-events: none;
+  width: 200px;
+  text-align: center;
+}
+
 /* Estilo personalizado para o input radio oculto */
 input[type="radio"] {
   display: none;

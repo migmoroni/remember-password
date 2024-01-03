@@ -97,6 +97,18 @@ function togglePopup(text) {
     return hashHex;
   }
 
+  async function calcularHashSHA384(dados) {
+    //const encoder = new TextEncoder();
+    const dadosArrayBuffer = new TextEncoder().encode(dados);
+
+    const hashBuffer = await crypto.subtle.digest('SHA-384', dadosArrayBuffer);
+
+    const hashArray = Array.from(new Uint8Array(hashBuffer));
+    const hashHex = hashArray.map(byte => byte.toString(16).padStart(2, '0')).join('');
+
+    return hashHex;
+  }
+
   async function calcularHashSHA256(dados) {
     //const encoder = new TextEncoder();
     const dadosArrayBuffer = new TextEncoder().encode(dados);
@@ -104,10 +116,11 @@ function togglePopup(text) {
     const hashBuffer = await crypto.subtle.digest('SHA-256', dadosArrayBuffer);
 
     const hashArray = Array.from(new Uint8Array(hashBuffer));
-    const hashHex = hashArray.map(byte => byte.toString(36).padStart(2, '0')).join('');
+    const hashHex = hashArray.map(byte => byte.toString(16).padStart(2, '0')).join('');
 
     return hashHex;
   }
+  
 
   //var resultB = 0;
 
@@ -124,6 +137,14 @@ function togglePopup(text) {
     //Base 85 (fixa)
     //Base 128 - ASCII
     //Base 65536 - Unicode
+  }
+
+  async function choiceSize(size, password){
+    
+  }
+
+  async function readConfig(){
+    
   }
 
   async function generate() {
@@ -143,16 +164,17 @@ function togglePopup(text) {
       generateButton.classList.add('active');
 
       // Lógica de geração de senha
+
       (async () => {
       //Etapa 1: Concatenar e mascarar as 3 senhas numa única variavel
       
-      const resultA = await calcularHashSHA256(password1) + await calcularHashSHA256(password2) + await calcularHashSHA256(password3);
+      let resultA = await calcularHashSHA256(password1) + await calcularHashSHA256(password2) + await calcularHashSHA256(password3);
 
       //Etapa 2: Engrandecer o tamanho e ofuscar origem com hashes sequenciais - 12x
       
       const data = resultA;
-      const resultB = await calcularHashSHA512(await calcularHashSHA512(await calcularHashSHA512(data)));
-      const resultC = await calcularHashSHA512(await calcularHashSHA512(await calcularHashSHA512(resultB)));
+      const resultB = await calcularHashSHA256(await calcularHashSHA512(await calcularHashSHA512(data)));
+      const resultC = await calcularHashSHA512(await calcularHashSHA256(await calcularHashSHA512(resultB)));
       const resultD = await calcularHashSHA512(await calcularHashSHA512(await calcularHashSHA512(resultC)));
 
       //Etapa 3: Converção em base85, reduzindo tamanho e aumentando segurança
@@ -165,7 +187,7 @@ function togglePopup(text) {
       document.getElementById('password').value = resultF;
       
       })();
-      //11 + 11 = ",X"f!=!-!T"B^!/"^W" / "a"7L"r!*"]Y"L!"*!\g / "G"8!I!RM!7A"h5!!."R
+      //11 + 11 = 8"/!C"H!3"(!9"F"O"1!
     } else {
       // Remove a classe para tornar o botão não clicável e com a cor padrão
       generateButton.classList.remove('active');
