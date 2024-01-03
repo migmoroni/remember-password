@@ -1,0 +1,9 @@
+{
+    "name": "Remember Password",
+    "short_name": "PWA",
+    "description": "Suas senhas sempre com você!",
+    "start_url": "/",
+    "display": "standalone",
+    "background_color": "#333",
+    "theme_color": "#333"
+  }

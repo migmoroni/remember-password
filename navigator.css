@@ -1,0 +1,68 @@
+/* Para navegadores WebKit (Chrome) */
+::-webkit-scrollbar {
+    width: 12px;
+}
+
+::-webkit-scrollbar-thumb {
+background-color: #3498db;
+transition: background-color 0.3s ease;
+}
+
+::-webkit-scrollbar-thumb:hover {
+background-color: #2980b9;
+}
+
+::-webkit-scrollbar-track {
+background-color: #f1f1f1;
+}
+
+/* Estilo para ocultar o botão de revelação de senha no Webkit */
+input::-webkit-reveal {
+    display: none;
+}
+
+/* Para navegadores Firefox */
+::-moz-scrollbar {
+width: 12px;
+}
+
+::-moz-scrollbar-thumb {
+background-color: #3498db;
+transition: background-color 0.3s ease;
+}
+
+::-moz-scrollbar-thumb:hover {
+background-color: #2980b9;
+}
+
+::-moz-scrollbar-track {
+background-color: #f1f1f1;
+}
+
+/* Estilo para ocultar o botão de revelação de senha no Firefox */
+input::-moz-reveal {
+    display: none;
+}
+
+/* Para navegadores Blink (Microsoft Edge) */
+::-ms-scrollbar {
+width: 12px;
+}
+
+::-ms-scrollbar-thumb {
+background-color: #3498db;
+transition: background-color 0.3s ease;
+}
+
+::-ms-scrollbar-thumb:hover {
+background-color: #2980b9;
+}
+
+::-ms-scrollbar-track {
+background-color: #f1f1f1;
+}
+
+/* Estilo para ocultar o botão de revelação de senha no Edge */
+input::-ms-reveal {
+    display: none;
+}

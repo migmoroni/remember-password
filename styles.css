@@ -379,8 +379,14 @@ h1 {
 .formConfig {
   user-select: none;
   pointer-events: none;
-  width: 200px;
+  width: 220px;
+  padding-top: 10px;
+  font-size: 16px;
   text-align: center;
+  background-color: #333;
+  color: white;
+  /*border: none;  Remove a borda */
+  outline: none; /* Remove a borda de foco ao clicar */
 }
 
 /* Estilo personalizado para o input radio oculto */
@@ -418,59 +424,4 @@ input[type="radio"]:checked + span::before {
 /* Estilo para o texto ao lado do indicador */
 input[type="radio"] + span + label {
   margin-left: 10px;
-}
-
-
-/* Para navegadores WebKit */
-::-webkit-scrollbar {
-  width: 12px;
-}
-
-::-webkit-scrollbar-thumb {
-  background-color: #3498db;
-  transition: background-color 0.3s ease;
-}
-
-::-webkit-scrollbar-thumb:hover {
-  background-color: #2980b9;
-}
-
-::-webkit-scrollbar-track {
-  background-color: #f1f1f1;
-}
-
-/* Para navegadores Firefox */
-::-moz-scrollbar {
-  width: 12px;
-}
-
-::-moz-scrollbar-thumb {
-  background-color: #3498db;
-  transition: background-color 0.3s ease;
-}
-
-::-moz-scrollbar-thumb:hover {
-  background-color: #2980b9;
-}
-
-::-moz-scrollbar-track {
-  background-color: #f1f1f1;
-}
-
-/* Para navegadores Blink (Microsoft Edge) */
-::-ms-scrollbar {
-  width: 12px;
-}
-
-::-ms-scrollbar-thumb {
-  background-color: #3498db;
-  transition: background-color 0.3s ease;
-}
-
-::-ms-scrollbar-thumb:hover {
-  background-color: #2980b9;
-}
-
-::-ms-scrollbar-track {
-  background-color: #f1f1f1;
 }

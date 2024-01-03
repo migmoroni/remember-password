@@ -2,15 +2,27 @@
 <html lang="PT-BR">
 <head>
   <meta charset="UTF-8">
+
+  <meta name="title" content="Remember Password">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="author" content="MESM" />
+  <meta name="author" content="Miguel Eduardo Senna Moroni" />
   <meta name="description" content="Suas senhas sempre com você!" />
-  <meta name="keywords" content="password,security,remember" />
-  <meta http-equiv="Cache-Control" content="no-store" />
+  <meta name="keywords" content="password, security, remember password" />
+  <meta name="robots" content="index, follow">
+  <meta name="referrer" content="no-referrer">
+
+  <meta http-equiv="Cache-Control" content="no-store, no-cache, must-revalidate" />
   <meta http-equiv="Pragma" content="no-cache" />
   <meta http-equiv="Expires" content="0" />
+  <meta http-equiv="content-security-policy" content="sandbox">
+  <meta http-equiv="set-cookie" content="HttpOnly; Secure; SameSite=Strict">
+  <meta http-equiv="x-frame-options" content="SAMEORIGIN">
+
   <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="navigator.css">
   <link rel="stylesheet" href="responsible.css">
+
+  <link rel="manifest" href="/manifest.json">
 
   <title>Remember Password</title>
   
@@ -27,7 +39,7 @@
     <div>
       <div class="form-container"> 
         <div class="form-header">Senha de Códigos</div>
-        <form id="form1">
+        <form id="form1" autocomplete="off">
           <input type="password" class="password-input" placeholder="Digite o código">
         </form>
         <div class="password-strength-bar" id="password-strength-bar-1"></div>
@@ -35,7 +47,7 @@
 
       <div class="form-container">
         <div class="form-header">Senha de Palavras</div>
-        <form id="form2">
+        <form id="form2" autocomplete="off">
           <input type="password" class="password-input" placeholder="Digite as palavras">
         </form>
         <div class="password-strength-bar" id="password-strength-bar-2"></div>
@@ -45,7 +57,7 @@
     <div>
       <div class="form-container">
         <div class="form-header">Senha Específica</div>
-        <form id="form3">
+        <form id="form3" autocomplete="off">
           <input type="password" class="password-input" placeholder="Digite a senha">
         </form>
         <div class="password-strength-bar" id="password-strength-bar-3"></div>
@@ -55,13 +67,17 @@
     <div>
       <div class="form-container">
         <div class="form-header">Configurações ativas</div>
-        <form class="formConfig" id="form4">
-          <input type="text" id="formConfig1" name="config1" readonly>
+        <form id="form4">
+          <input class="formConfig" type="text" id="formConfig1" name="config1" value="20" readonly>
         </form>
-        <form class="formConfig" id="form5">
-          <input type="text" id="formConfig2" name="config2" readonly>
+        <form id="form5">
+          <input class="formConfig" type="text" id="formConfig2" name="config2" value="20" readonly>
         </form>
       </div>
+    </div>
+
+    <div class="form-container">
+      <button id="config-btn" onclick="showInfo('settings-popup-content-template-2', '2')">Alterar Configurações</button>
     </div>
 
     <div class="form-container">
@@ -427,7 +443,10 @@
     </div>
 
   </div>
-    <script src="script.js"></script>
+
+  <script src="script.js"></script>
+  <!--<script src="worker.js"></script>
+  <script src="service-worker.js"></script>-->
     
 </body>
 </html>
