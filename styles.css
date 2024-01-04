@@ -111,6 +111,21 @@ h1 {
   clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
 }
 
+#update-btn {
+  cursor: pointer;
+  font-size: 25px;
+  font-weight: bold;
+  color: #fff;
+  background-color: #007bffda;
+  border-radius: 0%;
+  padding: 6px 9px;
+  position: absolute;
+  top: 5%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
+}
+
 #settings-btn {
   cursor: pointer;
   font-size: 18px;

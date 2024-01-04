@@ -1,4 +1,6 @@
-const CACHE_VERSION = 'v0.1';
+// Arquivo: service-worker.js
+
+const CACHE_VERSION = '0704002';
 
 self.addEventListener('install', (event) => {
   event.waitUntil(
