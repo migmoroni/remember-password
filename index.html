@@ -10,18 +10,18 @@
   <meta name="description" content="Suas senhas sempre com você!" />
   <meta name="keywords" content="password, security, remember password" />
   <meta name="robots" content="index, follow">
-  <meta name="referrer" content="no-referrer">
+    <!--<meta name="referrer" content="no-referrer">
 
-  <!--<meta http-equiv="Cache-Control" content="no-store, no-cache, must-revalidate" />
+  <meta http-equiv="Cache-Control" content="no-store, no-cache, must-revalidate" />
   <meta http-equiv="Pragma" content="no-cache" />
   <meta http-equiv="Expires" content="0" />
   <meta http-equiv="content-security-policy" content="sandbox">
   <meta http-equiv="set-cookie" content="HttpOnly; Secure; SameSite=Strict">
   <meta http-equiv="x-frame-options" content="SAMEORIGIN">-->
 
-  <link rel="stylesheet" href="styles.css">
-  <link rel="stylesheet" href="navigator.css">
-  <link rel="stylesheet" href="responsible.css">
+  <link rel="stylesheet" href="styles/styles.css">
+  <link rel="stylesheet" href="styles/navigator.css">
+  <link rel="stylesheet" href="styles/responsible.css">
 
   <link rel="manifest" href="manifest.json">
 
@@ -36,8 +36,6 @@
 
     <div>
       <div id="question-mark" onclick="showInfo('popup-content-template-1', '1')">&#x003F</div>
-
-      <div id="update-btn" onclick="showInfo()">&#x2B07</div>
 
       <div id="settings-btn" onclick="showInfo('settings-popup-content-template-1', '2')">&#x2699</div>
     </div>
@@ -107,7 +105,7 @@
     </div>
 
     <footer class="form-container">
-      <p>Versão Beta - v0.7.04.002</p>
+      <p>Versão Beta - v0.7.04.011</p>
     </footer>
 
     <div id="popup">
@@ -451,9 +449,11 @@
     </div>
 
   </div>
-
-  <script src="script.js"></script>
-  <script src="service-worker.js"></script>
-  <script src="worker.js"></script>
+  
+  <script src="scripts/password-engine.js"></script>
+  <script src="scripts/ui-effects.js"></script>
+  <script src="scripts/service-worker.js"></script>
+  <script src="scripts/start.js"></script>
+  <script src="scripts/start-service.js"></script>
 </body>
 </html>
