@@ -176,5 +176,5 @@ async function encodeBase100(data) {
 
 
 //770 linhas maximas
-//4 idiomas
-//-> PT-BR, EN-US, ESPA, FRAN
+//3 idiomas
+//-> PT-BR, EN-US e ESPA

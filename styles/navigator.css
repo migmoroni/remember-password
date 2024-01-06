@@ -21,6 +21,7 @@ input::-webkit-reveal {
     display: none;
 }
 
+
 /* Para navegadores Firefox */
 ::-moz-scrollbar {
 width: 12px;
@@ -65,4 +66,31 @@ background-color: #f1f1f1;
 /* Estilo para ocultar o botão de revelação de senha no Edge */
 input::-ms-reveal {
     display: none;
+}
+
+select {
+    appearance: none; /* Remove a aparência padrão do sistema operacional */
+    -webkit-appearance: none; /* Para compatibilidade com navegadores baseados no WebKit (Chrome, Safari) */
+    -moz-appearance: none; /* Para compatibilidade com navegadores baseados no Gecko (Firefox) */
+    -ms-appearance: none;
+    padding: 10px; /* Adiciona algum preenchimento interno para melhorar a aparência */
+    font-size: 14px; /* Define o tamanho da fonte */
+    border: 2px solid #ccc; /* Adiciona uma borda */
+    border-radius: 8px; /* Adiciona bordas arredondadas */
+    background-color: #fff; /* Cor de fundo */
+    width: 200px; /* Largura do select */
+  }
+
+/* Estilização dos elementos option dentro de um select */
+select option {
+    padding: 15px; /* Adiciona algum preenchimento interno para melhorar a aparência */
+    font-size: 15px; /* Define o tamanho da fonte */
+    line-height: 2; /* Ajuste a altura conforme necessário */
+    min-height: 40px; /* Altura mínima para garantir uma boa visualização */
+}
+/* Estilização para quando o select está aberto (ativo) */
+select:focus {
+    outline: none; /* Remove o contorno padrão ao focar */
+    border-color: #007bff; /* Adiciona uma borda azul quando o select está focado */
+    box-shadow: 0 0 5px rgba(0, 123, 255, 0.5); /* Adiciona uma sombra ao focar */
 }

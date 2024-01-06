@@ -7,6 +7,7 @@ function togglePopup(text) {
     const popupContent = document.getElementById('popup-content');
     popupContent.innerText = text;
     const okButton = document.getElementById('ok-btn');
+    
 
     // Configura o texto e exibe o popupContent
     popupContent.style.display = 'block';
@@ -19,6 +20,11 @@ function togglePopup(text) {
         popupContent.order = '1';
     };
     popup.style.display = 'block';
+}
+
+function toggleDropdown() {
+    const dropdown = document.querySelector('.dropdown');
+    dropdown.classList.toggle('active');
 }
 
 // Função que fecha os menus
@@ -221,6 +227,25 @@ function calculateCombinedStrength() {
     const combinedStrengthBar = document.getElementById('combined-strength-bar');
     combinedStrengthBar.style.width = `${combinedStrength}%`;
   
+}
+
+function check(name, value) {
+    const template = document.getElementsByTagName(name);
+    const content = template.innerHTML;
+
+    if (window === '1'){ //Menu Info
+        document.getElementById('popup-content').innerHTML = content;
+        document.getElementById('popup').style.display = 'block';
+        document.body.classList.add('modal-open');
+    } if (window === '2'){ //Menu Config
+        document.getElementById('settings-popup-content').innerHTML = content;
+        document.getElementById('settings-popup').style.display = 'block';
+        document.body.classList.add('modal-open');
+    } else { //Menu Donate
+        document.getElementById('donation-popup-content').innerHTML = content;
+        document.getElementById('donation-popup').style.display = 'block';
+        document.body.classList.add('modal-open');
+    }
 }
 
 // Atualiza a força combinada sempre que as barras individuais são atualizadas

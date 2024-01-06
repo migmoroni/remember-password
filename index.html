@@ -34,56 +34,71 @@
 <body>
   <div id="main-window">
 
-    <div>
+    <div class="form-container">
       <div id="question-mark" onclick="showInfo('popup-content-template-1', '1')">&#x003F</div>
 
       <div id="settings-btn" onclick="showInfo('settings-popup-content-template-1', '2')">&#x2699</div>
     </div>
 
-    <h1>Remember Password</h1>
-
-    <div>
-      <div class="form-container"> 
-        <div class="form-header">Senha de Códigos</div>
-        <form id="form1" autocomplete="off">
-          <input type="password" class="password-input" placeholder="Digite o código">
-        </form>
-        <div class="password-strength-bar" id="password-strength-bar-1"></div>
-      </div>
-
-      <div class="form-container">
-        <div class="form-header">Senha de Palavras</div>
-        <form id="form2" autocomplete="off">
-          <input type="password" class="password-input" placeholder="Digite as palavras">
-        </form>
-        <div class="password-strength-bar" id="password-strength-bar-2"></div>
-      </div>
-    </div>
-
-    <div>
-      <div class="form-container">
-        <div class="form-header">Senha Específica</div>
-        <form id="form3" autocomplete="off">
-          <input type="password" class="password-input" placeholder="Digite a senha">
-        </form>
-        <div class="password-strength-bar" id="password-strength-bar-3"></div>
-      </div>
-    </div>
-
-    <div>
-      <div class="form-container">
-        <div class="form-header">Configurações ativas</div>
-        <form id="form4">
-          <input class="formConfig" type="text" id="formConfig1" name="config1" value="20" readonly>
-        </form>
-        <form id="form5">
-          <input class="formConfig" type="text" id="formConfig2" name="config2" value="20" readonly>
-        </form>
-      </div>
+    <div class="form-container">
+      <h1>Remember Password</h1>
     </div>
 
     <div class="form-container">
-      <button id="config-btn" onclick="showInfo('settings-popup-content-template-2', '2')">Alterar Configurações</button>
+      <fieldset class="form-container">
+        <label class="form-container" for="characterSet">Dados de sua senha</label>
+
+        <div class="form-container"> 
+          <label class="form-header">Senha de Códigos</label>
+          <form id="form1" autocomplete="off">
+            <input type="password" class="password-input" placeholder="Digite o código">
+          </form>
+          <div class="password-strength-bar" id="password-strength-bar-1"></div>
+        </div>
+
+        <div class="form-container">
+          <label class="form-header">Senha de Palavras</label>
+          <form id="form2" autocomplete="off">
+            <input type="password" class="password-input" placeholder="Digite as palavras">
+          </form>
+          <div class="password-strength-bar" id="password-strength-bar-2"></div>
+        </div>
+  
+        <div class="form-container">
+          <label class="form-header">Senha Específica</label>
+          <form id="form3" autocomplete="off">
+            <input type="password" class="password-input" placeholder="Digite a senha">
+          </form>
+          <div class="password-strength-bar" id="password-strength-bar-3"></div>
+        </div>
+      </fieldset>
+
+      <fieldset class="config-password">
+        <div>
+          <div class="form-container dropdown">
+            <label class="form-header">Caracteres</label>
+            <div>
+              <select id="form4" class="password-input-left" onchange="toggleDropdown()">
+                <option class="optiona" value="all" selected>Números, Letras e simbolos</option>
+                <option class="optiona" value="decimal">Apenas Números</option>
+                <option class="optiona" value="letters">Apenas Letras</option>
+                <option class="optiona" value="unicode">Unicode</option>
+              </select>
+            </div>
+              <div class="password-strength-bar" id="password-strength-bar-4"></div>
+          </div>
+        </div>
+
+        <div>
+          <div class="form-container">
+            <label class="form-header">Tamanho</label>
+            <form id="form5" autocomplete="off">
+              <input type="text" class="password-input" placeholder="Digite o valor de caracteres">
+            </form>
+            <div class="password-strength-bar" id="password-strength-bar-4"></div>
+          </div>
+        </div>
+      </fieldset>
     </div>
 
     <div class="form-container">
@@ -315,79 +330,12 @@
         </div>
         <div class="settings-window">
           <div>
-            <div class="option">
-              <label>
-                <input type="radio" name="size" value="4"><span></span> 4 Caracteres
-              </label>
-              <!--<p>Complexidade: <input type="text" id="text-complex-s-t-1" placeholder="" readonly></p>-->
+            <div class="form-container-popup">
+              <div class="form-header">Informe a quantia de caracteres que deseja:</div>
+              <form id="formNumber" autocomplete="off">
+                <input type="text" class="password-input-popup" placeholder="Digite a senha">
+              </form>
             </div>
-
-            <div class="option">
-              <label>
-                <input type="radio" name="size" value="5"><span></span> 5 Caracteres
-              </label>
-            </div>
-
-            <div class="option">
-              <label>
-                <input type="radio" name="size" value="6"><span></span> 6 Caracteres
-              </label>
-            </div>
-
-            <div class="option">
-              <label>
-                <input type="radio" name="size" value="8"><span></span> 8 Caracteres
-              </label>
-            </div>
-
-            <div class="option">
-              <label>
-                <input type="radio" name="size" value="10"><span></span> 10 Caracteres
-              </label>
-            </div>
-
-            <div class="option">
-              <label>
-                <input type="radio" name="size" value="12"><span></span> 12 Caracteres
-              </label>
-            </div>
-
-            <div class="option">
-              <label>
-                <input type="radio" name="size" value="15"><span></span> 15 Caracteres
-              </label>
-            </div>
-        
-            <div class="option">
-              <label>
-                <input type="radio" name="size" value="20" checked><span></span> 20 Caracteres (Padrão)
-              </label>
-            </div>
-
-            <div class="option">
-              <label>
-                <input type="radio" name="size" value="25"><span></span> 25 Caracteres
-              </label>
-            </div>
-
-            <div class="option">
-              <label>
-                <input type="radio" name="size" value="30"><span></span> 30 Caracteres
-              </label>
-            </div>
-
-            <div class="option">
-              <label>
-                <input type="radio" name="size" value="40"><span></span> 40 Caracteres
-              </label>
-            </div>
-
-            <div class="option">
-              <label>
-                <input type="radio" name="size" value="50"><span></span> 50 Caracteres
-              </label>
-            </div>
-          </div>
         </div>
       </div>
 
