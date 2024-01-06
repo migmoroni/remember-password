@@ -300,6 +300,7 @@ legend {
   width: 80px;
   align-self: center;
   text-transform: uppercase;
+  border-radius: 8px 8px 8px 8px;
 }
 
 #donation-btn:hover {
@@ -307,6 +308,7 @@ legend {
 }
 
 #password-container {
+  margin-top: 20px;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -334,6 +336,7 @@ legend {
   cursor: pointer;
   text-align: center;
   min-width: 10vh;
+  border-radius: 8px 0px 0px 8px;
 }
 
 #copy-btn {
@@ -343,6 +346,7 @@ legend {
   border: none;
   cursor: pointer;
   min-width: 10vh;
+  border-radius: 0px 8px 8px 0px;
 }
 
 #copy-btn:hover {
