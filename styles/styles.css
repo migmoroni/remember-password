@@ -68,6 +68,11 @@ legend {
   margin-bottom: 10px;
 }
 
+.form-header {
+  font-size: 18px;
+  margin-bottom: 10px;
+}
+
 .password-input {
   width: 200px;
   padding: 10px;
@@ -266,6 +271,7 @@ legend {
   width: 200px;
   align-self: center;
   text-transform: uppercase;
+  border-radius: 8px;
 }
 
 #generate-btn.disabled {
@@ -411,6 +417,12 @@ legend {
   /*border: none;  Remove a borda */
   outline: none; /* Remove a borda de foco ao clicar */
 }
+
+fieldset {
+  border-radius: 16px;
+}
+
+
 
 option {
   height: 50px;
