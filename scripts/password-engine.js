@@ -64,6 +64,7 @@ async function generate() {
   const password1 = document.getElementById('form1').elements[0].value;
   const password2 = document.getElementById('form2').elements[0].value;
   const password3 = document.getElementById('form3').elements[0].value;
+  const passwordChar = 1;
   const passwordSize = btoa(document.getElementById('form5').elements[0].value);
 
   // Verifica se pelo menos o primeiro e o terceiro formulários têm mais de 1 caractere

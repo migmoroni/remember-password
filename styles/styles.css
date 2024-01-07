@@ -68,11 +68,6 @@ legend {
   margin-bottom: 10px;
 }
 
-.form-header {
-  font-size: 18px;
-  margin-bottom: 10px;
-}
-
 .password-input {
   width: 200px;
   padding: 10px;
@@ -136,7 +131,7 @@ legend {
   color: #fff;
   background-color: #007bff;
   border-radius: 0%;
-  padding: 10px 13px;
+  padding: 10px 14px;
   position: absolute;
   top: 15px;
   left: 5%;

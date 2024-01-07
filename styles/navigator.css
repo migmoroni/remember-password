@@ -63,6 +63,8 @@ background-color: #2980b9;
 background-color: #f1f1f1;
 }
 
+
+
 /* Estilo para ocultar o botão de revelação de senha no Edge */
 input::-ms-reveal {
     display: none;
