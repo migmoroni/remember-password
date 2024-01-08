@@ -414,6 +414,10 @@ legend {
   margin-right: 10px;
 }
 
+#text-option{
+  text-align: center;
+}
+
 .formConfig {
   user-select: none;
   pointer-events: none;
@@ -474,3 +478,7 @@ input[type="radio"] + span + label {
   margin-left: 10px;
 }
 
+.text-option {
+  color: #888; /* Cor do texto do placeholder */
+  text-align: center;
+}

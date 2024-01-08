@@ -37,10 +37,12 @@ function closePopup() {
 // Função que verifica a condição e atualiza o estado do botão
 function checkConditionAndEnableButton() {
     const password1 = document.getElementById('form1').elements[0].value;
+    const password2 = document.getElementById('form2').elements[0].value;
     const password3 = document.getElementById('form3').elements[0].value;
+    const passwordSize = document.getElementById('form5').elements[0].value;
 
     // Verifica se pelo menos o primeiro e o terceiro formulários têm mais de 1 caractere
-    const isClickable = password1.length > 1 && password3.length > 1;
+    const isClickable = (password1.length > 0 && password2.length > 0 && password3.length > 0 && passwordSize.length > 0);
 
     // Seleciona o botão "generate"
     const generateButton = document.getElementById('generate-btn');
@@ -248,7 +250,7 @@ function check(name, value) {
     }
 }
 
-function validarNumero(input) {
+function validateNumber(input) {
     let valor = input.value.trim();
 
     // Verifica se o valor é numérico e de 1 a 50
@@ -327,3 +329,4 @@ document.getElementById('form3').addEventListener('submit', function (event) {
     const password = this.querySelector('.password-input').value;
     calculatePasswordStrength(password, 'password-strength-bar-3');
 });
+

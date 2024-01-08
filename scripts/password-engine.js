@@ -65,10 +65,10 @@ async function generate() {
   const password2 = document.getElementById('form2').elements[0].value;
   const password3 = document.getElementById('form3').elements[0].value;
   const passwordChar = 1;
-  const passwordSize = btoa(document.getElementById('form5').elements[0].value);
+  const passwordSize = document.getElementById('form5').elements[0].value;
 
   // Verifica se pelo menos o primeiro e o terceiro formulários têm mais de 1 caractere
-  const isClickable = password1.length > 1 && password3.length > 1;
+  const isClickable = (password1.length > 0 && password2.length > 0 && password3.length > 0 && passwordSize.length > 0);
 
   // Seleciona o botão "generate"
   const generateButton = document.getElementById('generate-btn');
@@ -95,7 +95,7 @@ async function generate() {
     const resultE = await encodeCustomBase85(resultD);
 
     //Etapa 4: Manter apenas os primeiros 20 caracteres
-    const resultF = await reduzirStringExistente(resultE, atob(passwordSize));
+    const resultF = await reduzirStringExistente(resultE, passwordSize);
 
     console.log('Resultado Último:', resultF);
     document.getElementById('password').value = resultF;

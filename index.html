@@ -83,8 +83,8 @@
           <div class="form-container dropdown">
             <label class="form-header">Caracteres</label>
             <div>
-              <select id="form4" class="password-input-left" oninput="validateOption(this)" onchange="toggleDropdown()">
-                <option class="option"></option>
+              <select id="form4" class="password-input-left text-option" oninput="validateOption(this)" onchange="toggleDropdown()">
+                <option class="option" disabled selected>Escolha a base</option>
                 <option class="option" value="all">Números, Letras e simbolos</option>
                 <option class="option" value="decimal">Apenas Números</option>
                 <option class="option" value="letters">Apenas Letras</option>
@@ -97,7 +97,7 @@
           <div class="form-container">
             <label class="form-header">Tamanho</label>
             <form id="form5" autocomplete="off">
-              <input type="text" class="password-input" oninput="validarNumero(this)" placeholder="Digite o valor de caracteres">
+              <input type="text" class="password-input" oninput="validateNumber(this)" placeholder="Digite o valor">
             </form>
             <div class="password-strength-bar" id="password-strength-bar-4"></div>
           </div>
