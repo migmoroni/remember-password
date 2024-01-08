@@ -248,6 +248,34 @@ function check(name, value) {
     }
 }
 
+function validarNumero(input) {
+    let valor = input.value.trim();
+
+    // Verifica se o valor é numérico e de 1 a 50
+    if (valor === "") {
+        input.classList.remove("error", "success"); // Remove ambas as classes
+    } else if ((isNaN(valor)) || ((valor < 1) || (valor > 50))) {
+        input.classList.remove("success"); // Remove a classe de sucesso
+        input.classList.add("error"); // Adiciona a classe de erro
+    } else {
+        input.classList.remove("error"); // Remove a classe de erro
+        input.classList.add("success"); // Adiciona a classe de sucesso
+    }
+}
+
+function validateOption(input) {
+    let valor = input.value.trim();
+
+    // Verifica se o valor é numérico e de 1 a 50
+    if (valor !== "") {
+        input.classList.add("success"); // Adiciona a classe de erro (borda vermelha)
+        input.classList.remove("error");
+    } else {
+        input.classList.remove("success"); // Remove a classe de erro (borda vermelha)
+        input.classList.add("error");
+    }
+}
+
 // Atualiza a força combinada sempre que as barras individuais são atualizadas
 document.getElementById('form1').addEventListener('input', function () {
     const password = this.querySelector('.password-input').value;

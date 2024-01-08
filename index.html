@@ -46,12 +46,12 @@
 
     <div class="form-container">
       <fieldset class="form-container">
-        <legend class="form-container" for="characterSet">Senha única</legend>
+        <legend class="form-container" for="characterSet">Digite sua senha única</legend>
 
         <div class="form-container"> 
           <label class="form-header">Senha de Códigos</label>
           <form id="form1" autocomplete="off">
-            <input type="password" class="password-input" placeholder="Digite o código">
+            <input type="password" class="password-input" oninput="validateOption(this)" placeholder="Digite o código">
           </form>
           <div class="password-strength-bar" id="password-strength-bar-1"></div>
         </div>
@@ -59,32 +59,33 @@
         <div class="form-container">
           <label class="form-header">Senha de Palavras</label>
           <form id="form2" autocomplete="off">
-            <input type="password" class="password-input" placeholder="Digite as palavras">
+            <input type="password" class="password-input" oninput="validateOption(this)" placeholder="Digite as palavras">
           </form>
           <div class="password-strength-bar" id="password-strength-bar-2"></div>
         </div>
       </fieldset>
 
       <fieldset class="form-container">
-        <legend class="form-container" for="characterSet">Serviço</legend>
+        <legend class="form-container" for="characterSet">Informe o Serviço</legend>
 
         <div class="form-container">
-          <label class="form-header">Senha Específica</label>
+          <label class="form-header">Serviço</label>
           <form id="form3" autocomplete="off">
-            <input type="password" class="password-input" placeholder="Digite a senha">
+            <input type="text" class="password-input" oninput="validateOption(this)" placeholder="Digite o serviço">
           </form>
           <div class="password-strength-bar" id="password-strength-bar-3"></div>
         </div>
       </fieldset>
 
       <fieldset class="config-password">
-        <legend class="form-container" for="characterSet">Estrutura da senha</legend>
+        <legend class="form-container" for="characterSet">Caracteristicas da senha</legend>
         
           <div class="form-container dropdown">
             <label class="form-header">Caracteres</label>
             <div>
-              <select id="form4" class="password-input-left" onchange="toggleDropdown()">
-                <option class="option" value="all" selected>Números, Letras e simbolos</option>
+              <select id="form4" class="password-input-left" oninput="validateOption(this)" onchange="toggleDropdown()">
+                <option class="option"></option>
+                <option class="option" value="all">Números, Letras e simbolos</option>
                 <option class="option" value="decimal">Apenas Números</option>
                 <option class="option" value="letters">Apenas Letras</option>
                 <option class="option" value="unicode">Unicode</option>
@@ -96,7 +97,7 @@
           <div class="form-container">
             <label class="form-header">Tamanho</label>
             <form id="form5" autocomplete="off">
-              <input type="text" class="password-input" placeholder="Digite o valor de caracteres">
+              <input type="text" class="password-input" oninput="validarNumero(this)" placeholder="Digite o valor de caracteres">
             </form>
             <div class="password-strength-bar" id="password-strength-bar-4"></div>
           </div>

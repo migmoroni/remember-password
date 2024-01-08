@@ -5,7 +5,13 @@ self.addEventListener('install', (event) => {
   event.waitUntil(
     caches.open('my-cache').then((cache) => {
       return cache.addAll([
-        '/'
+        '/scripts',
+        '/styles',
+        'index.html',
+        'manifest.json',
+        'CONTRIBUTING.md',
+        'README.md',
+        'LICENSE'
       ]);
     })
   );

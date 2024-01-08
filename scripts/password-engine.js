@@ -174,6 +174,17 @@ async function encodeBase100(data) {
   return base100String;
 }
 
+async function validarNumero(input) {
+  let valor = input.value.trim();
+
+  // Verifica se o valor é numérico e de 1 a 50
+  if ((isNaN(valor)) || ((valor < 1) || (valor > 50))) {
+      input.classList.add("error"); // Adiciona a classe de erro
+  } else {
+      input.classList.remove("error"); // Remove a classe de erro
+  }
+}
+
 
 
 //770 linhas maximas

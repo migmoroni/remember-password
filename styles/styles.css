@@ -28,6 +28,16 @@ legend {
   text-align: center;
 }
 
+.error {
+  border: 2px solid red;
+  background-color: rgb(255, 200, 200);
+}
+
+.success {
+  border: 2px solid #007bff;
+  background-color: rgb(176, 200, 200);
+}
+
 .password-strength-bar {
   height: 10px;
   background-color: #007bff;
