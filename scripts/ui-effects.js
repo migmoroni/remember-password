@@ -268,12 +268,27 @@ function validateNumber(input) {
 function validateOption(input) {
     let valor = input.value.trim();
 
-    // Verifica se o valor é numérico e de 1 a 50
     if (valor !== "") {
         input.classList.add("success"); // Adiciona a classe de erro (borda vermelha)
         input.classList.remove("error");
     } else {
         input.classList.remove("success"); // Remove a classe de erro (borda vermelha)
+        input.classList.add("error");
+    }
+}
+
+function validateSelect(input) {
+    let valor = document.getElementById('form4').innerHTML;
+
+    if (valor !== "") {
+        input.classList.add("success"); // Adiciona a classe de erro (borda vermelha)
+        input.classList.add("text-select-2");
+        input.classList.remove("text-select"); 
+        input.classList.remove("error");
+    } else {
+        input.classList.remove("success"); // Remove a classe de erro (borda vermelha)
+        input.classList.remove("text-select-2");
+        input.classList.add("text-select"); 
         input.classList.add("error");
     }
 }

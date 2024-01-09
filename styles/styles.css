@@ -31,11 +31,13 @@ legend {
 .error {
   border: 2px solid red;
   background-color: rgb(255, 200, 200);
+  color: #000 !important;
 }
 
 .success {
   border: 2px solid #007bff;
   background-color: rgb(176, 200, 200);
+  color: #000 !important;
 }
 
 .password-strength-bar {
@@ -414,10 +416,6 @@ legend {
   margin-right: 10px;
 }
 
-#text-option{
-  text-align: center;
-}
-
 .formConfig {
   user-select: none;
   pointer-events: none;
@@ -478,7 +476,12 @@ input[type="radio"] + span + label {
   margin-left: 10px;
 }
 
-.text-option {
+.text-select {
   color: #888; /* Cor do texto do placeholder */
+  text-align: center;
+}
+
+.text-option {
+  color: #000000; /* Cor do texto do placeholder */
   text-align: center;
 }
