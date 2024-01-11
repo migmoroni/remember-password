@@ -185,6 +185,44 @@ async function validarNumero(input) {
   }
 }
 
+async function calcHashFromFile() {
+  const fileInput = document.getElementById('fileInput');
+  const hashOutput = document.getElementById('hashOutput');
+
+  const file = fileInput.files[0];
+
+  if (file) {
+      try {
+          const buffer = await readyFileAsBuffer(file);
+
+          const hashBuffer = await crypto.subtle.digest('SHA-256', buffer);
+
+          const hashArray = Array.from(new Uint8Array(hashBuffer));
+          const hashHex = hashArray.map(byte => byte.toString(16).padStart(2, '0')).join('');
+
+          hashOutput.value = await encodeCustomBase85(hashHex);
+      } catch (error) {
+          console.error(error);
+      }
+  }
+}
+
+function readyFileAsBuffer(file) {
+  return new Promise((resolve, reject) => {
+      const reader = new FileReader();
+
+      reader.onload = function(e) {
+          resolve(e.target.result);
+      };
+
+      reader.onerror = function(error) {
+          reject(error);
+      };
+
+      reader.readAsArrayBuffer(file);
+  });
+}
+
 
 
 //770 linhas maximas

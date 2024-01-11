@@ -41,19 +41,29 @@
     </div>
 
     <div class="form-container">
-      <h1>Remember Password</h1>
+      
     </div>
+
+    <blockquote class="form-container">
+      <h1>Remember Password</h1>
+    </blockquote>
 
     <div class="form-container">
       <fieldset class="form-container">
-        <legend class="form-container" for="characterSet">Digite sua senha única</legend>
+        <legend class="form-container" for="characterSet">Informe sua senha única</legend>
+
 
         <div class="form-container"> 
           <label class="form-header">Senha de Códigos</label>
           <form id="form1" autocomplete="off">
-            <input type="password" class="password-input" oninput="validateOption(this)" placeholder="Digite o código">
+            <input type="text" id="hashOutput" class="password-input" oninput="validateOption(this)" placeholder="Digite o código">
           </form>
           <div class="password-strength-bar" id="password-strength-bar-1"></div>
+        </div>
+
+        <div class="form-container">
+          <input type="file" id="fileInput" class="choose-btn" onchange="calcHashFromFile()" style="display: none;">
+          <label for="fileInput" id="customButton">Selecionar Arquivo</label>
         </div>
 
         <div class="form-container">
@@ -101,6 +111,7 @@
             </form>
             <div class="password-strength-bar" id="password-strength-bar-4"></div>
           </div>
+          
       </fieldset>
     </div>
 
