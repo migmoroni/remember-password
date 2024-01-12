@@ -1,75 +1,84 @@
+/* Para navegadores que suportam a especificação scrollbar-color (Firefox, alguns navegadores Chromium) */
+* {
+    scrollbar-color: #3498db #f1f1f1;
+}
+
 /* Para navegadores WebKit (Chrome) */
 ::-webkit-scrollbar {
-    width: 12px;
+    width: 6px;
+    border-radius: 6px; /* Adiciona borda arredondada ao scrollbar */
 }
 
 ::-webkit-scrollbar-thumb {
-background-color: #3498db;
-transition: background-color 0.3s ease;
+    background-color: #3498db;
+    transition: background-color 0.3s ease;
+    border-radius: 6px; /* Adiciona borda arredondada à barra */
 }
 
 ::-webkit-scrollbar-thumb:hover {
-background-color: #2980b9;
+    background-color: #2980b9;
 }
 
 ::-webkit-scrollbar-track {
-background-color: #f1f1f1;
+    background-color: #f1f1f1;
+    border-radius: 6px; /* Adiciona borda arredondada à pista do scrollbar */
 }
 
-/* Estilo para ocultar o botão de revelação de senha no Webkit */
-input::-webkit-reveal {
+input::-webkit-reveal { /* Estilo para ocultar o botão de revelação de senha no Webkit */
     display: none;
 }
 
-
 /* Para navegadores Firefox */
 ::-moz-scrollbar {
-width: 12px;
+    width: 6px;
+    border-radius: 6px;
 }
 
 ::-moz-scrollbar-thumb {
-background-color: #3498db;
-transition: background-color 0.3s ease;
+    background-color: #3498db;
+    transition: background-color 0.3s ease;
+    border-radius: 6px;
 }
 
 ::-moz-scrollbar-thumb:hover {
-background-color: #2980b9;
+    background-color: #2980b9;
 }
 
 ::-moz-scrollbar-track {
-background-color: #f1f1f1;
+    background-color: #f1f1f1;
+    border-radius: 6px;
 }
 
-/* Estilo para ocultar o botão de revelação de senha no Firefox */
-input::-moz-reveal {
+input::-moz-reveal { /* Estilo para ocultar o botão de revelação de senha no Firefox */
     display: none;
 }
 
 /* Para navegadores Blink (Microsoft Edge) */
 ::-ms-scrollbar {
-width: 12px;
+    width: 6px;
+    border-radius: 6px;
 }
 
 ::-ms-scrollbar-thumb {
-background-color: #3498db;
-transition: background-color 0.3s ease;
+    background-color: #3498db;
+    transition: background-color 0.3s ease;
+    border-radius: 6px;
 }
 
 ::-ms-scrollbar-thumb:hover {
-background-color: #2980b9;
+    background-color: #2980b9;
 }
 
 ::-ms-scrollbar-track {
-background-color: #f1f1f1;
+    background-color: #f1f1f1;
+    border-radius: 6px;
 }
 
-
-
-/* Estilo para ocultar o botão de revelação de senha no Edge */
-input::-ms-reveal {
+input::-ms-reveal { /* Estilo para ocultar o botão de revelação de senha no Edge */
     display: none;
 }
 
+/* Outras implementações para navegadores */
 select {
     appearance: none; /* Remove a aparência padrão do sistema operacional */
     -webkit-appearance: none; /* Para compatibilidade com navegadores baseados no WebKit (Chrome, Safari) */
@@ -81,7 +90,7 @@ select {
     border-radius: 8px; /* Adiciona bordas arredondadas */
     background-color: #fff; /* Cor de fundo */
     width: 200px; /* Largura do select */
-  }
+}
 
 /* Estilização dos elementos option dentro de um select */
 select option {
@@ -90,6 +99,7 @@ select option {
     line-height: 2; /* Ajuste a altura conforme necessário */
     min-height: 40px; /* Altura mínima para garantir uma boa visualização */
 }
+
 /* Estilização para quando o select está aberto (ativo) */
 select:focus {
     outline: none; /* Remove o contorno padrão ao focar */

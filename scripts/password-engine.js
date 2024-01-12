@@ -82,7 +82,7 @@ async function generate() {
     (async () => {
     //Etapa 1: Concatenar e mascarar as 3 senhas numa única variavel
     
-    let resultA = await calcularHashSHA256(password1) + await calcularHashSHA256(password2) + await calcularHashSHA256(password3);
+    let resultA = await calcularHashSHA512(password1) + await calcularHashSHA512(password2) + await calcularHashSHA512(password3);
 
     //Etapa 2: Engrandecer o tamanho e ofuscar origem com hashes sequenciais - 12x
     
@@ -135,7 +135,7 @@ async function encodeCustomBase85(data, chars) {
     return result;
   }
 
-  // Converter cada grupo de 4 bytes para base85
+  // Converter cada grupo de 2 bytes para base85
   let base85String = '';
   for (let i = 0; i < data.length; i += 4) {
     const hexPair = data.slice(i, i + 2);
@@ -147,31 +147,31 @@ async function encodeCustomBase85(data, chars) {
   return base85String;
 }
 
-async function encodeBase100(data) {
-  // Dicionário para base100
-  const base100Chars = Array.from({ length: 100 }, (_, i) => String.fromCodePoint(i));
+async function encodeBase144(data) {
+  // Dicionário para base144
+  const base144Chars = Array.from({ length: 144 }, (_, i) => String.fromCodePoint(i));
 
-  // Função para converter um número para base100
-  async function numToBase100(num) {
+  // Função para converter um número para base144
+  async function numToBase144(num) {
     let result = '';
     for (let i = 0; i < 2; i++) {
-      const remainder = num % 100;
-      num = Math.floor(num / 100);
-      result = base100Chars[remainder] + result;
+      const remainder = num % 144;
+      num = Math.floor(num / 144);
+      result = base144Chars[remainder] + result;
     }
     return result;
   }
 
-  // Converter cada par de caracteres hexadecimal para base100
-  let base100String = '';
+  // Converter cada par de caracteres hexadecimal para base144
+  let base144String = '';
   for (let i = 0; i < data.length; i += 4) {
     const hexPair = data.slice(i, i + 2);
     const charCode = parseInt(hexPair, 16);
-    const base = await numToBase100(charCode);
-    base100String += base;
+    const base = await numToBase144(charCode);
+    base144String += base;
   }
 
-  return base100String;
+  return base144String;
 }
 
 async function validarNumero(input) {
@@ -244,6 +244,7 @@ async function readWordsFromFile() {
 
       // Exibe as palavras
       wordsOutput.value = words;
+      validateOption(wordsOutput);
     } catch (error) {
       console.error(error);
     }

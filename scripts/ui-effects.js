@@ -29,9 +29,13 @@ function toggleDropdown() {
 
 // Função que fecha os menus
 function closePopup() {
+    document.getElementById('mainPage').style.display = 'block';
     document.getElementById('popup').style.display = 'none';
     document.getElementById('settings-popup').style.display = 'none';
     document.body.classList.remove('modal-open');
+
+    // Adiciona uma entrada ao histórico de navegação com hash
+    history.pushState({ page: 'main' }, 'Main Page', '#mainPage');
 }
 
 // Função que verifica a condição e atualiza o estado do botão
@@ -102,9 +106,13 @@ function showInfo(contentTemplateId, window) {
     const content = template.innerHTML;
 
     if (window === '1'){ //Menu Info
+        document.getElementById('mainPage').style.display = 'none';
         document.getElementById('popup-content').innerHTML = content;
         document.getElementById('popup').style.display = 'block';
         document.body.classList.add('modal-open');
+        // Adiciona uma entrada ao histórico de navegação
+        history.pushState({ page: 'popup' }, 'Popup', '#popup');
+
     } if (window === '2'){ //Menu Config
         document.getElementById('settings-popup-content').innerHTML = content;
         document.getElementById('settings-popup').style.display = 'block';
@@ -115,6 +123,12 @@ function showInfo(contentTemplateId, window) {
         document.body.classList.add('modal-open');
     }
 }
+
+function handlePopstate(event) {
+    if (event.state && event.state.page === 'main') {
+      closePopup();
+    }
+  }
 
 // Função que calcula a barra de força de cada um dos 3 inputs
 function calculatePasswordStrength(password, barId) {
@@ -207,7 +221,7 @@ function calculatePasswordStrength(password, barId) {
 }
 
 // Atualiza a largura da barra de força com base na pontuação
-const percentage = (strength / 200) * 100;
+const percentage = (strength / 100) * 100;
 strengthBar.style.width = `${percentage}%`;
 }
 
@@ -293,7 +307,8 @@ function validateSelect(input) {
     }
 }
 
-
+// Adiciona um ouvinte de evento para detectar o botão de voltar do navegador/celular
+window.addEventListener('popstate', handlePopstate);
 
 // Atualiza a força combinada sempre que as barras individuais são atualizadas
 document.getElementById('form1').addEventListener('input', function () {

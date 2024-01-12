@@ -20,6 +20,7 @@
   <meta http-equiv="x-frame-options" content="SAMEORIGIN">-->
 
   <link rel="stylesheet" href="styles/styles.css">
+  <link rel="stylesheet" href="styles/btn.css">
   <link rel="stylesheet" href="styles/navigator.css">
   <link rel="stylesheet" href="styles/responsible.css">
 
@@ -33,114 +34,116 @@
 </head>
 <body>
   <div id="main-window">
+    <div id="mainPage">
+      <header class="form-container">
+        <div id="question-mark" onclick="showInfo('popup-content-template-1', '1')">&#x003F</div>
 
-    <header class="form-container">
-      <div id="question-mark" onclick="showInfo('popup-content-template-1', '1')">&#x003F</div>
+        <div id="settings-btn" onclick="showInfo('settings-popup-content-template-1', '2')">&#x2699</div>
+      </header>
 
-      <div id="settings-btn" onclick="showInfo('settings-popup-content-template-1', '2')">&#x2699</div>
-    </header>
+      <blockquote class="form-container margin-top-25">
+        <h1>Remember Password</h1>
+      </blockquote>
 
-    <blockquote class="form-container margin-top-25">
-      <h1>Remember Password</h1>
-    </blockquote>
-
-    <section class="form-container">
-      <fieldset class="form-container">
-        <legend class="form-container" for="characterSet">Informe sua senha única</legend>
-        
-        <div class="form-container margin-top-25"> 
-          <label class="form-header">Senha de Códigos</label>
-          <form id="form1" autocomplete="off">
-            <input type="text" id="hashOutput" class="password-input" oninput="validateOption(this)" placeholder="Digite o código">
-          </form>
-          <div>
-            <p class="margin-top-25">OU</p>
+      <section class="form-container">
+        <fieldset class="form-container">
+          <legend class="form-container" for="characterSet">Informe sua senha única</legend>
+          
+          <div class="form-container margin-top-25"> 
+            <label class="form-header">Senha de Códigos</label>
+            <form id="form1" autocomplete="off">
+              <input type="text" id="hashOutput" class="password-input" oninput="validateOption(this)" placeholder="Digite o código">
+            </form>
+            <div>
+              <p class="margin-top-25">OU</p>
+            </div>
+            <div class="form-container">
+              <input type="file" id="fileInput" onchange="calcHashFromFile()" style="display: none;">
+              <label for="fileInput" class="choose-btn">Gerar Código</label>
+            </div>
+            <div class="password-strength-bar" id="password-strength-bar-1"></div>
           </div>
+
           <div class="form-container">
-            <input type="file" id="fileInput" onchange="calcHashFromFile()" style="display: none;">
-            <label for="fileInput" class="choose-btn">Enviar Arquivo</label>
+            <label class="form-header  margin-top-25">Senha de Palavras</label>
+            <form id="form2" autocomplete="off">
+              <input type="text" id="wordsOutput" class="password-input" oninput="validateOption(this)" placeholder="Digite as palavras">
+            </form>
+            <div>
+              <p class="margin-top-25">OU</p>
+            </div>
+            <div class="form-container">
+              <input type="file" id="fileInput2" onchange="readWordsFromFile()" style="display: none;">
+              <label for="fileInput2" class="choose-btn">Ler Arquivo</label>
+            </div>
+            <div class="password-strength-bar margin-bottom-25" id="password-strength-bar-2"></div>
           </div>
-          <div class="password-strength-bar" id="password-strength-bar-1"></div>
-        </div>
+        </fieldset>
 
-        <div class="form-container">
-          <label class="form-header  margin-top-25">Senha de Palavras</label>
-          <form id="form2" autocomplete="off">
-            <input type="text" id="wordsOutput" class="password-input" oninput="validateOption(this)" placeholder="Digite as palavras">
-          </form>
-          <div>
-            <p class="margin-top-25">OU</p>
-          </div>
+        <fieldset class="form-container margin-top-25">
+          <legend class="form-container" for="characterSet">Informe o Serviço</legend>
+
           <div class="form-container">
-            <input type="file" id="fileInput2" onchange="readWordsFromFile()" style="display: none;">
-            <label for="fileInput2" class="choose-btn">Enviar Arquivo</label>
+            <label class="form-header margin-top-25">Serviço</label>
+            <form id="form3" autocomplete="off">
+              <input type="text" class="password-input" oninput="validateOption(this)" placeholder="Digite o serviço">
+            </form>
+            <div class="password-strength-bar margin-bottom-25" id="password-strength-bar-3"></div>
           </div>
-          <div class="password-strength-bar margin-bottom-25" id="password-strength-bar-2"></div>
-        </div>
-      </fieldset>
+        </fieldset>
 
-      <fieldset class="form-container margin-top-25">
-        <legend class="form-container" for="characterSet">Informe o Serviço</legend>
-
-        <div class="form-container">
-          <label class="form-header margin-top-25">Serviço</label>
-          <form id="form3" autocomplete="off">
-            <input type="text" class="password-input" oninput="validateOption(this)" placeholder="Digite o serviço">
-          </form>
-          <div class="password-strength-bar margin-bottom-25" id="password-strength-bar-3"></div>
-        </div>
-      </fieldset>
-
-      <fieldset class="config-password margin-top-25">
-        <legend class="form-container" for="characterSet">Caracteristicas da senha</legend>
+        <fieldset class="config-password margin-top-25">
+          <legend class="form-container" for="characterSet">Caracteristicas da senha</legend>
+          
+          <div class="form-container dropdown">
+            <label class="form-header margin-top-25">Caracteres</label>
+            <div>
+              <select id="form4" class="password-input-left text-select" oninput="validateOption(this)" onchange="toggleDropdown()">
+                <option class="option" disabled selected>Escolha a base</option>
+                <option class="option text-option" value="all">Números, Letras e simbolos</option>
+                <option class="option text-option" value="decimal">Apenas Números</option>
+                <option class="option text-option" value="letters">Apenas Letras</option>
+                <option class="option text-option" value="unicode">Unicode</option>
+              </select>
+            </div>
+              <div class="password-strength-bar" id="password-strength-bar-4"></div>
+          </div>
         
-        <div class="form-container dropdown">
-          <label class="form-header margin-top-25">Caracteres</label>
-          <div>
-            <select id="form4" class="password-input-left text-select" oninput="validateOption(this)" onchange="toggleDropdown()">
-              <option class="option" disabled selected>Escolha a base</option>
-              <option class="option text-option" value="all">Números, Letras e simbolos</option>
-              <option class="option text-option" value="decimal">Apenas Números</option>
-              <option class="option text-option" value="letters">Apenas Letras</option>
-              <option class="option text-option" value="unicode">Unicode</option>
-            </select>
+          <div class="form-container">
+            <label class="form-header margin-top-25">Tamanho</label>
+            <form id="form5" autocomplete="off">
+              <input type="text" class="password-input" oninput="validateNumber(this)" placeholder="Digite o valor">
+            </form>
+            <div class="password-strength-bar margin-bottom-25" id="password-strength-bar-4"></div>
           </div>
-            <div class="password-strength-bar" id="password-strength-bar-4"></div>
+        </fieldset>
+      </section>
+
+      <section>
+        <div class="form-container margin-top-25">
+          <button id="generate-btn" class="disabled" onclick="generate()">Gerar</button>
+        </div>
+
+        <div id="password-container">
+          <button id="reveal-btn" onclick="revealPassword()">Revelar</button>
+          <input type="password" id="password" placeholder="Sua Senha" readonly>
+          <button id="copy-btn" onclick="copyToClipboard()">Copiar</button>
         </div>
       
-        <div class="form-container">
-          <label class="form-header margin-top-25">Tamanho</label>
-          <form id="form5" autocomplete="off">
-            <input type="text" class="password-input" oninput="validateNumber(this)" placeholder="Digite o valor">
-          </form>
-          <div class="password-strength-bar margin-bottom-25" id="password-strength-bar-4"></div>
+        <div>
+          <div class="combined-strength-bar" id="combined-strength-bar"></div>
         </div>
-      </fieldset>
-    </section>
+        
+        <div class="form-container">
+          <div id="donation-btn" onclick="showInfo('donation-popup-content-template-1')">Doe</div>
+        </div>
+      </section>
 
-    <section>
-      <div class="form-container margin-top-25">
-        <button id="generate-btn" class="disabled" onclick="generate()">Gerar</button>
-      </div>
+      <footer class="form-container margin-top-25">
+        <p>Versão Beta - v0.7.04.011</p>
+      </footer>
 
-      <div id="password-container">
-        <button id="reveal-btn" onclick="revealPassword()">Revelar</button>
-        <input type="password" id="password" placeholder="Sua Senha" readonly>
-        <button id="copy-btn" onclick="copyToClipboard()">Copiar</button>
-      </div>
-    
-      <div>
-        <div class="combined-strength-bar" id="combined-strength-bar"></div>
-      </div>
-      
-      <div class="form-container">
-        <div id="donation-btn" onclick="showInfo('donation-popup-content-template-1')">Doe</div>
-      </div>
-    </section>
-
-    <footer class="form-container margin-top-25">
-      <p>Versão Beta - v0.7.04.011</p>
-    </footer>
+    </div>
 
     <section>
       <div id="popup">
@@ -152,7 +155,7 @@
         </div>
         <div id="popup-content" class="tab-content"></div>
         <div class="ok-button">
-          <button id="ok-btn" onclick="closePopup()">OK</button>
+          <button id="ok-btn" onclick="closePopup()">Voltar</button>
         </div>
       </div>
 

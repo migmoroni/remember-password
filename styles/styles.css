@@ -132,6 +132,7 @@ legend {
   border: none;
   border-radius: 0px;
   font-size: 14px;
+  border-radius: 16px;
 }
 
 .tab:hover {
@@ -295,7 +296,8 @@ legend {
   background-color: #007bff;
 }
 
-#generate-btn.active:hover {
+#generate-btn.active:hover,
+#generate-btn.active:active {
   box-shadow: 0 0 25px rgba(0, 123, 255, 10); /* Adiciona uma sombra azul suave quando em foco */
 }
 
@@ -323,7 +325,8 @@ legend {
   margin-top: 40px;
 }
 
-#donation-btn:hover {
+#donation-btn:hover,
+#donation-btn:active {
   box-shadow: 0 0 25px rgba(0, 123, 255, 10); /* Adiciona uma sombra azul suave quando em foco */
 }
 
@@ -341,7 +344,8 @@ legend {
   border-radius: 8px;
 }
 
-.choose-btn:hover {
+.choose-btn:hover,
+.choose-btn:active {
   box-shadow: 0 0 25px rgba(0, 123, 255, 10); /* Adiciona uma sombra azul suave quando em foco */
 }
 
@@ -387,11 +391,13 @@ legend {
   border-radius: 0px 8px 8px 0px;
 }
 
-#copy-btn:hover {
+#copy-btn:hover,
+#copy-btn:active {
   box-shadow: 0 0 25px rgba(0, 123, 255, 10); /* Adiciona uma sombra azul suave quando em foco */
 }
 
-#reveal-btn:hover {
+#reveal-btn:hover,
+#reveal-btn:active {
   box-shadow: 0 0 25px rgba(0, 123, 255, 10); /* Adiciona uma sombra azul suave quando em foco */
 }
 
@@ -412,7 +418,8 @@ legend {
   cursor: pointer;
 }
 
-#ok-btn:hover {
+#ok-btn:hover,
+#ok-btn:active {
   box-shadow: 0 0 25px rgba(0, 123, 255, 10); /* Adiciona uma sombra azul suave quando em foco */
 }
 
