@@ -10,7 +10,7 @@
   <meta name="description" content="Suas senhas sempre com você!" />
   <meta name="keywords" content="password, security, remember password" />
   <meta name="robots" content="index, follow">
-    <!--<meta name="referrer" content="no-referrer">
+  <!--<meta name="referrer" content="no-referrer">
 
   <meta http-equiv="Cache-Control" content="no-store, no-cache, must-revalidate" />
   <meta http-equiv="Pragma" content="no-cache" />
@@ -34,383 +34,382 @@
 <body>
   <div id="main-window">
 
-    <div class="form-container">
+    <header class="form-container">
       <div id="question-mark" onclick="showInfo('popup-content-template-1', '1')">&#x003F</div>
 
       <div id="settings-btn" onclick="showInfo('settings-popup-content-template-1', '2')">&#x2699</div>
-    </div>
+    </header>
 
-    <div class="form-container">
-      
-    </div>
-
-    <blockquote class="form-container">
+    <blockquote class="form-container margin-top-25">
       <h1>Remember Password</h1>
     </blockquote>
 
-    <div class="form-container">
+    <section class="form-container">
       <fieldset class="form-container">
         <legend class="form-container" for="characterSet">Informe sua senha única</legend>
-
-
-        <div class="form-container"> 
+        
+        <div class="form-container margin-top-25"> 
           <label class="form-header">Senha de Códigos</label>
           <form id="form1" autocomplete="off">
             <input type="text" id="hashOutput" class="password-input" oninput="validateOption(this)" placeholder="Digite o código">
           </form>
+          <div>
+            <p class="margin-top-25">OU</p>
+          </div>
+          <div class="form-container">
+            <input type="file" id="fileInput" onchange="calcHashFromFile()" style="display: none;">
+            <label for="fileInput" class="choose-btn">Enviar Arquivo</label>
+          </div>
           <div class="password-strength-bar" id="password-strength-bar-1"></div>
         </div>
 
         <div class="form-container">
-          <input type="file" id="fileInput" class="choose-btn" onchange="calcHashFromFile()" style="display: none;">
-          <label for="fileInput" id="customButton">Selecionar Arquivo</label>
-        </div>
-
-        <div class="form-container">
-          <label class="form-header">Senha de Palavras</label>
+          <label class="form-header  margin-top-25">Senha de Palavras</label>
           <form id="form2" autocomplete="off">
-            <input type="password" class="password-input" oninput="validateOption(this)" placeholder="Digite as palavras">
+            <input type="text" id="wordsOutput" class="password-input" oninput="validateOption(this)" placeholder="Digite as palavras">
           </form>
-          <div class="password-strength-bar" id="password-strength-bar-2"></div>
+          <div>
+            <p class="margin-top-25">OU</p>
+          </div>
+          <div class="form-container">
+            <input type="file" id="fileInput2" onchange="readWordsFromFile()" style="display: none;">
+            <label for="fileInput2" class="choose-btn">Enviar Arquivo</label>
+          </div>
+          <div class="password-strength-bar margin-bottom-25" id="password-strength-bar-2"></div>
         </div>
       </fieldset>
 
-      <fieldset class="form-container">
+      <fieldset class="form-container margin-top-25">
         <legend class="form-container" for="characterSet">Informe o Serviço</legend>
 
         <div class="form-container">
-          <label class="form-header">Serviço</label>
+          <label class="form-header margin-top-25">Serviço</label>
           <form id="form3" autocomplete="off">
             <input type="text" class="password-input" oninput="validateOption(this)" placeholder="Digite o serviço">
           </form>
-          <div class="password-strength-bar" id="password-strength-bar-3"></div>
+          <div class="password-strength-bar margin-bottom-25" id="password-strength-bar-3"></div>
         </div>
       </fieldset>
 
-      <fieldset class="config-password">
+      <fieldset class="config-password margin-top-25">
         <legend class="form-container" for="characterSet">Caracteristicas da senha</legend>
         
-          <div class="form-container dropdown">
-            <label class="form-header">Caracteres</label>
-            <div>
-              <select id="form4" class="password-input-left text-select" oninput="validateOption(this)" onchange="toggleDropdown()">
-                <option class="option" disabled selected>Escolha a base</option>
-                <option class="option text-option" value="all">Números, Letras e simbolos</option>
-                <option class="option text-option" value="decimal">Apenas Números</option>
-                <option class="option text-option" value="letters">Apenas Letras</option>
-                <option class="option text-option" value="unicode">Unicode</option>
-              </select>
-            </div>
-              <div class="password-strength-bar" id="password-strength-bar-4"></div>
+        <div class="form-container dropdown">
+          <label class="form-header margin-top-25">Caracteres</label>
+          <div>
+            <select id="form4" class="password-input-left text-select" oninput="validateOption(this)" onchange="toggleDropdown()">
+              <option class="option" disabled selected>Escolha a base</option>
+              <option class="option text-option" value="all">Números, Letras e simbolos</option>
+              <option class="option text-option" value="decimal">Apenas Números</option>
+              <option class="option text-option" value="letters">Apenas Letras</option>
+              <option class="option text-option" value="unicode">Unicode</option>
+            </select>
           </div>
-       
-          <div class="form-container">
-            <label class="form-header">Tamanho</label>
-            <form id="form5" autocomplete="off">
-              <input type="text" class="password-input" oninput="validateNumber(this)" placeholder="Digite o valor">
-            </form>
             <div class="password-strength-bar" id="password-strength-bar-4"></div>
-          </div>
-          
+        </div>
+      
+        <div class="form-container">
+          <label class="form-header margin-top-25">Tamanho</label>
+          <form id="form5" autocomplete="off">
+            <input type="text" class="password-input" oninput="validateNumber(this)" placeholder="Digite o valor">
+          </form>
+          <div class="password-strength-bar margin-bottom-25" id="password-strength-bar-4"></div>
+        </div>
       </fieldset>
-    </div>
+    </section>
 
-    <div class="form-container">
-      <button id="generate-btn" class="disabled" onclick="generate()">Gerar</button>
-    </div>
+    <section>
+      <div class="form-container margin-top-25">
+        <button id="generate-btn" class="disabled" onclick="generate()">Gerar</button>
+      </div>
 
-   
-    <div id="password-container">
+      <div id="password-container">
         <button id="reveal-btn" onclick="revealPassword()">Revelar</button>
         <input type="password" id="password" placeholder="Sua Senha" readonly>
         <button id="copy-btn" onclick="copyToClipboard()">Copiar</button>
-    </div>
-   
-
-    <div>
-      <div class="combined-strength-bar" id="combined-strength-bar"></div>
-    </div>
+      </div>
     
-    <div class="form-container">
-      <div id="donation-btn" onclick="showInfo('donation-popup-content-template-1')">Doe</div>
-    </div>
+      <div>
+        <div class="combined-strength-bar" id="combined-strength-bar"></div>
+      </div>
+      
+      <div class="form-container">
+        <div id="donation-btn" onclick="showInfo('donation-popup-content-template-1')">Doe</div>
+      </div>
+    </section>
 
-    <footer class="form-container">
+    <footer class="form-container margin-top-25">
       <p>Versão Beta - v0.7.04.011</p>
     </footer>
 
-    <div id="popup">
-      <div class="tabs-container">
-        <div class="tab" onclick="showInfo('popup-content-template-1', '1')">Como usar este Aplicativo</div>
-        <div class="tab" onclick="showInfo('popup-content-template-2', '1')">Como Hackers descobrem uma senha</div>
-        <div class="tab" onclick="showInfo('popup-content-template-3', '1')">Criando uma senha segura</div>
-        <div class="tab" onclick="showInfo('popup-content-template-4', '1')">Protegendo suas senhas</div>
-      </div>
-      <div id="popup-content" class="tab-content"></div>
-      <div class="ok-button">
-        <button id="ok-btn" onclick="closePopup()">OK</button>
-      </div>
-    </div>
-
-    <div id="info-text">
-      <div id="popup-content-template-1" style="display: none;">
-        <div>
-          <h2>Como usar este Aplicativo</h2>
-          <p>Entenda como utilizar este aplicativo</p>
+    <section>
+      <div id="popup">
+        <div class="tabs-container">
+          <div class="tab" onclick="showInfo('popup-content-template-1', '1')">Como usar este Aplicativo</div>
+          <div class="tab" onclick="showInfo('popup-content-template-2', '1')">Como Hackers descobrem uma senha</div>
+          <div class="tab" onclick="showInfo('popup-content-template-3', '1')">Criando uma senha segura</div>
+          <div class="tab" onclick="showInfo('popup-content-template-4', '1')">Protegendo suas senhas</div>
+        </div>
+        <div id="popup-content" class="tab-content"></div>
+        <div class="ok-button">
+          <button id="ok-btn" onclick="closePopup()">OK</button>
         </div>
       </div>
 
-      <div id="popup-content-template-2" style="display: none;">
-        <div>
-          <h2>Como Hackers descobrem uma senha</h2>
-          
-          <p>Os hackers podem utilizar diferentes métodos para descobrir senhas, e é fundamental entender como se proteger contra essas ameaças. Aqui estão alguns métodos comuns que os hackers podem usar:</p>
-
-          <h3>Força Bruta:</h3>
-          <p>Busca-se tentar adivinhar a senha, testando uma série de combinações possíveis até encontrar a correta. Isso pode ser feito manualmente, mas é mais comum usar programas automatizados que tentam milhares de combinações rapidamente.</p>
-        
-          <h3>Ataques de Dicionário:</h3>
-          <p>Utilizam palavras comuns ou termos encontrados em dicionários para tentar adivinhar senhas. Isso inclui nomes, datas, palavras simples e suas variações.</p>
-        
-          <h3>Phishing:</h3>
-          <p>Já nesse método, os hackers enganam as pessoas para que divulguem suas senhas. Eles podem criar páginas falsas que imitam sites legítimos e, ao inserir suas informações, as vítimas inadvertidamente fornecem suas senhas.</p>
-        
-          <h3>Engenharia Social:</h3>
-          <p>Os hackers podem tentar manipular as pessoas para obter informações confidenciais. Isso pode envolver ligações telefônicas, e-mails ou mensagens que parecem legítimos, solicitando que a vítima revele suas senhas.</p>
-        
-          <h3>Keyloggers:</h3>
-          <p>Malwares podem ser usados para monitorar e gravar as teclas digitadas no teclado de um computador. Dessa forma, os hackers podem obter informações, incluindo senhas, sem que a vítima perceba.</p>
-        </div>
-      </div>
-
-      <div id="popup-content-template-3" style="display: none;">
-        <div>
-          <h2>Criando uma Senha Segura</h2>
-
-          <p>Uma senha segura é essencial para proteger suas informações online. Aqui estão algumas dicas para criar uma senha robusta e mais resistente a ataques:</p>
-
-          <h3>1. Complexidade:</h3>
-          <p>Utilize uma combinação de letras maiúsculas e minúsculas, números e caracteres especiais. Quanto mais complexa a senha, mais difícil será para os hackers realizarem ataques de força bruta ou ataques de dicionário.</p>
-
-          <h3>2. Comprimento:</h3>
-          <p>Opte por senhas mais longas, pois elas geralmente são mais difíceis de serem quebradas. Recomenda-se uma senha com pelo menos 12 caracteres.</p>
-
-          <h3>3. Evite Informações Pessoais:</h3>
-          <p>Ao criar senhas, evite informações pessoais óbvias, como datas de nascimento, nomes de familiares ou dados facilmente acessíveis nas redes sociais. Essas informações podem ser facilmente obtidas pelos hackers.</p>
-
-          <h3>4. Não Use Palavras Comuns:</h3>
-          <p>Ao criar senhas, evite usar palavras comuns, termos encontrados em dicionários ou sequências óbvias. Isso reduz o risco de ataques de dicionário.</p>
-
-          <h3>5. Autenticação de Dois Fatores (2FA):</h3>
-          <p>Além de uma senha forte, ative a autenticação de dois fatores sempre que possível. Isso adiciona uma camada extra de segurança, exigindo um segundo método de verificação além da senha.</p>
-
-          <h3>6. Atualização Regular:</h3>
-          <p>Mantenha o hábito de trocar suas senhas regularmente. Isso diminui a probabilidade de exposição caso ocorram violações de dados em serviços online.</p>
-          
-          <h3>Ou seja...</h3>
-          <p>A segurança das suas informações começa com a criação de senhas robustas, o qual já consegue fazer por aqui.<br><br> No entanto, siga essas diretrizes para garantir uma camada adicional de proteção contra possíveis ameaças online.</p>
-
-        </div>
-      </div>
-
-      <div id="popup-content-template-4" style="display: none;">
-        <div>
-          <h2>Protegendo Suas Senhas</h2>
-          <p>Além de criar senhas seguras, é crucial adotar práticas que protejam efetivamente suas informações pessoais. Aqui estão algumas medidas para garantir a segurança das suas senhas:</p>
-
-          <h3>1. Não Compartilhe Suas Senhas:</h3>
-          <p>Evite compartilhar suas senhas com outras pessoas, mesmo que sejam amigos ou familiares. Mantenha suas credenciais confidenciais para reduzir o risco de acesso não autorizado.</p>
-
-          <h3>2. Use Gerenciadores de Senhas:</h3>
-          <p>Considere o uso de gerenciadores de senhas confiáveis. Essas ferramentas podem ajudar a criar e gerenciar senhas complexas para diferentes contas, eliminando a necessidade de memorizar várias combinações.</p>
-
-          <h3>3. Monitore Suas Contas Regularmente:</h3>
-          <p>Fique atento a atividades suspeitas em suas contas online. Se notar algo incomum, como acessos não autorizados, alterações de senha não solicitadas ou atividades desconhecidas, tome medidas imediatas para garantir a segurança da sua conta.</p>
-
-          <h3>4. Ative Notificações de Login:</h3>
-          <p>Muitos serviços oferecem opções para receber notificações por e-mail ou mensagem sempre que ocorrer um login na sua conta a partir de um dispositivo desconhecido. Ative essas notificações para detectar atividades suspeitas rapidamente.</p>
-
-          <h3>5. Mantenha Seu Dispositivo Seguro:</h3>
-          <p>Proteja seus dispositivos com senhas de acesso e atualizações regulares de software. Isso impede que terceiros não autorizados acessem suas informações diretamente a partir do seu computador, smartphone ou tablet.</p>
-
-          <h3>6. Esteja Ciente de Phishing:</h3>
-          <p>Fique atento a e-mails ou mensagens suspeitas que solicitem informações de login. Evite clicar em links desconhecidos e verifique sempre a autenticidade das solicitações antes de fornecer suas credenciais.</p>
-
-          <h3>Ou seja...</h3>
-          <p>Ao adotar essas práticas, você fortalece significativamente a segurança das suas senhas, reduzindo as chances de comprometimento das suas contas online. A proteção ativa e a conscientização são essenciais para garantir a integridade das suas informações pessoais na era digital.</p>
-        </div>
-      </div>
-    </div>
-
-    <!-- Conteúdo da janela de configurações -->
-
-    <div id="settings-popup">
-      <div class="tabs-container">
-        <div class="tab" onclick="showInfo('settings-popup-content-template-1', '2')">Idioma preferido</div>
-        <div class="tab" onclick="showInfo('settings-popup-content-template-2', '2')">Padrões Gerais</div>
-        <div class="tab" onclick="showInfo('settings-popup-content-template-3', '2')">Padrões Específicos</div>
-      </div>
-      <div id="settings-popup-content" class="tab-content"></div>
-      <div class="ok-button">
-        <button id="ok-btn" onclick="closePopup()">OK</button>
-      </div>
-    </div>
-
-    <div id="settings-text">
-      <div id="settings-popup-content-template-1" style="display: none;">
-        <div>
-          <h2>Idioma preferido</h2>
-          <p>Escolha o idioma</p>
-        </div>
-        <div class="settings-window">
-      
-          <div class="option">
-            <label>
-              <input type="radio" name="language" value="pt-br" checked><span></span> Português (Brasil)
-            </label>
-          </div>
-      
-          <div class="option">
-            <label>
-              <input type="radio" name="language" value="en-us"><span></span> English (United States)
-            </label>
-          </div>
-      
-        </div>
-      </div>
-
-      <div id="settings-popup-content-template-2" style="display: none;">
-        <div>
-          <h2>Padrões Gerais</h2>
-          <p>Especifique padrões para a aplicação como um todo</p>
-        </div>
-
-        <div>
-          <h3>Complexidade de Caracteres</h3>
-          <p>Quantos mais caracteres sua senha tiver, mais segura será. Escolha a que satisfaz suas necessidades de segurança:</p>
-        </div>
-        <div class="settings-window">
-          <div class="option">
-            <label>
-              <input type="radio" name="caractere" value="base10"><span></span> Caracteres do sistema decimal
-            </label>
-            <p>10 caracteres => <br> 0 1 2 3 4 5 6 7 8 9</p>
-          </div>
-
-          <div class="option">
-            <label>
-              <input type="radio" name="caractere" value="base16"><span></span> Caracteres do sistema hexadecimal
-            </label>
-            <p>16 caracteres => <br> 0 1 2 3 4 5 6 7 8 9 A B C D E F</p>
-          </div>
-
-          <div class="option">
-            <label>
-              <input type="radio" name="caractere" value="base62"><span></span> Caracteres decimais e letras maiusculas e minusculas
-            </label>
-            <p>62 caracteres => <br> 0 1 2 3 4 5 6 7 8 9 A B C D E F G H I J K L M N O P Q R S T U V W X Y Z a b c d e f g h i j k l m n o p q r s t u v w x y z</p>
-          </div>
-
-          <div class="option">
-            <label>
-              <input type="radio" name="caractere" value="base85P" checked><span></span> Caracteres do idioma do computador (Padrão)
-            </label>
-            <p>85 caracteres => <br> 0 1 2 3 4 5 6 7 8 9 A B C D E F G H I J K L M N O P Q R S T U V W X Y Z a b c d e f g h i j k l m n o p q r s t u v w x y z ! # $ % & ( ) * + - ; < = > ? @ ^ _ ` { | } ~</p>
-          </div>
-      
-          <div class="option">
-            <label>
-              <input type="radio" name="caractere" value="base85F"><span></span> Caracteres Fixos (0-9/A-z/a-z/!-~)
-            </label>
-            <p>85 caracteres => <br> 0 1 2 3 4 5 6 7 8 9 A B C D E F G H I J K L M N O P Q R S T U V W X Y Z a b c d e f g h i j k l m n o p q r s t u v w x y z ! # $ % & ( ) * + - ; < = > ? @ ^ _ ` { | } ~</p>
-          </div>
-
-          <div class="option">
-            <label>
-              <input type="radio" name="caractere" value="baseASCII"><span></span> Caracteres ASCII
-            </label>
-            <p>128 caracteres => 128</p>
-          </div>
-      
-          <div class="option">
-            <label>
-              <input type="radio" name="caractere" value="baseUTF8"><span></span> Caracteres Unicode (UTF-8)
-            </label>
-            <p>65 536 caracteres => WOW!</p>
-          </div>
-        </div>
-        
-        <div>
-          <h3>Tamanho da Senha</h3>
-          <p>Quão maior for a senha gerada, mais segura será. Escolha a que satisfaz suas necessidades de segurança:</p>
-        </div>
-        <div class="settings-window">
+      <div id="info-text">
+        <div id="popup-content-template-1" style="display: none;">
           <div>
-            <div class="form-container-popup">
-              <div class="form-header">Informe a quantia de caracteres que deseja:</div>
-              <form id="formNumber" autocomplete="off">
-                <input type="text" class="password-input-popup" placeholder="Digite a senha">
-              </form>
-            </div>
-        </div>
-      </div>
-
-      <div id="settings-popup-content-template-3" style="display: none;">
-        <div>
-          <h2>Padrões Específicos</h2>
-          <p>Escolha padrões de senha pré configuradas</p>
+            <h2>Como usar este Aplicativo</h2>
+            <p>Entenda como utilizar este aplicativo</p>
+          </div>
         </div>
 
-        <div class="settings-window">
-          <div class="option">
-            <label>
-              <input type="radio" name="espec" value="base85P" checked><span></span> Senha de números 
-            </label>
-          </div>
-      
-          <div class="option">
-            <label>
-              <input type="radio" name="espec" value="base85F"><span></span> Apenas 
-            </label>
-            <p>Complexidade: 85 caracteres => 85<sup>10</sup>  (1,96 x 10<sup>19</sup> de possibilidades)</p>
-          </div>
+        <div id="popup-content-template-2" style="display: none;">
+          <div>
+            <h2>Como Hackers descobrem uma senha</h2>
+            
+            <p>Os hackers podem utilizar diferentes métodos para descobrir senhas, e é fundamental entender como se proteger contra essas ameaças. Aqui estão alguns métodos comuns que os hackers podem usar:</p>
 
-          <div class="option">
-            <label>
-              <input type="radio" name="espec" value="baseASCII"><span></span> Caracteres ASCII
-            </label>
-            <p>Complexidade: 128 caracteres => 128<sup>10</sup>  (1,18 x 10<sup>21</sup> de possibilidades)</p>
-          </div>
-      
-          <div class="option">
-            <label>
-              <input type="radio" name="espec" value="baseUTF8"><span></span> Caracteres Unicode (UTF-8)
-            </label>
-            <p>Complexidade: 65 536 caracteres => 65 536<sup>10</sup>  (1,46 x 10<sup>48</sup> de possibilidades)</p>
-          </div>
-      
-        </div>
-      </div>
-      
-    </div>
-
-    <!---->
-
-    <div id="donation-popup">
-
-      <div id="donation-popup-content-template-1" style="display: none;">
-        <div>
-          <h2>Título2 da Dúvida</h2>
-          <p>Texto livremente formatado usando HTML.</p>
-        </div>
-        <div class="settings-window">
+            <h3>Força Bruta:</h3>
+            <p>Busca-se tentar adivinhar a senha, testando uma série de combinações possíveis até encontrar a correta. Isso pode ser feito manualmente, mas é mais comum usar programas automatizados que tentam milhares de combinações rapidamente.</p>
           
-          <p>QR CODE</p>
-      
+            <h3>Ataques de Dicionário:</h3>
+            <p>Utilizam palavras comuns ou termos encontrados em dicionários para tentar adivinhar senhas. Isso inclui nomes, datas, palavras simples e suas variações.</p>
+          
+            <h3>Phishing:</h3>
+            <p>Já nesse método, os hackers enganam as pessoas para que divulguem suas senhas. Eles podem criar páginas falsas que imitam sites legítimos e, ao inserir suas informações, as vítimas inadvertidamente fornecem suas senhas.</p>
+          
+            <h3>Engenharia Social:</h3>
+            <p>Os hackers podem tentar manipular as pessoas para obter informações confidenciais. Isso pode envolver ligações telefônicas, e-mails ou mensagens que parecem legítimos, solicitando que a vítima revele suas senhas.</p>
+          
+            <h3>Keyloggers:</h3>
+            <p>Malwares podem ser usados para monitorar e gravar as teclas digitadas no teclado de um computador. Dessa forma, os hackers podem obter informações, incluindo senhas, sem que a vítima perceba.</p>
+          </div>
+        </div>
+
+        <div id="popup-content-template-3" style="display: none;">
+          <div>
+            <h2>Criando uma Senha Segura</h2>
+
+            <p>Uma senha segura é essencial para proteger suas informações online. Aqui estão algumas dicas para criar uma senha robusta e mais resistente a ataques:</p>
+
+            <h3>1. Complexidade:</h3>
+            <p>Utilize uma combinação de letras maiúsculas e minúsculas, números e caracteres especiais. Quanto mais complexa a senha, mais difícil será para os hackers realizarem ataques de força bruta ou ataques de dicionário.</p>
+
+            <h3>2. Comprimento:</h3>
+            <p>Opte por senhas mais longas, pois elas geralmente são mais difíceis de serem quebradas. Recomenda-se uma senha com pelo menos 12 caracteres.</p>
+
+            <h3>3. Evite Informações Pessoais:</h3>
+            <p>Ao criar senhas, evite informações pessoais óbvias, como datas de nascimento, nomes de familiares ou dados facilmente acessíveis nas redes sociais. Essas informações podem ser facilmente obtidas pelos hackers.</p>
+
+            <h3>4. Não Use Palavras Comuns:</h3>
+            <p>Ao criar senhas, evite usar palavras comuns, termos encontrados em dicionários ou sequências óbvias. Isso reduz o risco de ataques de dicionário.</p>
+
+            <h3>5. Autenticação de Dois Fatores (2FA):</h3>
+            <p>Além de uma senha forte, ative a autenticação de dois fatores sempre que possível. Isso adiciona uma camada extra de segurança, exigindo um segundo método de verificação além da senha.</p>
+
+            <h3>6. Atualização Regular:</h3>
+            <p>Mantenha o hábito de trocar suas senhas regularmente. Isso diminui a probabilidade de exposição caso ocorram violações de dados em serviços online.</p>
+            
+            <h3>Ou seja...</h3>
+            <p>A segurança das suas informações começa com a criação de senhas robustas, o qual já consegue fazer por aqui.<br><br> No entanto, siga essas diretrizes para garantir uma camada adicional de proteção contra possíveis ameaças online.</p>
+
+          </div>
+        </div>
+
+        <div id="popup-content-template-4" style="display: none;">
+          <div>
+            <h2>Protegendo Suas Senhas</h2>
+            <p>Além de criar senhas seguras, é crucial adotar práticas que protejam efetivamente suas informações pessoais. Aqui estão algumas medidas para garantir a segurança das suas senhas:</p>
+
+            <h3>1. Não Compartilhe Suas Senhas:</h3>
+            <p>Evite compartilhar suas senhas com outras pessoas, mesmo que sejam amigos ou familiares. Mantenha suas credenciais confidenciais para reduzir o risco de acesso não autorizado.</p>
+
+            <h3>2. Use Gerenciadores de Senhas:</h3>
+            <p>Considere o uso de gerenciadores de senhas confiáveis. Essas ferramentas podem ajudar a criar e gerenciar senhas complexas para diferentes contas, eliminando a necessidade de memorizar várias combinações.</p>
+
+            <h3>3. Monitore Suas Contas Regularmente:</h3>
+            <p>Fique atento a atividades suspeitas em suas contas online. Se notar algo incomum, como acessos não autorizados, alterações de senha não solicitadas ou atividades desconhecidas, tome medidas imediatas para garantir a segurança da sua conta.</p>
+
+            <h3>4. Ative Notificações de Login:</h3>
+            <p>Muitos serviços oferecem opções para receber notificações por e-mail ou mensagem sempre que ocorrer um login na sua conta a partir de um dispositivo desconhecido. Ative essas notificações para detectar atividades suspeitas rapidamente.</p>
+
+            <h3>5. Mantenha Seu Dispositivo Seguro:</h3>
+            <p>Proteja seus dispositivos com senhas de acesso e atualizações regulares de software. Isso impede que terceiros não autorizados acessem suas informações diretamente a partir do seu computador, smartphone ou tablet.</p>
+
+            <h3>6. Esteja Ciente de Phishing:</h3>
+            <p>Fique atento a e-mails ou mensagens suspeitas que solicitem informações de login. Evite clicar em links desconhecidos e verifique sempre a autenticidade das solicitações antes de fornecer suas credenciais.</p>
+
+            <h3>Ou seja...</h3>
+            <p>Ao adotar essas práticas, você fortalece significativamente a segurança das suas senhas, reduzindo as chances de comprometimento das suas contas online. A proteção ativa e a conscientização são essenciais para garantir a integridade das suas informações pessoais na era digital.</p>
+          </div>
         </div>
       </div>
-      
-    </div>
+
+      <!-- Conteúdo da janela de configurações -->
+
+      <div id="settings-popup">
+        <div class="tabs-container">
+          <div class="tab" onclick="showInfo('settings-popup-content-template-1', '2')">Idioma preferido</div>
+          <div class="tab" onclick="showInfo('settings-popup-content-template-2', '2')">Padrões Gerais</div>
+          <div class="tab" onclick="showInfo('settings-popup-content-template-3', '2')">Padrões Específicos</div>
+        </div>
+        <div id="settings-popup-content" class="tab-content"></div>
+        <div class="ok-button">
+          <button id="ok-btn" onclick="closePopup()">OK</button>
+        </div>
+      </div>
+
+      <div id="settings-text">
+        <div id="settings-popup-content-template-1" style="display: none;">
+          <div>
+            <h2>Idioma preferido</h2>
+            <p>Escolha o idioma</p>
+          </div>
+          <div class="settings-window">
+        
+            <div class="option">
+              <label>
+                <input type="radio" name="language" value="pt-br" checked><span></span> Português (Brasil)
+              </label>
+            </div>
+        
+            <div class="option">
+              <label>
+                <input type="radio" name="language" value="en-us"><span></span> English (United States)
+              </label>
+            </div>
+        
+          </div>
+        </div>
+
+        <div id="settings-popup-content-template-2" style="display: none;">
+          <div>
+            <h2>Padrões Gerais</h2>
+            <p>Especifique padrões para a aplicação como um todo</p>
+          </div>
+
+          <div>
+            <h3>Complexidade de Caracteres</h3>
+            <p>Quantos mais caracteres sua senha tiver, mais segura será. Escolha a que satisfaz suas necessidades de segurança:</p>
+          </div>
+          <div class="settings-window">
+            <div class="option">
+              <label>
+                <input type="radio" name="caractere" value="base10"><span></span> Caracteres do sistema decimal
+              </label>
+              <p>10 caracteres => <br> 0 1 2 3 4 5 6 7 8 9</p>
+            </div>
+
+            <div class="option">
+              <label>
+                <input type="radio" name="caractere" value="base16"><span></span> Caracteres do sistema hexadecimal
+              </label>
+              <p>16 caracteres => <br> 0 1 2 3 4 5 6 7 8 9 A B C D E F</p>
+            </div>
+
+            <div class="option">
+              <label>
+                <input type="radio" name="caractere" value="base62"><span></span> Caracteres decimais e letras maiusculas e minusculas
+              </label>
+              <p>62 caracteres => <br> 0 1 2 3 4 5 6 7 8 9 A B C D E F G H I J K L M N O P Q R S T U V W X Y Z a b c d e f g h i j k l m n o p q r s t u v w x y z</p>
+            </div>
+
+            <div class="option">
+              <label>
+                <input type="radio" name="caractere" value="base85P" checked><span></span> Caracteres do idioma do computador (Padrão)
+              </label>
+              <p>85 caracteres => <br> 0 1 2 3 4 5 6 7 8 9 A B C D E F G H I J K L M N O P Q R S T U V W X Y Z a b c d e f g h i j k l m n o p q r s t u v w x y z ! # $ % & ( ) * + - ; < = > ? @ ^ _ ` { | } ~</p>
+            </div>
+        
+            <div class="option">
+              <label>
+                <input type="radio" name="caractere" value="base85F"><span></span> Caracteres Fixos (0-9/A-z/a-z/!-~)
+              </label>
+              <p>85 caracteres => <br> 0 1 2 3 4 5 6 7 8 9 A B C D E F G H I J K L M N O P Q R S T U V W X Y Z a b c d e f g h i j k l m n o p q r s t u v w x y z ! # $ % & ( ) * + - ; < = > ? @ ^ _ ` { | } ~</p>
+            </div>
+
+            <div class="option">
+              <label>
+                <input type="radio" name="caractere" value="baseASCII"><span></span> Caracteres ASCII
+              </label>
+              <p>128 caracteres => 128</p>
+            </div>
+        
+            <div class="option">
+              <label>
+                <input type="radio" name="caractere" value="baseUTF8"><span></span> Caracteres Unicode (UTF-8)
+              </label>
+              <p>65 536 caracteres => WOW!</p>
+            </div>
+          </div>
+          
+          <div>
+            <h3>Tamanho da Senha</h3>
+            <p>Quão maior for a senha gerada, mais segura será. Escolha a que satisfaz suas necessidades de segurança:</p>
+          </div>
+          <div class="settings-window">
+            <div>
+              <div class="form-container-popup">
+                <div class="form-header">Informe a quantia de caracteres que deseja:</div>
+                <form id="formNumber" autocomplete="off">
+                  <input type="text" class="password-input-popup" placeholder="Digite a senha">
+                </form>
+              </div>
+          </div>
+        </div>
+
+        <div id="settings-popup-content-template-3" style="display: none;">
+          <div>
+            <h2>Padrões Específicos</h2>
+            <p>Escolha padrões de senha pré configuradas</p>
+          </div>
+
+          <div class="settings-window">
+            <div class="option">
+              <label>
+                <input type="radio" name="espec" value="base85P" checked><span></span> Senha de números 
+              </label>
+            </div>
+        
+            <div class="option">
+              <label>
+                <input type="radio" name="espec" value="base85F"><span></span> Apenas 
+              </label>
+              <p>Complexidade: 85 caracteres => 85<sup>10</sup>  (1,96 x 10<sup>19</sup> de possibilidades)</p>
+            </div>
+
+            <div class="option">
+              <label>
+                <input type="radio" name="espec" value="baseASCII"><span></span> Caracteres ASCII
+              </label>
+              <p>Complexidade: 128 caracteres => 128<sup>10</sup>  (1,18 x 10<sup>21</sup> de possibilidades)</p>
+            </div>
+        
+            <div class="option">
+              <label>
+                <input type="radio" name="espec" value="baseUTF8"><span></span> Caracteres Unicode (UTF-8)
+              </label>
+              <p>Complexidade: 65 536 caracteres => 65 536<sup>10</sup>  (1,46 x 10<sup>48</sup> de possibilidades)</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!---->
+
+      <div id="donation-popup">
+        <div id="donation-popup-content-template-1" style="display: none;">
+          <div>
+            <h2>Título2 da Dúvida</h2>
+            <p>Texto livremente formatado usando HTML.</p>
+          </div>
+          <div class="settings-window">     
+            <p>QR CODE</p>   
+          </div>
+        </div>  
+      </div>
+    </section>
 
   </div>
   

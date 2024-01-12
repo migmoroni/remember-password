@@ -192,18 +192,20 @@ async function calcHashFromFile() {
   const file = fileInput.files[0];
 
   if (file) {
-      try {
-          const buffer = await readyFileAsBuffer(file);
+    try {
+      const buffer = await readyFileAsBuffer(file);
 
-          const hashBuffer = await crypto.subtle.digest('SHA-256', buffer);
+      const hashBuffer = await crypto.subtle.digest('SHA-256', buffer);
 
-          const hashArray = Array.from(new Uint8Array(hashBuffer));
-          const hashHex = hashArray.map(byte => byte.toString(16).padStart(2, '0')).join('');
+      const hashArray = Array.from(new Uint8Array(hashBuffer));
+      const hashHex = hashArray.map(byte => byte.toString(16).padStart(2, '0')).join('');
 
-          hashOutput.value = await encodeCustomBase85(hashHex);
-      } catch (error) {
-          console.error(error);
-      }
+      // Exibe o hash
+      hashOutput.value = await encodeCustomBase85(hashHex);
+      validateOption(hashOutput);
+    } catch (error) {
+      console.error(error);
+    }
   }
 }
 
@@ -223,7 +225,54 @@ function readyFileAsBuffer(file) {
   });
 }
 
+async function readWordsFromFile() {
+  const fileInput = document.getElementById('fileInput2');
+  const wordsOutput = document.getElementById('wordsOutput');
 
+  const file = fileInput.files[0];
+
+  if (file) {
+    try {
+      // Crie uma cópia do objeto File para a operação de leitura
+      const fileCopy = new File([file], file.name, { type: file.type });
+
+      // Realiza a leitura do arquivo
+      const content = await readContentFromFile(fileCopy);
+
+      // Extrai as palavras do conteúdo
+      const words = extractWords(content);
+
+      // Exibe as palavras
+      wordsOutput.value = words;
+    } catch (error) {
+      console.error(error);
+    }
+  }
+}
+
+function readContentFromFile(file) {
+  return new Promise((resolve, reject) => {
+    const reader = new FileReader();
+
+    reader.onload = function (e) {
+      resolve(e.target.result);
+    };
+
+    reader.onerror = function (error) {
+      reject(error);
+    };
+
+    reader.readAsText(file);
+  });
+}
+
+function extractWords(content) {
+  var words = content.split(/[\s]+/);
+  words = words.filter(function (word) {
+    return word.length > 0;
+  });
+  return words.join(' ');
+}
 
 //770 linhas maximas
 //3 idiomas

@@ -293,6 +293,8 @@ function validateSelect(input) {
     }
 }
 
+
+
 // Atualiza a força combinada sempre que as barras individuais são atualizadas
 document.getElementById('form1').addEventListener('input', function () {
     const password = this.querySelector('.password-input').value;
