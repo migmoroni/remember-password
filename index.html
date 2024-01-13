@@ -101,8 +101,9 @@
               <select id="form4" class="password-input-left text-select" oninput="validateOption(this)" onchange="toggleDropdown()">
                 <option class="option" disabled selected>Escolha a base</option>
                 <option class="option text-option" value="all">Números, Letras e simbolos</option>
-                <option class="option text-option" value="decimal">Apenas Números</option>
+                <option class="option text-option" value="decimal">Todos do Teclado</option>
                 <option class="option text-option" value="letters">Apenas Letras</option>
+                <option class="option text-option" value="symbols">Apenas</option>
                 <option class="option text-option" value="unicode">Unicode</option>
               </select>
             </div>
@@ -114,14 +115,14 @@
             <form id="form5" autocomplete="off">
               <input type="text" class="password-input" oninput="validateNumber(this)" placeholder="Digite o valor">
             </form>
-            <div class="password-strength-bar margin-bottom-25" id="password-strength-bar-4"></div>
+            <div class="password-strength-bar margin-bottom-25" id="password-strength-bar-5"></div>
           </div>
         </fieldset>
       </section>
 
       <section>
-        <div class="form-container margin-top-25">
-          <button id="generate-btn" class="disabled" onclick="generate()">Gerar</button>
+        <div class="form-container margin-top-50">
+          <button id="generate-btn" class="disabled" onclick="generate()">Gerar Senha</button>
         </div>
 
         <div id="password-container">
@@ -135,7 +136,7 @@
         </div>
         
         <div class="form-container">
-          <div id="donation-btn" onclick="showInfo('donation-popup-content-template-1')">Doe</div>
+          <div id="donation-btn" onclick="showInfo('donation-popup-content-template-1')">Apoiar</div>
         </div>
       </section>
 

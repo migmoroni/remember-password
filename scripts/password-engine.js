@@ -66,9 +66,10 @@ async function generate() {
   const password3 = document.getElementById('form3').elements[0].value;
   const passwordChar = 1;
   const passwordSize = document.getElementById('form5').elements[0].value;
+  const passValue = validateValue(passwordSize);
 
   // Verifica se pelo menos o primeiro e o terceiro formulários têm mais de 1 caractere
-  const isClickable = (password1.length > 0 && password2.length > 0 && password3.length > 0 && passwordSize.length > 0);
+  const isClickable = (password1.length > 0 && password2.length > 0 && password3.length > 0 && passValue);
 
   // Seleciona o botão "generate"
   const generateButton = document.getElementById('generate-btn');
@@ -185,6 +186,16 @@ async function validarNumero(input) {
   }
 }
 
+function validateValue(input){
+  let valor = input;
+
+  if ((isNaN(valor)) || ((valor < 1) || (valor > 50))) {
+    return false;
+  } else {
+    return true;
+  }
+}
+
 async function calcHashFromFile() {
   const fileInput = document.getElementById('fileInput');
   const hashOutput = document.getElementById('hashOutput');
@@ -203,6 +214,8 @@ async function calcHashFromFile() {
       // Exibe o hash
       hashOutput.value = await encodeCustomBase85(hashHex);
       validateOption(hashOutput);
+      calculatePasswordStrength(hashOutput, 'password-strength-bar-1');
+      calculateCombinedStrength();
     } catch (error) {
       console.error(error);
     }
@@ -239,8 +252,8 @@ async function readWordsFromFile() {
       // Realiza a leitura do arquivo
       const content = await readContentFromFile(fileCopy);
 
-      // Extrai as palavras do conteúdo
-      const words = extractWords(content);
+      // Extrai as palavras do conteúdo (limitado a 5000 palavras)
+      const words = extractWords(content, 5000);
 
       // Exibe as palavras
       wordsOutput.value = words;
@@ -267,11 +280,15 @@ function readContentFromFile(file) {
   });
 }
 
-function extractWords(content) {
+function extractWords(content, maxWords) {
   var words = content.split(/[\s]+/);
   words = words.filter(function (word) {
     return word.length > 0;
   });
+
+  // Limita o número de palavras ao máximo especificado
+  words = words.slice(0, maxWords);
+
   return words.join(' ');
 }
 

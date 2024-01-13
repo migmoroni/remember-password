@@ -33,6 +33,51 @@ legend {
   text-align: center;
 }
 
+fieldset {
+  border-radius: 16px;
+}
+
+option {
+  height: 50px;
+}
+
+/* Estilo personalizado para o input radio oculto */
+input[type="radio"] {
+  display: none;
+}
+
+/* Estilo para a aparência visual do input radio personalizado */
+input[type="radio"] + span {
+  position: relative;
+  padding-left: 30px; /* Ajuste o espaço para o indicador personalizado */
+  cursor: pointer;
+  display: inline-block;
+  line-height: 20px;
+}
+
+/* Estilo para o indicador personalizado quando não está selecionado */
+input[type="radio"] + span::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 20px;
+  height: 20px;
+  border: 2px solid #3498db; /* Cor da borda do indicador */
+  border-radius: 0%;
+  background-color: white; /* Cor de fundo do indicador quando não está selecionado */
+}
+
+/* Estilo para o indicador personalizado quando está selecionado */
+input[type="radio"]:checked + span::before {
+  background-color: #007bff; /* Cor de fundo do indicador quando está selecionado */
+}
+
+/* Estilo para o texto ao lado do indicador */
+input[type="radio"] + span + label {
+  margin-left: 10px;
+}
+
 .error {
   border: 2px solid red;
   background-color: rgb(255, 200, 200);
@@ -113,92 +158,6 @@ legend {
   box-shadow: 0 0 5px rgba(0, 123, 255, 0.5); /* Adiciona uma sombra azul suave quando em foco */
 }
 
-.tabs-container {
-  display: flex;
-  flex-direction: column;
-  flex-wrap: wrap;
-  margin-bottom: 10px;
-} /* tentativa de corrigir os infos*/
-
-.tab {
-  cursor: pointer;
-  padding: 10px;
-  min-width: 100px;
-  margin-right: 10px;
-  margin-top: 10px;
-  background-color: #007bff;
-  text-align: left;
-  color: white;
-  border: none;
-  border-radius: 0px;
-  font-size: 14px;
-  border-radius: 16px;
-}
-
-.tab:hover {
-  box-shadow: 0 0 25px rgba(0, 123, 255, 0.5); /* Adiciona uma sombra azul suave quando em foco*/
-}
-
-.tab-content {
-  margin-top: 10px;
-} 
-
-#question-mark {
-  cursor: pointer;
-  font-size: 18px;
-  color: #fff;
-  background-color: #007bff;
-  border-radius: 0%;
-  padding: 10px 14px;
-  position: absolute;
-  top: 15px;
-  left: 5%;
-  clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
-}
-
-#settings-btn {
-  cursor: pointer;
-  font-size: 18px;
-  color: #fff;
-  background-color: #007bff;
-  border-radius: 0%;
-  padding: 10px;
-  position: absolute;
-  top: 15px;
-  right: 5%;
-  clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
-}
-/*
-
-.info-buttons {
-  display: flex;
-  justify-content: center; /* Centraliza os botões "Info"
-  margin-bottom: 10px;
-  position:relative;
-}
-
-
-
-
-.info-button {
-  background-color: #007bff;
-  color: white;
-  padding: 10px;
-  margin: 0 15px; /* Adiciona espaçamento entre os botões "Info"
-  border: none;
-  cursor: pointer;
-}
-
-.info-button:hover {
-  box-shadow: 0 0 25px rgba(0, 123, 255, 0.5); /* Adiciona uma sombra azul suave quando em foco
-}
-*/
-.ok-button {
-  display: flex;
-  justify-content: center; /* Centraliza os botões "OK" */
-  margin-bottom: 10px;
-}
-
 #main-top {
   display: flex;
 }
@@ -272,81 +231,16 @@ legend {
   overflow-x: auto;
 }
 
-#generate-btn {
-  /* Estilo padrão do botão */
-  background-color: #007bff;
-  color: white;
-  padding: 10px;
-  font-size: 16px;
-  border: none;
-  cursor: pointer;
-  margin-top: 20px;
-  width: 200px;
-  align-self: center;
-  text-transform: uppercase;
-  border-radius: 8px;
-}
-
-#generate-btn.disabled {
-  background-color: #555; /* Cor de fundo mais escura */
-  cursor: not-allowed; /* Cursor não clicável */
-}
-
-#generate-btn.active {
-  background-color: #007bff;
-}
-
-#generate-btn.active:hover,
-#generate-btn.active:active {
-  box-shadow: 0 0 25px rgba(0, 123, 255, 10); /* Adiciona uma sombra azul suave quando em foco */
-}
-
 .margin-top-25 {
   margin-top: 25px;
 }
 
+.margin-top-50 {
+  margin-top: 50px;
+}
+
 .margin-bottom-25 {
   margin-bottom: 25px;
-}
-
-#donation-btn {
-  /* Estilo padrão do botão */
-  cursor: pointer;
-  background-color: #007bff;
-  color: white;
-  padding: 10px;
-  font-size: 16px;
-  text-align: center;
-  margin-top: 20px;
-  width: 80px;
-  align-self: center;
-  text-transform: uppercase;
-  border-radius: 8px 8px 8px 8px;
-  margin-top: 40px;
-}
-
-#donation-btn:hover,
-#donation-btn:active {
-  box-shadow: 0 0 25px rgba(0, 123, 255, 10); /* Adiciona uma sombra azul suave quando em foco */
-}
-
-.choose-btn {
-  cursor: pointer;
-  background-color: #007bff;
-  color: white;
-  padding: 10px;
-  font-size: 12px;
-  text-align: center;
-  margin-top: 20px;
-  width: 80px;
-  align-self: center;
-  text-transform: uppercase;
-  border-radius: 8px;
-}
-
-.choose-btn:hover,
-.choose-btn:active {
-  box-shadow: 0 0 25px rgba(0, 123, 255, 10); /* Adiciona uma sombra azul suave quando em foco */
 }
 
 #password-container {
@@ -370,57 +264,12 @@ legend {
   box-shadow: 0 0 20px rgba(0, 123, 255, 1); /* Adiciona uma sombra azul suave quando em foco */
 }
 
-#reveal-btn {
-  background-color: #007bff;
-  color: white;
-  padding: 10px;
-  border: none;
-  cursor: pointer;
-  text-align: center;
-  min-width: 10vh;
-  border-radius: 8px 0px 0px 8px;
-}
-
-#copy-btn {
-  background-color: #007bff;
-  color: white;
-  padding: 10px;
-  border: none;
-  cursor: pointer;
-  min-width: 10vh;
-  border-radius: 0px 8px 8px 0px;
-}
-
-#copy-btn:hover,
-#copy-btn:active {
-  box-shadow: 0 0 25px rgba(0, 123, 255, 10); /* Adiciona uma sombra azul suave quando em foco */
-}
-
-#reveal-btn:hover,
-#reveal-btn:active {
-  box-shadow: 0 0 25px rgba(0, 123, 255, 10); /* Adiciona uma sombra azul suave quando em foco */
-}
-
 #popup-content {
   margin-bottom: 20px; /* Espaço entre botões "Info" e texto */
 }
 
 #settings-popup-content {
   margin-bottom: 20px; /* Espaço entre botões "Info" e texto */
-}
-
-#ok-btn {
-  background-color: #007bff;
-  color: white;
-  margin: 40px;
-  padding: 15px;
-  border: none;
-  cursor: pointer;
-}
-
-#ok-btn:hover,
-#ok-btn:active {
-  box-shadow: 0 0 25px rgba(0, 123, 255, 10); /* Adiciona uma sombra azul suave quando em foco */
 }
 
 /* Janelas adicionais */
@@ -465,53 +314,6 @@ legend {
   color: white;
   /*border: none;  Remove a borda */
   outline: none; /* Remove a borda de foco ao clicar */
-}
-
-fieldset {
-  border-radius: 16px;
-}
-
-
-
-option {
-  height: 50px;
-}
-
-/* Estilo personalizado para o input radio oculto */
-input[type="radio"] {
-  display: none;
-}
-
-/* Estilo para a aparência visual do input radio personalizado */
-input[type="radio"] + span {
-  position: relative;
-  padding-left: 30px; /* Ajuste o espaço para o indicador personalizado */
-  cursor: pointer;
-  display: inline-block;
-  line-height: 20px;
-}
-
-/* Estilo para o indicador personalizado quando não está selecionado */
-input[type="radio"] + span::before {
-  content: "";
-  position: absolute;
-  left: 0;
-  top: 0;
-  width: 20px;
-  height: 20px;
-  border: 2px solid #3498db; /* Cor da borda do indicador */
-  border-radius: 0%;
-  background-color: white; /* Cor de fundo do indicador quando não está selecionado */
-}
-
-/* Estilo para o indicador personalizado quando está selecionado */
-input[type="radio"]:checked + span::before {
-  background-color: #007bff; /* Cor de fundo do indicador quando está selecionado */
-}
-
-/* Estilo para o texto ao lado do indicador */
-input[type="radio"] + span + label {
-  margin-left: 10px;
 }
 
 .text-select {

@@ -43,10 +43,12 @@ function checkConditionAndEnableButton() {
     const password1 = document.getElementById('form1').elements[0].value;
     const password2 = document.getElementById('form2').elements[0].value;
     const password3 = document.getElementById('form3').elements[0].value;
+
     const passwordSize = document.getElementById('form5').elements[0].value;
+    const passValue = validateValue(passwordSize);
 
     // Verifica se pelo menos o primeiro e o terceiro formulários têm mais de 1 caractere
-    const isClickable = (password1.length > 0 && password2.length > 0 && password3.length > 0 && passwordSize.length > 0);
+    const isClickable = (password1.length > 0 && password2.length > 0 && password3.length > 0 && passValue);
 
     // Seleciona o botão "generate"
     const generateButton = document.getElementById('generate-btn');
@@ -106,22 +108,24 @@ function showInfo(contentTemplateId, window) {
     const content = template.innerHTML;
 
     if (window === '1'){ //Menu Info
-        document.getElementById('mainPage').style.display = 'none';
         document.getElementById('popup-content').innerHTML = content;
         document.getElementById('popup').style.display = 'block';
         document.body.classList.add('modal-open');
-        // Adiciona uma entrada ao histórico de navegação
-        history.pushState({ page: 'popup' }, 'Popup', '#popup');
 
     } if (window === '2'){ //Menu Config
         document.getElementById('settings-popup-content').innerHTML = content;
         document.getElementById('settings-popup').style.display = 'block';
         document.body.classList.add('modal-open');
+
     } else { //Menu Donate
         document.getElementById('donation-popup-content').innerHTML = content;
         document.getElementById('donation-popup').style.display = 'block';
         document.body.classList.add('modal-open');
     }
+    
+    document.getElementById('mainPage').style.display = 'none';
+    // Adiciona uma entrada ao histórico de navegação
+    history.pushState({ page: 'popup' }, 'Popup', '#popup');
 }
 
 function handlePopstate(event) {
@@ -157,17 +161,17 @@ function calculatePasswordStrength(password, barId) {
             strength = 30;
         } if (password.length >= 10 && lowercaseCount >= 1 && uppercaseCount >= 1 && symbolCount >= 1 && digitCount >= 1) {
             strength = 40;
-        } if (password.length >= 10 && lowercaseCount >= 2 && uppercaseCount >= 2 && symbolCount >= 1 && digitCount >= 1) {
+        } if (password.length >= 12 && lowercaseCount >= 2 && uppercaseCount >= 2 && symbolCount >= 1 && digitCount >= 1) {
             strength = 60;
-        } if (password.length >= 15 && lowercaseCount >= 3 && uppercaseCount >= 2 && symbolCount >= 1 && digitCount >= 2) {
+        } if (password.length >= 12 && lowercaseCount >= 3 && uppercaseCount >= 2 && symbolCount >= 1 && digitCount >= 2) {
             strength = 80;
-        } if (password.length >= 15 && lowercaseCount >= 4 && uppercaseCount >= 3 && symbolCount >= 2 && digitCount >= 3) {
+        } if (password.length >= 14 && lowercaseCount >= 4 && uppercaseCount >= 3 && symbolCount >= 2 && digitCount >= 3) {
             strength = 85;
-        } if (password.length >= 20 && lowercaseCount >= 4 && uppercaseCount >= 4 && symbolCount >= 3 && digitCount >= 3) {
+        } if (password.length >= 16 && lowercaseCount >= 4 && uppercaseCount >= 4 && symbolCount >= 3 && digitCount >= 3) {
             strength = 90;
-        } if (password.length >= 20 && lowercaseCount >= 5 && uppercaseCount >= 5 && symbolCount >= 4 && digitCount >= 3) {
+        } if (password.length >= 18 && lowercaseCount >= 5 && uppercaseCount >= 5 && symbolCount >= 4 && digitCount >= 3) {
             strength = 95;
-        } if (password.length >= 25 && lowercaseCount >= 5 && uppercaseCount >= 5 && symbolCount >= 5 && digitCount >= 5) {
+        } if (password.length >= 20 && lowercaseCount >= 5 && uppercaseCount >= 5 && symbolCount >= 5 && digitCount >= 5) {
             strength = 100;
         }
         break;
@@ -195,9 +199,9 @@ function calculatePasswordStrength(password, barId) {
             strength = 85;
         } if (password.length >= 24 && words >= 12) {
             strength = 90;
-        } if (password.length >= 36 && words >= 18) {
+        } if (password.length >= 32 && words >= 16) {
             strength = 95;
-        } if (password.length >= 48 && words >= 24) {
+        } if (password.length >= 40 && words >= 20) {
             strength = 100;
         }
         break;
@@ -209,19 +213,32 @@ function calculatePasswordStrength(password, barId) {
         if (password.length >= 1) {
             strength = 10;
         } if (password.length >= 2) {
-            strength = 25;
-        } if (password.length >= 3) {
             strength = 50;
-        } if (password.length >= 4) {
+        } if (password.length >= 3) {
+            strength = 100;
+        } 
+        break;
+
+        case 'password-strength-bar-4':
+        // Senha Específica
+
+        // A senha precisa atender a todos os critérios para ser considerada forte
+        if (password == 1) {
+            strength = 20;
+        } if (password == 2) {
+            strength = 30;
+        } if (password == 3) {
+            strength = 60;
+        } if (password == 4) {
             strength = 80;
-        } if (password.length >= 5) {
+        } if (password == 5) {
             strength = 100;
         }
         break;
 }
 
 // Atualiza a largura da barra de força com base na pontuação
-const percentage = (strength / 100) * 100;
+const percentage = (strength / 200) * 100;
 strengthBar.style.width = `${percentage}%`;
 }
 
