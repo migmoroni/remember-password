@@ -5,7 +5,7 @@ checkConditionAndEnableButton();
 
 // Função para verificar a existência de um mouse
 function hasMouse() {
-    return ('maxTouchPoints' in navigator && navigator.maxTouchPoints > 0);
+    return !('maxTouchPoints' in navigator && navigator.maxTouchPoints > 0);
 }
 
 // Função para ativar ou desativar a folha de estilos
