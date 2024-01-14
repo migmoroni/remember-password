@@ -2,7 +2,7 @@
 checkConditionAndEnableButton();
 
 
-
+/*
 // Função para verificar a existência de um mouse
 function hasMouse() {
     return !('maxTouchPoints' in navigator && navigator.maxTouchPoints > 0);
@@ -23,4 +23,4 @@ if (hasMouse()) {
     toggleStylesheet(true); // Ativa a folha de estilos específica para dispositivos com mouse
 } else {
     toggleStylesheet(false); // Ativa a folha de estilos específica para touchscreen
-}
+}*/
