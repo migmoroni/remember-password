@@ -141,6 +141,14 @@
     border-radius: 8px 0px 0px 8px;
 }
 
+#reveal-btn:hover {
+    box-shadow: 0 0 25px rgba(0, 123, 255, 10); /* Adiciona uma sombra azul suave quando em foco */
+}
+
+#reveal-btn:blur{
+    box-shadow: none;
+}
+
 #copy-btn {
     background-color: #007bff;
     color: white;
@@ -151,9 +159,9 @@
     border-radius: 0px 8px 8px 0px;
 }
 
-#reveal-btn:hover,
-#reveal-btn:active,
-#reveal-btn:focus {
+#copy-btn:hover,
+#copy-btn:active,
+#copy-btn:focus {
     box-shadow: 0 0 25px rgba(0, 123, 255, 10); /* Adiciona uma sombra azul suave quando em foco */
 }
 
@@ -161,14 +169,6 @@
 #copy-btn:disabled {
     box-shadow: none;
 }
-
-
-#copy-btn:hover,
-#copy-btn:active,
-#copy-btn:focus {
-    box-shadow: 0 0 25px rgba(0, 123, 255, 10); /* Adiciona uma sombra azul suave quando em foco */
-}
-
 
 #ok-btn {
     background-color: #007bff;
@@ -181,6 +181,12 @@
 }
 
 #ok-btn:hover,
-#ok-btn:active {
+#ok-btn:active,
+#ok-btn:focus {
     box-shadow: 0 0 25px rgba(0, 123, 255, 10); /* Adiciona uma sombra azul suave quando em foco */
+}
+
+#ok-btn:blur,
+#ok-btn:disabled {
+    box-shadow: none;
 }
