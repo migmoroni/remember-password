@@ -60,16 +60,30 @@ async function readConfig(){
   
 }
 
+function getCharCode(option) {
+
+  switch (option) {
+    case 'all' || 'start':
+      return 'red';
+    case 'numbers':
+      return 'blue';
+    case 'ascii':
+      return 'green';
+    case 'unicode':
+      return 'purple';
+  }
+}
+
 async function generate() {
   const password1 = document.getElementById('form1').elements[0].value;
   const password2 = document.getElementById('form2').elements[0].value;
   const password3 = document.getElementById('form3').elements[0].value;
-  const passwordChar = 1;
+  const passwordChar = document.getElementById('form4').value;
   const passwordSize = document.getElementById('form5').elements[0].value;
   const passValue = validateValue(passwordSize);
 
   // Verifica se pelo menos o primeiro e o terceiro formulários têm mais de 1 caractere
-  const isClickable = (password1.length > 0 && password2.length > 0 && password3.length > 0 && passValue);
+  const isClickable = (password1.length > 0 && password2.length > 0 && password3.length > 0 && !(passwordChar == 'start') && passValue);
 
   // Seleciona o botão "generate"
   const generateButton = document.getElementById('generate-btn');
@@ -291,6 +305,16 @@ function extractWords(content, maxWords) {
 
   return words.join(' ');
 }
+
+function changeChar(selectElement) {
+  let selectedOption = selectElement.options[selectElement.selectedIndex].value;
+  let color = getCharCode(selectedOption);
+  
+  // Exemplo: Alterando a cor de fundo do elemento com o ID 'form4'
+  document.getElementById('form4').style.backgroundColor = color;
+}
+
+
 
 //770 linhas maximas
 //3 idiomas

@@ -43,12 +43,12 @@ function checkConditionAndEnableButton() {
     const password1 = document.getElementById('form1').elements[0].value;
     const password2 = document.getElementById('form2').elements[0].value;
     const password3 = document.getElementById('form3').elements[0].value;
-
+    const passwordChar = document.getElementById('form4').value;
     const passwordSize = document.getElementById('form5').elements[0].value;
     const passValue = validateValue(passwordSize);
 
     // Verifica se pelo menos o primeiro e o terceiro formulários têm mais de 1 caractere
-    const isClickable = (password1.length > 0 && password2.length > 0 && password3.length > 0 && passValue);
+    const isClickable = (password1.length > 0 && password2.length > 0 && password3.length > 0 && !(passwordChar == 'start') && passValue);
 
     // Seleciona o botão "generate"
     const generateButton = document.getElementById('generate-btn');

@@ -51,7 +51,7 @@
           <legend class="form-container" for="characterSet">Informe sua senha única</legend>
           
           <div class="form-container margin-top-25"> 
-            <label class="form-header">Senha de Códigos</label>
+            <label class="form-header">1. Senha de Códigos</label>
             <form id="form1" autocomplete="off">
               <input type="text" id="hashOutput" class="password-input" oninput="validateOption(this)" placeholder="Digite o código">
             </form>
@@ -65,8 +65,10 @@
             <div class="password-strength-bar" id="password-strength-bar-1"></div>
           </div>
 
+          <p class="margin-top-25"></p>
+
           <div class="form-container">
-            <label class="form-header  margin-top-25">Senha de Palavras</label>
+            <label class="form-header  margin-top-25">2. Senha de Palavras</label>
             <form id="form2" autocomplete="off">
               <input type="text" id="wordsOutput" class="password-input" oninput="validateOption(this)" placeholder="Digite as palavras">
             </form>
@@ -85,10 +87,17 @@
           <legend class="form-container" for="characterSet">Informe o Serviço</legend>
 
           <div class="form-container">
-            <label class="form-header margin-top-25">Serviço</label>
+            <label class="form-header margin-top-25">3. Serviço</label>
             <form id="form3" autocomplete="off">
               <input type="text" class="password-input" oninput="validateOption(this)" placeholder="Digite o serviço">
             </form>
+            <div>
+              <p class="margin-top-25">OU</p>
+            </div>
+            <div class="form-container">
+              <input type="file" id="fileInput3" onchange="readWordsFromFile()" style="display: none;">
+              <label for="fileInput2" class="choose-btn">Lista de serviços</label>
+            </div>
             <div class="password-strength-bar margin-bottom-25" id="password-strength-bar-3"></div>
           </div>
         </fieldset>
@@ -97,15 +106,13 @@
           <legend class="form-container" for="characterSet">Caracteristicas da senha</legend>
           
           <div class="form-container dropdown">
-            <label class="form-header margin-top-25">Caracteres</label>
+            <label class="form-header margin-top-25">4. Caracteres</label>
             <div>
               <select id="form4" class="password-input-left text-select" oninput="validateOption(this)" onchange="toggleDropdown()">
-                <option class="option" disabled selected>Escolha a base</option>
-                <option class="option text-option" value="all">Todos do meu Teclado</option>
-                <option class="option text-option" value="decimal">Alf. Latino e simbolos</option>
-                <option class="option text-option" value="decimal">Alf. Cirílico e simbolos</option>
-                <option class="option text-option" value="letters">Apenas números</option>
-                <option class="option text-option" value="symbols">ASCII</option>
+                <option class="option" value="start" disabled selected>Escolha a base</option>
+                <option class="option text-option" value="all">Todos do Teclado</option>
+                <option class="option text-option" value="numbers">Apenas números</option>
+                <option class="option text-option" value="ascii">ASCII</option>
                 <option class="option text-option" value="unicode">Unicode</option>
               </select>
             </div>
@@ -113,7 +120,7 @@
           </div>
         
           <div class="form-container">
-            <label class="form-header margin-top-25">Tamanho</label>
+            <label class="form-header margin-top-25">5. Tamanho</label>
             <form id="form5" autocomplete="off">
               <input type="text" class="password-input" oninput="validateNumber(this)" placeholder="Digite o valor">
             </form>
@@ -143,7 +150,7 @@
       </section>
 
       <footer class="form-container margin-top-25">
-        <p>Versão Beta - v0.7.04.011</p>
+        <p>Versão Beta - v0.7.05.000</p>
       </footer>
 
     </div>
