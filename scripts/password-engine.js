@@ -44,34 +44,20 @@ async function reduzirStringExistente(str, comprimentoAlvo) {
   return str;
 }
 
-async function choiceEncode(encode, password){
-  //Base decimal
-  //Base 85 (maquina) - padrão
-  //Base 85 (fixa)
-  //Base 128 - ASCII
-  //Base 65536 - Unicode
-}
-
-async function choiceSize(size, password){
-  
-}
-
-async function readConfig(){
-  
-}
-
-function getCharCode(option) {
+async function getCharCode(option, value) {
 
   switch (option) {
-    case 'all' || 'start':
-      return 'red';
+    case 'charFixed' || 'start':
+      return encodeFixedBase85(value);
+    case 'keyboard':
+      return encodeCustomChar(value);
     case 'numbers':
-      return 'blue';
-    case 'ascii':
-      return 'green';
+      return encodeFixedBase10(value);
     case 'unicode':
-      return 'purple';
+      return encodeBaseUnicode(value);
   }
+  //20 teclados: Ingles, Portugues, Frances, Alemão, Espanhol, Russo, Islandês, Polonês, Ge-ez, Arabe, Urdu, Turco, Hebraico, Armenio, Georgiano, Coreano, Japonês, Chines Simplificado, Tamil e Hindi.
+  //4 iniciais: Ingles, Portugues, Espanhol e Russo.
 }
 
 async function generate() {
@@ -106,35 +92,53 @@ async function generate() {
     const resultC = await calcularHashSHA512(await calcularHashSHA384(await calcularHashSHA256(resultB)));
     const resultD = await calcularHashSHA512(await calcularHashSHA384(await calcularHashSHA256(resultC)));
 
-    //Etapa 3: Converção em base85, reduzindo tamanho e aumentando segurança
-    const resultE = await encodeCustomBase85(resultD);
+    //Etapa 3: Converção em base de caracteres escolhida
+    //const resultE = await encodeFixedBase85(resultD);
+    const resultE = await getCharCode(passwordChar, resultD);
 
-    //Etapa 4: Manter apenas os primeiros 20 caracteres
+    //Etapa 4: Manter apenas o valor de caracteres escolhido
     const resultF = await reduzirStringExistente(resultE, passwordSize);
 
     console.log('Resultado Último:', resultF);
     document.getElementById('password').value = resultF;
     
     })();
-    //11 + + 11 = !@""\"`"l?"f!^"l!t!<
+    
   } else {
     // Remove a classe para tornar o botão não clicável e com a cor padrão
     generateButton.classList.remove('active');
   }
 }
 
-async function getUnicodePrintableChars() {
-  // Retorna uma string contendo caracteres Unicode imprimíveis
+async function getDecimalChars() {
+  // Retorna uma string contendo caracteres Unicode dos numerais decimais (0 a 9)
+  let decimalNumerals = '';
+  const startCodePoint = 0x30;  // Código Unicode para '0'
+  const endCodePoint = 0x39;    // Código Unicode para '9'
+
+  for (let i = startCodePoint; i <= endCodePoint; i++) {
+    decimalNumerals += String.fromCodePoint(i);
+  }
+
+  return decimalNumerals;
+}
+
+async function getUnicodeChars() {
+  // Retorna uma string contendo todos os caracteres Unicode imprimíveis
   let unicodePrintableChars = '';
-  for (let i = 0x20; i <= 0x7E; i++) {
+  const startCodePoint = 0x20;  // Ponto de início desejado
+  const endCodePoint = 0xFFFF;  // Ponto de término desejado (pode ser ajustado conforme necessário)
+
+  for (let i = startCodePoint; i <= endCodePoint; i++) {
     unicodePrintableChars += String.fromCodePoint(i);
   }
+
   return unicodePrintableChars;
 }
 
-async function encodeCustomBase85(data, chars) {
+async function encodeFixedBase85(data) {
   // Obter caracteres Unicode imprimíveis
-  const unicodeChars = await getUnicodePrintableChars();
+  const unicodeChars = await getUnicodeChars();
 
   // Dicionário para base85
   const base85Chars = Array.from({ length: 85 }, (_, i) => unicodeChars.charAt(i));
@@ -152,8 +156,8 @@ async function encodeCustomBase85(data, chars) {
 
   // Converter cada grupo de 2 bytes para base85
   let base85String = '';
-  for (let i = 0; i < data.length; i += 4) {
-    const hexPair = data.slice(i, i + 2);
+  for (let i = 0; i < data.length; i += 2) {
+    const hexPair = data.slice(i, i + 4);
     const charCode = parseInt(hexPair, 16);
     const base = await numToBase85(charCode);
     base85String += base.replace(/\s/g, '');
@@ -162,31 +166,61 @@ async function encodeCustomBase85(data, chars) {
   return base85String;
 }
 
-async function encodeBase144(data) {
-  // Dicionário para base144
-  const base144Chars = Array.from({ length: 144 }, (_, i) => String.fromCodePoint(i));
+async function encodeFixedBase10(data) {
+  // Obter caracteres Unicode imprimíveis
+  const base10Chars = await getDecimalChars()
 
-  // Função para converter um número para base144
-  async function numToBase144(num) {
+  // Dicionário para base10
+  //const base10Chars = Array.from({ length: 10 }, (_, i) => unicodeChars.charAt(i));
+
+  // Função para converter um número para base10
+  async function numToBase10(num) {
     let result = '';
-    for (let i = 0; i < 2; i++) {
-      const remainder = num % 144;
-      num = Math.floor(num / 144);
-      result = base144Chars[remainder] + result;
+    for (let i = 0; i < 5; i++) {
+      const remainder = num % 10;
+      num = Math.floor(num / 10);
+      result = base10Chars[remainder] + result;
     }
     return result;
   }
 
-  // Converter cada par de caracteres hexadecimal para base144
-  let base144String = '';
+  // Converter cada grupo de 2 bytes para base10
+  let base10String = '';
+  for (let i = 0; i < data.length; i += 1) {
+    const hexPair = data.slice(i, i + 4);
+    const charCode = parseInt(hexPair, 16);
+    const base = await numToBase10(charCode);
+    base10String += base.replace(/\s/g, '');
+  }
+
+  return base10String;
+}
+
+async function encodeBaseUnicode(data) {
+  // Dicionário para base65536
+  const base65536Chars = Array.from({ length: 65536 }, (_, i) => String.fromCodePoint(i));
+
+  // Função para converter um número para base65536
+  async function numToBase65536(num) {
+    let result = '';
+    for (let i = 0; i < 2; i++) {
+      const remainder = num % 65536;
+      num = Math.floor(num / 65536);
+      result = base65536Chars[remainder] + result;
+    }
+    return result;
+  }
+
+  // Converter cada par de caracteres hexadecimal para base65536
+  let base65536String = '';
   for (let i = 0; i < data.length; i += 4) {
     const hexPair = data.slice(i, i + 2);
     const charCode = parseInt(hexPair, 16);
-    const base = await numToBase144(charCode);
-    base144String += base;
+    const base = await numToBase65536(charCode);
+    base65536String += base;
   }
 
-  return base144String;
+  return base65536String;
 }
 
 async function validarNumero(input) {
@@ -226,7 +260,7 @@ async function calcHashFromFile() {
       const hashHex = hashArray.map(byte => byte.toString(16).padStart(2, '0')).join('');
 
       // Exibe o hash
-      hashOutput.value = await encodeCustomBase85(hashHex);
+      hashOutput.value = await encodeFixedBase85(hashHex);
       validateOption(hashOutput);
       calculatePasswordStrength(hashOutput, 'password-strength-bar-1');
       calculateCombinedStrength();
