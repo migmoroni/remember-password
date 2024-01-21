@@ -1,3 +1,15 @@
+/* Remove estilos padrão da tag <a> */
+a {
+    text-decoration: none;
+    color: inherit;
+    cursor: pointer;
+    display: inline-block;
+    padding: 25px 0px;
+    color: #ffffff;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+}
 
 .tabs-container {
     display: flex;
@@ -99,9 +111,8 @@
     font-size: 16px;
     text-align: center;
     margin-top: 20px;
-    width: 80px;
+    width: 150px;
     align-self: center;
-    text-transform: uppercase;
     border-radius: 8px 8px 8px 8px;
     margin-top: 40px;
 }
