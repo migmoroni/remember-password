@@ -67,6 +67,13 @@ a {
     clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
 }
 
+#service-btn {
+    cursor: pointer;
+    color: #fff;
+    background-color: #007bff;
+    position: absolute;
+}
+
 .ok-button {
     display: flex;
     justify-content: center; /* Centraliza os botões "OK" */

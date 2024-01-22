@@ -97,8 +97,7 @@
               <p class="margin-top-25">OU</p>
             </div>
             <div class="form-container">
-              <input type="file" id="fileInput3" onchange="readWordsFromFile()" style="display: none;">
-              <label for="fileInput2" class="choose-btn">Lista de serviços</label>
+              <label class="choose-btn" onclick="showInfo('service-popup-content-template-1', '3')">Lista de serviços</label>
             </div>
             <div class="password-strength-bar margin-bottom-25" id="password-strength-bar-3"></div>
           </div>
@@ -415,17 +414,122 @@
 
       <!---->
 
-      <div id="donation-popup">
-        <div id="donation-popup-content-template-1" style="display: none;">
-          <div>
-            <h2>Título2 da Dúvida</h2>
-            <p>Texto livremente formatado usando HTML.</p>
-          </div>
-          <div class="settings-window">     
-            <p>QR CODE</p>   
-          </div>
-        </div>  
+      <!-- Conteúdo da janela de serviços -->
+
+      <div id="service-popup">
+        <div class="tabs-container">
+          <div class="tab" onclick="showInfo('service-popup-content-template-1', '3')">Idioma preferido</div>
+          <div class="tab" onclick="showInfo('service-popup-content-template-2', '3')">Padrões Gerais</div>
+          <div class="tab" onclick="showInfo('service-popup-content-template-3', '3')">Padrões Específicos</div>
+        </div>
+        <div id="service-popup-content" class="tab-content"></div>
+        <div class="ok-button">
+          <button id="ok-btn" onclick="closePopup()">Voltar</button>
+        </div>
       </div>
+
+      <div id="service-text">
+        <div id="service-popup-content-template-1" style="display: none;">
+          <div>
+            <h2>Idioma preferido</h2>
+            <p>Escolha o idioma</p>
+          </div>
+          <div class="service-window">
+        
+            <div class="option">
+              <label>
+                <input type="radio" name="language" value="pt-br" checked><span></span> Português (Brasil)
+              </label>
+            </div>
+        
+            <div class="option">
+              <label>
+                <input type="radio" name="language" value="en-us"><span></span> English (United States)
+              </label>
+            </div>
+        
+          </div>
+        </div>
+
+        <div id="service-popup-content-template-2" style="display: none;">
+          <div>
+            <h2>Padrões Gerais</h2>
+            <p>Especifique padrões para a aplicação como um todo</p>
+          </div>
+
+          <div>
+            <h3>Complexidade de Caracteres</h3>
+            <p>Quantos mais caracteres sua senha tiver, mais segura será. Escolha a que satisfaz suas necessidades de segurança:</p>
+          </div>
+          <div class="service-window">
+            <div class="option">
+              <label>
+                <input type="radio" name="caractere" value="base10"><span></span> Caracteres do sistema decimal
+              </label>
+              <p>10 caracteres => <br> 0 1 2 3 4 5 6 7 8 9</p>
+            </div>
+
+            <div class="option">
+              <label>
+                <input type="radio" name="caractere" value="base16"><span></span> Caracteres do sistema hexadecimal
+              </label>
+              <p>16 caracteres => <br> 0 1 2 3 4 5 6 7 8 9 A B C D E F</p>
+            </div>
+
+            <div class="option">
+              <label>
+                <input type="radio" name="caractere" value="base62"><span></span> Caracteres decimais e letras maiusculas e minusculas
+              </label>
+              <p>62 caracteres => <br> 0 1 2 3 4 5 6 7 8 9 A B C D E F G H I J K L M N O P Q R S T U V W X Y Z a b c d e f g h i j k l m n o p q r s t u v w x y z</p>
+            </div>
+
+            <div class="option">
+              <label>
+                <input type="radio" name="caractere" value="base85P" checked><span></span> Caracteres do idioma do computador (Padrão)
+              </label>
+              <p>85 caracteres => <br> 0 1 2 3 4 5 6 7 8 9 A B C D E F G H I J K L M N O P Q R S T U V W X Y Z a b c d e f g h i j k l m n o p q r s t u v w x y z ! # $ % & ( ) * + - ; < = > ? @ ^ _ ` { | } ~</p>
+            </div>
+        
+            <div class="option">
+              <label>
+                <input type="radio" name="caractere" value="base85F"><span></span> Caracteres Fixos (0-9/A-z/a-z/!-~)
+              </label>
+              <p>85 caracteres => <br> 0 1 2 3 4 5 6 7 8 9 A B C D E F G H I J K L M N O P Q R S T U V W X Y Z a b c d e f g h i j k l m n o p q r s t u v w x y z ! # $ % & ( ) * + - ; < = > ? @ ^ _ ` { | } ~</p>
+            </div>
+
+            <div class="option">
+              <label>
+                <input type="radio" name="caractere" value="baseASCII"><span></span> Caracteres ASCII
+              </label>
+              <p>128 caracteres => 128</p>
+            </div>
+        
+            <div class="option">
+              <label>
+                <input type="radio" name="caractere" value="baseUTF8"><span></span> Caracteres Unicode (UTF-8)
+              </label>
+              <p>65 536 caracteres => WOW!</p>
+            </div>
+          </div>
+          
+          <div>
+            <h3>Tamanho da Senha</h3>
+            <p>Quão maior for a senha gerada, mais segura será. Escolha a que satisfaz suas necessidades de segurança:</p>
+          </div>
+          <div class="service-window">
+            <div>
+              <div class="form-container-popup">
+                <div class="form-header">Informe a quantia de caracteres que deseja:</div>
+                <form id="formNumber" autocomplete="off">
+                  <input type="text" class="password-input-popup" placeholder="Digite a senha">
+                </form>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      
     </section>
 
   </div>

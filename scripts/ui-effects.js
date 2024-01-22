@@ -32,6 +32,7 @@ function closePopup() {
     document.getElementById('mainPage').style.display = 'block';
     document.getElementById('popup').style.display = 'none';
     document.getElementById('settings-popup').style.display = 'none';
+    document.getElementById('service-popup').style.display = 'none';
     document.body.classList.remove('modal-open');
 
     // Adiciona uma entrada ao histórico de navegação com hash
@@ -117,9 +118,12 @@ function showInfo(contentTemplateId, window) {
         document.getElementById('settings-popup').style.display = 'block';
         document.body.classList.add('modal-open');
 
-    } else { //Menu Donate
-        document.getElementById('donation-popup-content').innerHTML = content;
-        document.getElementById('donation-popup').style.display = 'block';
+    } if (window === '3'){ //Menu Service
+        document.getElementById('service-popup-content').innerHTML = content;
+        document.getElementById('service-popup').style.display = 'block';
+        document.body.classList.add('modal-open');
+
+    } else {
         document.body.classList.add('modal-open');
     }
     
@@ -273,6 +277,10 @@ function check(name, value) {
     } if (window === '2'){ //Menu Config
         document.getElementById('settings-popup-content').innerHTML = content;
         document.getElementById('settings-popup').style.display = 'block';
+        document.body.classList.add('modal-open');
+    } if (window === '3'){ //Menu Service
+        document.getElementById('service-popup-content').innerHTML = content;
+        document.getElementById('service-popup').style.display = 'block';
         document.body.classList.add('modal-open');
     } else { //Menu Donate
         document.getElementById('donation-popup-content').innerHTML = content;
