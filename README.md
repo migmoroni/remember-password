@@ -12,7 +12,7 @@ No entanto, basta um pequeno erro para que todas as senhas possam ser acessadas 
 
 ### A Solução
 
-Em vez de criar quadros identificando as senhas, com os serviços respectivos, Remember Password nunca armazena as senhas, gerando estas através de códigos e palavras simples que você possa sempre lembrar.
+Em vez de criar quadros identificando as senhas, com os serviços respectivos, Remember Password nunca armazena as senhas, gerando estas através de códigos e palavras simples que você possa sempre relembrar.
 
 Dessa forma, seu diferencial, é ser um verdadeiro "Cofre de senhas mentais", o qual permite gerar e gerenciar todas as suas senhas, através de poucas e constantes palavras chaves pre introduzidas. 
 

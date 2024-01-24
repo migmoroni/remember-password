@@ -6,9 +6,9 @@
   <meta name="version" content="0.704002"><!--.0.00.000-->
   <meta name="title" content="Remember Password">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="author" content="Miguel Eduardo Senna Moroni" />
+  <meta name="author" content="migmoroni" />
   <meta name="description" content="Suas senhas sempre com você!" />
-  <meta name="keywords" content="password, security, remember password" />
+  <meta name="keywords" content="password, senha, security, segurança, remember password, lembrar da senha" />
   <meta name="robots" content="index, follow">
   <!--<meta name="referrer" content="no-referrer">
 
@@ -50,10 +50,10 @@
 
       <section class="form-container">
         <fieldset class="form-container">
-          <legend class="form-container" for="characterSet">Informe sua senha única</legend>
+          <legend class="form-container" for="characterSet"><br>PASSO 1<br><br>Informe sua senha única<br><br></legend>
           
           <div class="form-container margin-top-25"> 
-            <label class="form-header">1. Senha de Códigos</label>
+            <label class="form-header">Senha de Códigos</label>
             <form id="form1" autocomplete="off">
               <input type="text" id="hashOutput" class="password-input" oninput="validateOption(this)" placeholder="Digite o código">
             </form>
@@ -66,11 +66,11 @@
             </div>
             <div class="password-strength-bar" id="password-strength-bar-1"></div>
           </div>
-
+        
           <p class="margin-top-25"></p>
 
           <div class="form-container">
-            <label class="form-header  margin-top-25">2. Senha de Palavras</label>
+            <label class="form-header  margin-top-25">Senha de Palavras</label>
             <form id="form2" autocomplete="off">
               <input type="text" id="wordsOutput" class="password-input" oninput="validateOption(this)" placeholder="Digite as palavras">
             </form>
@@ -86,7 +86,7 @@
         </fieldset>
 
         <fieldset class="form-container margin-top-25">
-          <legend class="form-container" for="characterSet">Informe o Serviço</legend>
+          <legend class="form-container" for="characterSet"><br>PASSO 2<br><br>Informe o Serviço<br><br></legend>
 
           <div class="form-container">
             <label class="form-header margin-top-25">3. Serviço</label>
@@ -104,15 +104,14 @@
         </fieldset>
 
         <fieldset class="config-password margin-top-25">
-          <legend class="form-container" for="characterSet">Caracteristicas da senha</legend>
+          <legend class="form-container" for="characterSet"><br>PASSO 3<br><br>Caracteristicas da senha<br><br></legend>
           
           <div class="form-container dropdown">
-            <label class="form-header margin-top-25">4. Caracteres</label>
+            <label class="form-header margin-top-25">Caracteres</label>
             <div>
               <select id="form4" class="password-input-left text-select" oninput="validateOption(this)" onchange="toggleDropdown()">
                 <option class="option" value="start" disabled selected>Escolha a base</option>
                 <option class="option text-option" value="charFixed">Letras, números e simbolos</option>
-                <!--<option class="option text-option" value="all">Todos do Teclado</option>-->
                 <option class="option text-option" value="numbers">Apenas números</option>
                 <option class="option text-option" value="unicode">Unicode</option>
               </select>
@@ -121,7 +120,7 @@
           </div>
         
           <div class="form-container">
-            <label class="form-header margin-top-25">5. Tamanho</label>
+            <label class="form-header margin-top-25">Tamanho</label>
             <form id="form5" autocomplete="off">
               <input type="text" class="password-input" oninput="validateNumber(this)" placeholder="Digite o valor">
             </form>
@@ -528,7 +527,6 @@
           </div>
         </div>
       </div>
-      
       
     </section>
 
